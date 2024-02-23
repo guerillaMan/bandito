@@ -1,0 +1,7 @@
+url,location_name,pin_count,tags
+https://www.instagram.com/explore/locations/167787317273857/,Localizaaaaaaaaa Aiiiii,tbd,
+https://www.instagram.com/explore/locations/6714070/,Arraial do Cabo,tbd,
+https://www.instagram.com/explore/locations/262565500772846/,Lagoa Azul - Arraial do cabo,tbd,
+https://www.instagram.com/explore/locations/108315456543423/,Onde Tem Amor,tbd,
+https://www.instagram.com/explore/locations/1031364936/,Santa Lúcia,tbd,
+https://www.instagram.com/explore/locations/69094957/,Cabo Frio,tbd,
