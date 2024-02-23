@@ -1,0 +1,551 @@
+Delivered-To: aunermoncada@gmail.com
+Received: by 2002:a2e:b052:0:b0:2d0:ad09:251 with SMTP id d18csp80950ljl;
+        Fri, 16 Feb 2024 18:32:01 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEn1bChlIgV/GwfsZmM5R9IZ8rEvrZfILoT0HOBZ1IGSwJlXbfK4AIFqX3XHvg2Iz33brzX
+X-Received: by 2002:a05:6358:8a6:b0:176:c1e1:755a with SMTP id m38-20020a05635808a600b00176c1e1755amr3818866rwj.0.1708137121325;
+        Fri, 16 Feb 2024 18:32:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1708137121; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Xs1KslDduwIQAqrow9cooIy5xZrjaUY1iqR3Nw0k5lK2b26xvEEcTjQ8T+XWWJ51CW
+         FyiqH3CoOSub7nJPYVimq0Wpnv5T2y+tB9rnbqdK8HWEjaJYfB/Mk3XSyxtsCP3cTyqK
+         NvoYtIdkQtYfoAMxVQ5e0KrtvXqha1O8fUPn8Pbbu37+fn48kl82k308mC3FCYna9L55
+         LZ2kTL2ukTxwrzRs9QjrutCrffDa2AnNe73zot9UpptKp2qWXMZIYM1e39qIbupt4F2Y
+         3r1wAUClKL0xxoTVlGmV/VaI54Qoh4lVcA6dWl+y9IRHS3YuSnYHbD1nCJFRHeNu8kaH
+         uclw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=from:subject:reply-to:mime-version:date:message-id:to
+         :content-transfer-encoding:dkim-signature;
+        bh=cEjTfnZSUuRuDTE6+vYew+OjP8qO0fHXtr73ea8qfEI=;
+        fh=JR2WT6PPKret7PccIAcUToFk95yI0nHHYflZBygaJYs=;
+        b=ZtaBvUOS9ThCpcprCL1FUomeMd7o7sEsd9QV/GFsuJ9V1U07V3TEp6xEirnPHKGQiF
+         2c5fWUv3UfB5aiV1Sy/3T6MRcmSZiIZBeTSvdFO5TlrVMZPLJAn5RCVwnTkqC8Zw9clu
+         0Ei+uoaQf08adrZ7UuN0YouwlTfv+Bg2azuXJzMuSKzSnIIlqKCjbvF5/O5M3D5A1CRV
+         I+SxhbtFxf8sC4iS8WzoL0ySoYA+NXpgSqLHe3+OEbTGP18WdLj9+xpMW48iZu+oznWD
+         Boy/H4181VYa4n3PC/eV/YsgzORChsJf2q3K9oL5INmePIKfShZd0vyikjaE/3d2uQBw
+         ezuw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@welcome.americanexpress.com header.s=2000006650123 header.b=GXRkBR0l;
+       spf=pass (google.com: domain of heicn030202402161931596813053840.amex.eng-alerts@welcome.americanexpress.com designates 148.173.96.85 as permitted sender) smtp.mailfrom=HEICN030202402161931596813053840.AMEX.ENG-ALERTS@welcome.americanexpress.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=americanexpress.com
+Return-Path: <HEICN030202402161931596813053840.AMEX.ENG-ALERTS@welcome.americanexpress.com>
+Received: from extmta2-new.americanexpress.com (extmta2-new.americanexpress.com. [148.173.96.85])
+        by mx.google.com with ESMTPS id s4-20020ac87584000000b0042bec0c07a4si1118969qtq.413.2024.02.16.18.32.01
+        for <aunermoncada@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 16 Feb 2024 18:32:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of heicn030202402161931596813053840.amex.eng-alerts@welcome.americanexpress.com designates 148.173.96.85 as permitted sender) client-ip=148.173.96.85;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@welcome.americanexpress.com header.s=2000006650123 header.b=GXRkBR0l;
+       spf=pass (google.com: domain of heicn030202402161931596813053840.amex.eng-alerts@welcome.americanexpress.com designates 148.173.96.85 as permitted sender) smtp.mailfrom=HEICN030202402161931596813053840.AMEX.ENG-ALERTS@welcome.americanexpress.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=americanexpress.com
+DKIM-Signature: v=1; a=rsa-sha256; d=welcome.americanexpress.com; s=2000006650123; c=relaxed/relaxed;
+	q=dns/txt; i=@welcome.americanexpress.com; t=1708137120;
+	h=From:Reply-To:Subject:Date:Message-ID:To:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=cEjTfnZSUuRuDTE6+vYew+OjP8qO0fHXtr73ea8qfEI=;
+	b=GXRkBR0lAwY0j0ANIr5rcWHcBkle51tYL1OyAOGQ+nE6OcgihWEi5i3GcQDmA53w
+	zOEFvOC2KqNT0lN5M2KQFFo7FtuxbmO3WI0UFEpxPAKqo4H5nDZtQ4m7jKPfdqua
+	SpaXzpYZ8IBXaNH7wUlf3IAcQJcKZBPK3mwanahcqAM5MO79xgXKzgbxtQGrqBcW
+	7tvXpsTUHlU0sjZ1f0hxAEATQFUZQD5amhq5/qcjVRvBDGQ79akIVgBtY7wWmw2d
+	WgY8ko4tiRTI5gSXb/8H4qPdPP9kIz4AYz+LBb0+0V2Lf7jLKZ2nzev9jIAmW2gj
+	kQ8DOJRVTfkKec5u7Vyg1g==;
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+To: aunermoncada@gmail.com
+Message-ID: <E2.E3.16853.0AA10D56@hpnplmomiw01>
+Date: Fri, 16 Feb 2024 19:32:00 -0700
+MIME-Version: 1.0
+Reply-To:  <AmericanExpress@welcome.americanexpress.com>
+Subject: =?UTF-8?B?VGhhbmtzIGZvciBWZXJpZnlpbmc=?=
+From: American Express <AmericanExpress@welcome.americanexpress.com>
+
+<=3Fxml version=3D"1.0" encoding=3D"UTF-8"=3F><!DOCTYPE html PUBLIC "-//W3C=
+//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-t=
+ransitional.dtd">=0A=0A<html xmlns=3D"http://www.w3.org/1999/xhtml">=0A<hea=
+d>=0A<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-=
+8" />=0A=0A<title>ALEENICNFRD0047</title>=0A</head>=0A<body>=0A<table align=
+=3D"center" width=3D"550" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">=
+=0A<tr>=0A<td bgcolor=3D"#ECECEC" width=3D"15" rowspan=3D"1" colspan=3D"1">=
+</td><td width=3D"522" colspan=3D"3" bgcolor=3D"#FFFFFF" rowspan=3D"1">=0A<=
+table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=
+=0A<td width=3D"100%" style=3D"background-color:#EDEBE9;" rowspan=3D"1" col=
+span=3D"1">=0A<p align=3D"center" style=3D"color: #00175A;font-size: 10pt;f=
+ont-family: Arial;margin-top: 0px;margin-bottom: 0px;">Continue to use your=
+ American Express Card with confidence</p>=0A</td>=0A</tr>=0A</tbody>=0A</t=
+able>=0A<p style=3D"color: #00175A;font-size: 10pt;font-family: Arial;margi=
+n-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<table cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=0A<td width=3D"4.84%" rowspan=
+=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-famil=
+y: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D=
+"44.82%" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size:=
+ 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=0A<img style=
+=3D"border-style: none; display: block;" src=3D"http://www208.americanexpre=
+ss.com/axp/cardart/2008/img_lock.gif" height=3D"60" width=3D"95" alt=3D"" a=
+lign=3D"" /></p>=0A</td><td width=3D"45.16%" rowspan=3D"1" colspan=3D"1">=0A=
+<p align=3D"right" style=3D"color: black;font-size: 10pt;font-family: Arial=
+;margin-top: 0px;margin-bottom: 0px;">=0A<img style=3D"border-style: none; =
+display: block;" src=3D"http://www208.americanexpress.com/axp/icons/America=
+nExpressWhiteLogo.png" height=3D"66" width=3D"243.24" alt=3D"" align=3D"" /=
+></p>=0A</td><td width=3D"5.18000000000001%" rowspan=3D"1" colspan=3D"1">=0A=
+<p style=3D"color: black;font-size: 10pt;font-family: Arial;margin-top: 0px=
+;margin-bottom: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table>=0A<p=
+ style=3D"color: black;font-size: 10pt;font-family: Arial;margin-top: 0px;m=
+argin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: black;font-size: 10pt;f=
+ont-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<table =
+cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=0A<td =
+width=3D"5.23%" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;fon=
+t-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0=
+</p>=0A</td><td width=3D"49.42%" rowspan=3D"1" colspan=3D"1">=0A<p align=3D=
+"left" style=3D"color: #00175A;font-size: 10pt;font-family: Arial;margin-to=
+p: 0px;margin-bottom: 0px;">ACCOUNT ENDING: <b>81002</b>=0A</p>=0A</td><td =
+width=3D"39.73%" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: #00175A;=
+font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=
+=A0</p>=0A</td><td width=3D"5.62%" rowspan=3D"1" colspan=3D"1">=0A<p style=
+=3D"color: black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-=
+bottom: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table>=0A<p style=3D=
+"color: black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bot=
+tom: 0px;">=C2=A0</p>=0A<table cellspacing=3D"0" cellpadding=3D"0" width=3D=
+"100%">=0A<tbody>=0A<tr>=0A<td width=3D"100%" style=3D"background-color:#00=
+175A;" rowspan=3D"1" colspan=3D"1">=0A<table cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=0A<td width=3D"100%" colspan=3D"2" =
+style=3D"background-color:#00175A;border-bottom-color:#00175A;border-bottom=
+-style:solid;border-bottom-width:1pt;border-right-color:#00175A;border-righ=
+t-style:solid;border-right-width:1pt;border-top-color:#00175A;border-top-st=
+yle:solid;border-top-width:1pt;" rowspan=3D"1">=0A<p style=3D"color: black;=
+font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=
+=A0</p>=0A</td>=0A</tr>=0A<tr>=0A<td width=3D"5.23%" style=3D"background-co=
+lor:#00175A;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-=
+size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</=
+p>=0A</td><td width=3D"94.77%" style=3D"background-color:#00175A;" rowspan=
+=3D"1" colspan=3D"1">=0A<p align=3D"left" style=3D"color: white;font-size: =
+21.3px;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">Dear AUNER R=
+ MONCADA,</p>=0A</td>=0A</tr>=0A<tr>=0A<td width=3D"5.23%" style=3D"backgro=
+und-color:#00175A;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black=
+;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=
+=A0</p>=0A</td><td width=3D"94.77%" style=3D"background-color:#00175A;" row=
+span=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 5pt;font-fa=
+mily: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p align=3D"l=
+eft" style=3D"color: white;font-size: 21.3px;font-family: Arial;margin-top:=
+ 0px;margin-bottom: 0px;">=0A<b>Go ahead and reattempt this purchase, if yo=
+u haven't already</b>=0A</p>=0A</td>=0A</tr>=0A<tr>=0A<td width=3D"100%" co=
+lspan=3D"2" style=3D"background-color:#00175A;border-bottom-color:#00175A;b=
+order-bottom-style:solid;border-bottom-width:1pt;border-right-color:#00175A=
+;border-right-style:solid;border-right-width:1pt;border-top-color:#00175A;b=
+order-top-style:solid;border-top-width:1pt;" rowspan=3D"1">=0A<p style=3D"c=
+olor: black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-botto=
+m: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table>=0A</td>=0A</tr>=0A=
+</tbody>=0A</table>=0A</td><td bgcolor=3D"#ECECEC" width=3D"15" rowspan=3D"=
+1" colspan=3D"1"></td>=0A</tr>=0A<tr>=0A<td bgcolor=3D"#ECECEC" width=3D"15=
+" rowspan=3D"1" colspan=3D"1"></td><td bgcolor=3D"#FFFFFF" width=3D"15" row=
+span=3D"1" colspan=3D"1"></td><td width=3D"492" bgcolor=3D"#FFFFFF" rowspan=
+=3D"1" colspan=3D"1"></td><td bgcolor=3D"#FFFFFF" width=3D"15" rowspan=3D"1=
+" colspan=3D"1"></td><td bgcolor=3D"#ECECEC" width=3D"15" rowspan=3D"1" col=
+span=3D"1"></td>=0A</tr>=0A<tr>=0A<td bgcolor=3D"#ECECEC" width=3D"15" rows=
+pan=3D"1" colspan=3D"1"></td><td width=3D"522" colspan=3D"3" bgcolor=3D"#FF=
+FFFF" rowspan=3D"1">=0A<table cellspacing=3D"0" cellpadding=3D"0" width=3D"=
+100%">=0A<tbody>=0A<tr>=0A<td width=3D"5.23%" rowspan=3D"1" colspan=3D"1">=
+=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;margin-top: =
+0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"89.15%" rowspan=3D"=
+1" colspan=3D"1">=0A<p style=3D"color: #00175A;font-size: 10pt;font-family:=
+ Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color:=
+ black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0p=
+x;">=C2=A0</p>=0A<p align=3D"center" style=3D"color: #00175A;font-size: 13p=
+t;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">Thank you for con=
+firming the transaction(s) below. If you believe this was in error, please =
+call <b>1-888-800-5234</b> or the number on the back of your Card.</p>=0A<p=
+ style=3D"color: black;font-size: 10pt;font-family: Arial;margin-top: 0px;m=
+argin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: black;font-size: 10pt;f=
+ont-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><t=
+d width=3D"5.62%" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;f=
+ont-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=
+=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table>=0A<p style=3D"color: black;fo=
+nt-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0=
+</p>=0A<table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbody>=
+=0A<tr>=0A<td width=3D"7.37%" style=3D"background-color:#edebe9;" rowspan=3D=
+"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-family: =
+Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"8=
+5.26%" style=3D"background-color:#edebe9;" rowspan=3D"1" colspan=3D"1">=0A<=
+p style=3D"color: #00175A;font-size: 13pt;font-family: Arial;margin-top: 0p=
+x;margin-bottom: 0px;">=C2=A0</p>=0A<p align=3D"center" style=3D"color: #00=
+175A;font-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;=
+">=0A<b> </b>=0A</p>=0A<p style=3D"color: #00175A;font-size: 13pt;font-fami=
+ly: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=
+=3D"7.37%" style=3D"background-color:#edebe9;" rowspan=3D"1" colspan=3D"1">=
+=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;margin-top: =
+0px;margin-bottom: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table>=0A=
+<table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=
+=0A<td width=3D"5.81%" style=3D"background-color:#edebe9;border-bottom-colo=
+r:#edebe9;border-bottom-style:solid;border-bottom-width:3pt;border-top-colo=
+r:#edebe9;border-top-style:solid;border-top-width:3pt;" rowspan=3D"1" colsp=
+an=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;mar=
+gin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"7.56%" sty=
+le=3D"background-color:#edebe9;border-bottom-color:silver;border-bottom-sty=
+le:solid;border-bottom-width:3pt;border-top-color:#edebe9;border-top-style:=
+solid;border-top-width:3pt;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"col=
+or: black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom:=
+ 0px;">=C2=A0</p>=0A</td><td width=3D"44.77%" style=3D"background-color:#ed=
+ebe9;border-bottom-color:silver;border-bottom-style:solid;border-bottom-wid=
+th:3pt;border-top-color:#edebe9;border-top-style:solid;border-top-width:3pt=
+;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: #00175A;font-size: 13p=
+t;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p s=
+tyle=3D"color: #00175A;font-size: 13pt;font-family: Arial;margin-top: 0px;m=
+argin-bottom: 0px;">=0A<b>Merchant:</b>=0A</p>=0A<p style=3D"color: #00175A=
+;font-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=
+=A0</p>=0A</td><td width=3D"27.21%" style=3D"background-color:#edebe9;borde=
+r-bottom-color:silver;border-bottom-style:solid;border-bottom-width:3pt;bor=
+der-top-color:#edebe9;border-top-style:solid;border-top-width:3pt;" rowspan=
+=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 13pt;font-famil=
+y: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"colo=
+r: #00175A;font-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom=
+: 0px;">=0A<b>LINE</b>=0A</p>=0A<p style=3D"color: black;font-size: 13pt;fo=
+nt-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td=
+ width=3D"7.79%" style=3D"background-color:#edebe9;border-bottom-color:silv=
+er;border-bottom-style:solid;border-bottom-width:3pt;border-top-color:#edeb=
+e9;border-top-style:solid;border-top-width:3pt;" rowspan=3D"1" colspan=3D"1=
+">=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;margin-top=
+: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"6.86%" style=3D"b=
+ackground-color:#edebe9;border-bottom-color:#edebe9;border-bottom-style:sol=
+id;border-bottom-width:3pt;border-top-color:#edebe9;border-top-style:solid;=
+border-top-width:3pt;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: bl=
+ack;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;"=
+>=C2=A0</p>=0A</td>=0A</tr>=0A<tr>=0A<td width=3D"5.81%" style=3D"backgroun=
+d-color:#edebe9;border-bottom-color:#edebe9;border-bottom-style:solid;borde=
+r-bottom-width:3pt;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: blac=
+k;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=
+=C2=A0</p>=0A</td><td width=3D"7.56%" style=3D"background-color:#edebe9;bor=
+der-bottom-color:silver;border-bottom-style:solid;border-bottom-width:3pt;"=
+ rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;fo=
+nt-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td=
+ width=3D"44.77%" style=3D"background-color:#edebe9;border-bottom-color:sil=
+ver;border-bottom-style:solid;border-bottom-width:3pt;" rowspan=3D"1" colsp=
+an=3D"1">=0A<p style=3D"color: #006FCF;font-size: 13pt;font-family: Arial;m=
+argin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: #006FCF=
+;font-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=0A=
+<b>Attempted Date:</b>=0A</p>=0A<p style=3D"color: #006FCF;font-size: 13pt;=
+font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><=
+td width=3D"27.21%" style=3D"background-color:#edebe9;border-bottom-color:s=
+ilver;border-bottom-style:solid;border-bottom-width:3pt;" rowspan=3D"1" col=
+span=3D"1">=0A<p style=3D"color: black;font-size: 13pt;font-family: Arial;m=
+argin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: black;f=
+ont-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=0A<=
+b>02/16/2024</b>=0A</p>=0A<p style=3D"color: black;font-size: 13pt;font-fam=
+ily: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=
+=3D"7.79%" style=3D"background-color:#edebe9;border-bottom-color:silver;bor=
+der-bottom-style:solid;border-bottom-width:3pt;" rowspan=3D"1" colspan=3D"1=
+">=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;margin-top=
+: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"6.86%" style=3D"b=
+ackground-color:#edebe9;border-bottom-color:#edebe9;border-bottom-style:sol=
+id;border-bottom-width:3pt;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"col=
+or: black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom:=
+ 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A<tr>=0A<td width=3D"5.81%" style=3D"bac=
+kground-color:#edebe9;border-bottom-color:#edebe9;border-bottom-style:solid=
+;border-bottom-width:3pt;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color=
+: black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0=
+px;">=C2=A0</p>=0A</td><td width=3D"7.56%" style=3D"background-color:#edebe=
+9;border-bottom-color:silver;border-bottom-style:solid;border-bottom-width:=
+3pt;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 10=
+pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</t=
+d><td width=3D"44.77%" style=3D"background-color:#edebe9;border-bottom-colo=
+r:silver;border-bottom-style:solid;border-bottom-width:3pt;" rowspan=3D"1" =
+colspan=3D"1">=0A<p style=3D"color: #006FCF;font-size: 13pt;font-family: Ar=
+ial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: #0=
+06FCF;font-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px=
+;">=0A<b>Amount:</b>=0A</p>=0A<p style=3D"color: #006FCF;font-size: 13pt;fo=
+nt-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td=
+ width=3D"27.21%" style=3D"background-color:#edebe9;border-bottom-color:sil=
+ver;border-bottom-style:solid;border-bottom-width:3pt;" rowspan=3D"1" colsp=
+an=3D"1">=0A<p style=3D"color: black;font-size: 13pt;font-family: Arial;mar=
+gin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: black;fon=
+t-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=0A<b>=
+21.02 USD*</b>=0A</p>=0A<p style=3D"color: black;font-size: 13pt;font-famil=
+y: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D=
+"7.79%" style=3D"background-color:#edebe9;border-bottom-color:silver;border=
+-bottom-style:solid;border-bottom-width:3pt;" rowspan=3D"1" colspan=3D"1">=
+=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;margin-top: =
+0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"6.86%" style=3D"bac=
+kground-color:#edebe9;border-bottom-color:#edebe9;border-bottom-style:solid=
+;border-bottom-width:3pt;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color=
+: black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0=
+px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table>=0A<table cellspacing=
+=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=0A<td width=3D"6.=
+86%" style=3D"background-color:#edebe9;border-bottom-color:#edebe9;border-b=
+ottom-style:solid;border-bottom-width:3pt;" rowspan=3D"1" colspan=3D"1">=0A=
+<p style=3D"color: black;font-size: 10pt;font-family: Arial;margin-top: 0px=
+;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"6.51%" style=3D"backgr=
+ound-color:#edebe9;border-bottom-color:silver;border-bottom-style:solid;bor=
+der-bottom-width:3pt;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: bl=
+ack;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;"=
+>=C2=A0</p>=0A</td><td width=3D"44.77%" style=3D"background-color:#edebe9;b=
+order-bottom-color:silver;border-bottom-style:solid;border-bottom-width:3pt=
+;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: #006FCF;font-size: 13p=
+t;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p s=
+tyle=3D"color: #006FCF;font-size: 13pt;font-family: Arial;margin-top: 0px;m=
+argin-bottom: 0px;">=0A<b>Original Status:</b>=0A</p>=0A<p style=3D"color: =
+#006FCF;font-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0=
+px;">=C2=A0</p>=0A</td><td width=3D"27.21%" style=3D"background-color:#edeb=
+e9;border-bottom-color:silver;border-bottom-style:solid;border-bottom-width=
+:3pt;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 1=
+3pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p=
+ style=3D"color: #FF0000;font-size: 13pt;font-family: Arial;margin-top: 0px=
+;margin-bottom: 0px;">=0A<b>Declined**</b>=0A</p>=0A<p style=3D"color: blac=
+k;font-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=
+=C2=A0</p>=0A</td><td width=3D"7.79%" style=3D"background-color:#edebe9;bor=
+der-bottom-color:silver;border-bottom-style:solid;border-bottom-width:3pt;"=
+ rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;fo=
+nt-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td=
+ width=3D"6.86%" style=3D"background-color:#edebe9;border-bottom-color:#ede=
+be9;border-bottom-style:solid;border-bottom-width:3pt;" rowspan=3D"1" colsp=
+an=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;mar=
+gin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A<=
+/table>=0A<table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbo=
+dy>=0A<tr>=0A<td width=3D"4.84%" style=3D"background-color:#edebe9;" rowspa=
+n=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-fami=
+ly: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=
+=3D"88.18%" style=3D"background-color:#edebe9;" rowspan=3D"1" colspan=3D"1"=
+>=0A<p style=3D"color: #00175A;font-size: 13pt;font-family: Arial;margin-to=
+p: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: #00175A;font-si=
+ze: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=
+=0A</td><td width=3D"6.98%" style=3D"background-color:#edebe9;" rowspan=3D"=
+1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-family: A=
+rial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tb=
+ody>=0A</table>=0A<table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"=
+>=0A<tbody>=0A<tr>=0A<td width=3D"5.81%" style=3D"background-color:#edebe9;=
+" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;f=
+ont-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><t=
+d width=3D"86.63%" style=3D"background-color:#edebe9;" rowspan=3D"1" colspa=
+n=3D"1">=0A<p align=3D"center" style=3D"color: #666666;font-size: 12pt;font=
+-family: Arial;margin-top: 0px;margin-bottom: 0px;">*This may be a preautho=
+rized amount and may not match the final amount that appears on your statem=
+ent.</p>=0A</td><td width=3D"7.56000000000001%" style=3D"background-color:#=
+edebe9;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size:=
+ 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A=
+</td>=0A</tr>=0A</tbody>=0A</table>=0A<table cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=0A<td width=3D"5.81%" style=3D"back=
+ground-color:#edebe9;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: bl=
+ack;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;"=
+>=C2=A0</p>=0A</td><td width=3D"87.21%" style=3D"background-color:#edebe9;"=
+ rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: #666666;font-size: 12pt;=
+font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p sty=
+le=3D"color: #666666;font-size: 12pt;font-family: Arial;margin-top: 0px;mar=
+gin-bottom: 0px;">=C2=A0</p>=0A<p align=3D"center" style=3D"color: #666666;=
+font-size: 12pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">**T=
+his status may have changed if charges were re-submitted by you or the merc=
+hant.</p>=0A</td><td width=3D"6.98000000000001%" style=3D"background-color:=
+#edebe9;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size=
+: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A=
+</td>=0A</tr>=0A</tbody>=0A</table>=0A<table cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=0A<td width=3D"2%" rowspan=3D"1" co=
+lspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;=
+margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"96%" ro=
+wspan=3D"1" colspan=3D"1">=0A<p style=3D"color: #00175A;font-size: 13pt;fon=
+t-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=
+=3D"color: #00175A;font-size: 13pt;font-family: Arial;margin-top: 0px;margi=
+n-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: #00175A;font-size: 13pt;fon=
+t-family: Arial;margin-top: 0px;margin-bottom: 0px;">Thank you for helping =
+us to protect the security of your account,</p>=0A<p style=3D"color: #00175=
+A;font-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=
+=C2=A0</p>=0A<p style=3D"color: #00175A;font-size: 13pt;font-family: Arial;=
+margin-top: 0px;margin-bottom: 0px;">=0A<b>American Express Account Protect=
+ion Services</b>=0A</p>=0A</td><td width=3D"2%" rowspan=3D"1" colspan=3D"1"=
+>=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;margin-top:=
+ 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table>=
+=0A<table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbody>=0A<=
+tr>=0A<td width=3D"22.87%" style=3D"background-color:white;border-left-colo=
+r:white;border-left-style:solid;border-left-width:1pt;" rowspan=3D"1" colsp=
+an=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;mar=
+gin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"74.42%" st=
+yle=3D"padding-before: 5pt;background-color: white;" rowspan=3D"1" colspan=
+=3D"1">=0A<p style=3D"color: #00175A;font-size: 13pt;font-family: Arial;mar=
+gin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: #00175A;f=
+ont-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=
+=A0</p>=0A<p style=3D"color: white;font-size: 12pt;font-family: Arial;margi=
+n-top: 0px;margin-bottom: 0px;">=0A<img style=3D"border-style: none; displa=
+y: block;" src=3D"http://www208.americanexpress.com/axp/icons/DonotLiveLife=
+Without.png" height=3D"31" width=3D"267.891" alt=3D"" align=3D"" /></p>=0A<=
+p style=3D"color: white;font-size: 12pt;font-family: Arial;margin-top: 0px;=
+margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"2.71000000000001%" styl=
+e=3D"padding-before: 5pt;background-color: white;border-right-style: none;b=
+order-right-width: 2pt;border-right-color: silver;" rowspan=3D"1" colspan=3D=
+"1">=0A<p style=3D"color: #1D3360;font-size: 9pt;font-family: Arial;margin-=
+top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: #1D3360;font-=
+size: 9pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p=
+>=0A<p style=3D"color: #1D3360;font-size: 9pt;font-family: Arial;margin-top=
+: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: #1D3360;font-siz=
+e: 9pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A=
+<p style=3D"color: #1D3360;font-size: 9pt;font-family: Arial;margin-top: 0p=
+x;margin-bottom: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table>=0A<=
+table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=
+=0A<td width=3D"5.62%" style=3D"background-color:#edebe9;" rowspan=3D"1" co=
+lspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;=
+margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"87.4%" =
+style=3D"background-color:#edebe9;" rowspan=3D"1" colspan=3D"1">=0A<p style=
+=3D"color: #00175A;font-size: 13pt;font-family: Arial;margin-top: 0px;margi=
+n-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: #00175A;font-size: 13pt;fon=
+t-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p align=
+=3D"center" style=3D"color: #666666;font-size: 12pt;font-family: Arial;marg=
+in-top: 0px;margin-bottom: 0px;">For more information about fraud and ways =
+to help ensure your account protection, please visit the American Express</=
+p>=0A<p align=3D"center" style=3D"color: #666666;font-size: 12pt;font-famil=
+y: Arial;margin-top: 0px;margin-bottom: 0px;">=0A<a href=3D"https://www.ame=
+ricanexpress.com/Tracking=3Fmid=3DHEICN030202402161931596813053840&msrc=3DE=
+NG-ALERTS&url=3Dhttps://www.americanexpress.com/us/security-center/" shape=
+=3D"rect">Fraud Protection Center</a>.</p>=0A<p style=3D"color: #00175A;fon=
+t-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0=
+</p>=0A<p style=3D"color: #00175A;font-size: 13pt;font-family: Arial;margin=
+-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"6.98%" style=
+=3D"background-color:#edebe9;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"c=
+olor: black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-botto=
+m: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table>=0A<table cellspac=
+ing=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=0A<td width=3D=
+"100%" style=3D"background-color:#edebe9;" rowspan=3D"1" colspan=3D"1">=0A<=
+p style=3D"color: #00175A;font-size: 13pt;font-family: Arial;margin-top: 0p=
+x;margin-bottom: 0px;">=C2=A0</p>=0A<p align=3D"center" style=3D"color: #00=
+175A;font-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;=
+">=0A<a href=3D"https://www.americanexpress.com/Tracking=3Fmid=3DHEICN03020=
+2402161931596813053840&msrc=3DENG-ALERTS&url=3Dhttps%3A%2F%2Fonline.america=
+nexpress.com%2Fmyca%2Faccountprofile%2Fus%2Fview.do%3Frequest_type%3Dauthre=
+g_fav" shape=3D"rect"><img style=3D"border-style: none" src=3D"http://www20=
+8.americanexpress.com/axp/banners/CrossSellBannerResolveFraud%20Concerns.pn=
+g" height=3D"" width=3D"" alt=3D"Cross Sell Banner" align=3D"" /></a>=0A</p=
+>=0A<p style=3D"color: #00175A;font-size: 13pt;font-family: Arial;margin-to=
+p: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table=
+>=0A<table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbody>=0A=
+<tr>=0A<td width=3D"9.5%" style=3D"background-color:#EDEBE9;" rowspan=3D"1"=
+ colspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-family: Ari=
+al;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"35.4=
+7%" style=3D"background-color:#EDEBE9;" rowspan=3D"1" colspan=3D"1">=0A<p s=
+tyle=3D"color: #00175A;font-size: 13pt;font-family: Arial;margin-top: 0px;m=
+argin-bottom: 0px;">=C2=A0</p>=0A<p align=3D"right" style=3D"color: #00175A=
+;font-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=0A=
+<a href=3D"https://www.americanexpress.com/Tracking=3Fmid=3DHEICN0302024021=
+61931596813053840&msrc=3DENG-ALERTS&url=3Dhttps%3A%2F%2Fitunes.apple.com%2F=
+us%2Fapp%2Famerican-express%2Fid362348516" shape=3D"rect"><img style=3D"bor=
+der-style: none" src=3D"http://www208.americanexpress.com/axp/buttons/Downl=
+oadAppStore.png" height=3D"48" width=3D"146" alt=3D"App Store" align=3D"" /=
+></a>=0A</p>=0A<p style=3D"color: #00175A;font-size: 13pt;font-family: Aria=
+l;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: #001=
+75A;font-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;"=
+>=C2=A0</p>=0A</td><td width=3D"10.85%" style=3D"background-color:#EDEBE9;"=
+ rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;fo=
+nt-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td=
+ width=3D"34.68%" style=3D"background-color:#EDEBE9;" rowspan=3D"1" colspan=
+=3D"1">=0A<p style=3D"color: #00175A;font-size: 13pt;font-family: Arial;mar=
+gin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: #00175A;f=
+ont-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=0A<=
+a href=3D"https://www.americanexpress.com/Tracking=3Fmid=3DHEICN03020240216=
+1931596813053840&msrc=3DENG-ALERTS&url=3Dhttps%3A%2F%2Fplay.google.com%2Fst=
+ore%2Fapps%2Fdetails%3Fid%3Dcom.americanexpress.android.acctsvcs.us" shape=
+=3D"rect"><img style=3D"border-style: none" src=3D"http://www208.americanex=
+press.com/axp/buttons/DownloadGooglePlay.png" height=3D"48" width=3D"159" a=
+lt=3D"Google Play" align=3D"" /></a>=0A</p>=0A<p style=3D"color: #00175A;fo=
+nt-size: 13pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0=
+</p>=0A<p style=3D"color: #00175A;font-size: 13pt;font-family: Arial;margin=
+-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"9.5%" style=3D=
+"background-color:#EDEBE9;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"colo=
+r: black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: =
+0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table>=0A<table cellspacing=
+=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=0A<td width=3D"10=
+0%" style=3D"background-color:#00175A;" rowspan=3D"1" colspan=3D"1">=0A<tab=
+le cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=0A<=
+td width=3D"100%" colspan=3D"5" style=3D"background-color:#00175A;" rowspan=
+=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;margi=
+n-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A<tr>=0A<td wid=
+th=3D"5%" style=3D"background-color:#00175A;border-left-color:#00175A;borde=
+r-left-style:solid;border-left-width:1pt;border-top-color:#00175A;border-to=
+p-style:solid;border-top-width:1pt;" rowspan=3D"1" colspan=3D"1">=0A<p styl=
+e=3D"color: black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin=
+-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"90%" colspan=3D"3" style=3D"b=
+ackground-color:#00175A;border-right-color:#00175A;border-right-style:solid=
+;border-right-width:1pt;border-top-color:#00175A;border-top-style:solid;bor=
+der-top-width:1pt;" rowspan=3D"1">=0A<p align=3D"center" style=3D"color: wh=
+ite;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;"=
+>=0A<a style=3D"color:#FFFFFF" title=3D"" href=3D"https://www.americanexpre=
+ss.com/Tracking=3Fmid=3DHEICN030202402161931596813053840&msrc=3DENG-ALERTS&=
+url=3Dhttps%3A%2F%2Fwww.americanexpress.com%2Fprivacy" shape=3D"rect">PRIVA=
+CY STATEMENT</a>    |    <a style=3D"color:#FFFFFF" title=3D"" href=3D"http=
+s://www.americanexpress.com/Tracking=3Fmid=3DHEICN0302024021619315968130538=
+40&msrc=3DENG-ALERTS&url=3Dhttps%3A%2F%2Fwww.americanexpress.com%2Femail" s=
+hape=3D"rect">UPDATE YOUR EMAIL</a>=0A</p>=0A</td><td width=3D"5%" style=3D=
+"background-color:#00175A;border-right-color:#00175A;border-right-style:sol=
+id;border-right-width:1pt;border-top-color:#00175A;border-top-style:solid;b=
+order-top-width:1pt;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"color: bla=
+ck;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=
+=C2=A0</p>=0A</td>=0A</tr>=0A<tr>=0A<td width=3D"100%" colspan=3D"5" style=
+=3D"background-color:#00175A;border-left-color:#00175A;border-left-style:so=
+lid;border-left-width:1pt;border-right-color:#00175A;border-right-style:sol=
+id;border-right-width:1pt;border-top-color:#00175A;border-top-style:solid;b=
+order-top-width:1pt;" rowspan=3D"1">=0A<p style=3D"color: black;font-size: =
+10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<=
+/td>=0A</tr>=0A<tr>=0A<td width=3D"5%" style=3D"background-color:#00175A;bo=
+rder-bottom-color:#00175A;border-bottom-style:solid;border-bottom-width:1pt=
+;border-left-color:#00175A;border-left-style:solid;border-left-width:1pt;bo=
+rder-top-color:#00175A;border-top-style:solid;border-top-width:1pt;" rowspa=
+n=3D"1" colspan=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-fami=
+ly: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=
+=3D"69.2914124293785%" style=3D"background-color:#00175A;border-bottom-colo=
+r:#00175A;border-bottom-style:solid;border-bottom-width:1pt;border-top-colo=
+r:#00175A;border-top-style:solid;border-top-width:1pt;" rowspan=3D"1" colsp=
+an=3D"1">=0A<p style=3D"color: white;font-size: 10pt;font-family: Arial;mar=
+gin-top: 0px;margin-bottom: 0px;">Your account information is included abov=
+e to help you recognize this as a customer care email from American Express=
+. To learn more about email security or report a suspicious email, please =
+visit us at <a style=3D"color:#FFFFFF" title=3D"" href=3D"https://www.ameri=
+canexpress.com/Tracking=3Fmid=3DHEICN030202402161931596813053840&msrc=3DENG=
+-ALERTS&url=3Dhttps%3A%2F%2Fwww.americanexpress.com%2Fphishing" shape=3D"re=
+ct">americanexpress.com/phishing</a>. We kindly ask you not to reply to thi=
+s email but instead contact us via <a style=3D"color:#FFFFFF" title=3D"" hr=
+ef=3D"https://www.americanexpress.com/Tracking=3Fmid=3DHEICN030202402161931=
+596813053840&msrc=3DENG-ALERTS&url=3Dhttps%3A%2F%2Fglobal.americanexpress.c=
+om%2Fhelp%3Finav%3DiNUtlContact%26extlink%3Dus-em-serv-footer-helpcenter" s=
+hape=3D"rect">Customer Care</a>.</p>=0A<p style=3D"color: white;font-size: =
+10pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<=
+p align=3D"left" style=3D"color: white;font-size: 10pt;font-family: Arial;m=
+argin-top: 0px;margin-bottom: 0px;">=C2=A9 2024 American Express. All right=
+s reserved.</p>=0A<p style=3D"color: white;font-size: 10pt;font-family: Ari=
+al;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p align=3D"left" styl=
+e=3D"color: white;font-size: 10pt;font-family: Arial;margin-top: 0px;margin=
+-bottom: 0px;">ALEENICNFRD0047<img style=3D"border-style: none; display: bl=
+ock;" src=3D"https://www.americanexpress.com/Tracking=3Fmid=3DHEICN03020240=
+2161931596813053840&amp;msrc=3DENG-ALERTS" height=3D"1" width=3D"1" alt=3D"=
+" align=3D"" /></p>=0A<p style=3D"color: white;font-size: 10pt;font-family:=
+ Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"=
+2.13%" style=3D"background-color:#00175A;border-bottom-color:#00175A;border=
+-bottom-style:solid;border-bottom-width:1pt;border-top-color:#00175A;border=
+-top-style:solid;border-top-width:1pt;" rowspan=3D"1" colspan=3D"1">=0A<p s=
+tyle=3D"color: black;font-size: 10pt;font-family: Arial;margin-top: 0px;mar=
+gin-bottom: 0px;">=C2=A0</p>=0A</td><td width=3D"18.5785875706215%" style=3D=
+"background-color:#00175A;border-bottom-color:#00175A;border-bottom-style:s=
+olid;border-bottom-width:1pt;border-right-color:#00175A;border-right-style:=
+solid;border-right-width:1pt;border-top-color:#00175A;border-top-style:soli=
+d;border-top-width:1pt;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"font-si=
+ze: 6pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=
+=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;margin-top: =
+0px;margin-bottom: 0px;">=C2=A0</p>=0A<p style=3D"color: black;font-size: 1=
+0pt;font-family: Arial;margin-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A<p=
+ align=3D"right" style=3D"color: black;font-size: 10pt;font-family: Arial;m=
+argin-top: 0px;margin-bottom: 0px;">=0A<img style=3D"border-style: none; di=
+splay: block;" src=3D"http://www208.americanexpress.com/axp/bu_logos/AmexDi=
+sclaimerLogo.png" height=3D"95" width=3D"95" alt=3D"" align=3D"" /></p>=0A<=
+/td><td width=3D"5%" style=3D"background-color:#00175A;border-bottom-color:=
+#00175A;border-bottom-style:solid;border-bottom-width:1pt;border-right-colo=
+r:#00175A;border-right-style:solid;border-right-width:1pt;border-top-color:=
+#00175A;border-top-style:solid;border-top-width:1pt;" rowspan=3D"1" colspan=
+=3D"1">=0A<p style=3D"color: black;font-size: 10pt;font-family: Arial;margi=
+n-top: 0px;margin-bottom: 0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</t=
+able>=0A</td>=0A</tr>=0A</tbody>=0A</table>=0A<table cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%">=0A<tbody>=0A<tr>=0A<td width=3D"100%" style=3D=
+"background-color:#edebe9;" rowspan=3D"1" colspan=3D"1">=0A<p style=3D"colo=
+r: black;font-size: 10pt;font-family: Arial;margin-top: 0px;margin-bottom: =
+0px;">=C2=A0</p>=0A</td>=0A</tr>=0A</tbody>=0A</table>=0A</td><td bgcolor=3D=
+"#ECECEC" width=3D"15" rowspan=3D"1" colspan=3D"1"></td>=0A</tr>=0A<tr>=0A<=
+td width=3D"15" bgcolor=3D"#ECECEC" rowspan=3D"1" colspan=3D"1"></td><td wi=
+dth=3D"15" bgcolor=3D"#ECECEC" rowspan=3D"1" colspan=3D"1"></td><td width=3D=
+"492" bgcolor=3D"#ECECEC" rowspan=3D"1" colspan=3D"1"></td><td width=3D"15"=
+ bgcolor=3D"#ECECEC" rowspan=3D"1" colspan=3D"1"></td><td width=3D"15" bgco=
+lor=3D"#ECECEC" rowspan=3D"1" colspan=3D"1"></td>=0A</tr>=0A</table>=0A<tab=
+le border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=0A<tr>=0A<td style=3D"=
+min-width:550px; font-size:0px;line-height:0px;" height=3D"1" rowspan=3D"1"=
+ colspan=3D"1"><img style=3D"min-width: 550px; text-decoration: none; borde=
+r: none; -ms-interpolation-mode: bicubic;" src=3D"spacer.gif" height=3D"1" =
+/></td>=0A</tr>=0A</table>=0A</body>=0A</html>
+

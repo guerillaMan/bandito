@@ -1,0 +1,126 @@
+Delivered-To: aunermoncada@gmail.com
+Received: by 2002:a2e:7c17:0:b0:2cc:d78d:ff98 with SMTP id x23csp510829ljc;
+        Thu, 18 Jan 2024 20:54:02 -0800 (PST)
+X-Received: by 2002:a81:9185:0:b0:5ff:7c95:d4f6 with SMTP id i127-20020a819185000000b005ff7c95d4f6mr1158878ywg.1.1705640042316;
+        Thu, 18 Jan 2024 20:54:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1705640042; cv=none;
+        d=google.com; s=arc-20160816;
+        b=I/xOPzPIOOxDhaylfdRSX73JlGKI4DOcRiHW9eCLsJwpKPBxNt1mUnbQAzPsKKz1Hw
+         j1RE7DBOXrXg3HB3keHvOTx4bZjbjoKZ0ClBmwi1tieW3+MCsb7KHjcvmeyqSoUyiecm
+         WX9r1Kd5VeZCQoKG6jseZSWo7aDrwSK8LS+LfTEZzFVI8ZigBZlnikF7xHmvQQCqfV2l
+         KVdAqIPY+VBIZrDoBDHX5Xx3aVi4cJZsL9Um2geNXOOYhDRbTmav3q/BumBBYTMFY9WA
+         tIAvqrylBSy9LpwV+GfWpftFOU/2Zq0eVlRtdZZC/QG/RyOdomMmvBQLSlwPHsE6+wxI
+         pBMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=Y71tDrnHlFAjTSJYX5ZJ8aBPgsWUNxkItv56LfnWwu8=;
+        fh=wlnoILNu5hRGSfz/L1T9xlfSB+OMyI0eeQiExiA3Jh8=;
+        b=lhOwh2IY8Vl5INF1o+CG6UcnBmZJkAl8f+sm0vyQ5BefC9M463xKQbLkGCbj1NriqU
+         h9l1EhZRM3p4scu15QxJo4gFlsFpB+Bl+od+K34pKCKVh1V6mR4+Odz3zrgqIDN1H7XY
+         IhrwWSrU0bzHzDy2ZjBz8FapCEo46Ef4XD8oZGCW4rjUHHiXUulxZPaFBSpGUi2ZpeK6
+         pV3byTacWODyMMArR2gd7F8aTY+dfCJ6ycSHwUHSVS+YClMYUwO6ZjizKHIMZye8uEjD
+         /U9SPF+mGOx6hXCP6i3/hXplQEa/O1ypX7n3ukFDKK6M5LvHpPOeXfD1Tbxk8hSmEn59
+         4lgA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=jFw7YhmB;
+       spf=pass (google.com: domain of poonk.harrison@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=poonk.harrison@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <poonk.harrison@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id u132-20020a81798a000000b005eaf3fc0864sor7034991ywc.4.2024.01.18.20.54.02
+        for <aunermoncada@gmail.com>
+        (Google Transport Security);
+        Thu, 18 Jan 2024 20:54:02 -0800 (PST)
+Received-SPF: pass (google.com: domain of poonk.harrison@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=jFw7YhmB;
+       spf=pass (google.com: domain of poonk.harrison@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=poonk.harrison@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1705640042; x=1706244842; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Y71tDrnHlFAjTSJYX5ZJ8aBPgsWUNxkItv56LfnWwu8=;
+        b=jFw7YhmBpMWmie+yUwWocsaWmV6Z2CFvUApwjLNhSqLGBysDyd0N5+UkPvVbSU/UTo
+         TCtVqrMGGVLbaWjhJkGRrRYhRDK/CsQG2fUNVi3gyt26TJyD/WtnXeXozGiW6T/SSWI9
+         w1eMI+vTvLPBE0nwuLmwp1wQwhlqUCPFwrYd1xxiX2fnueFm6SKramRu7BvWe1hDhmnx
+         ju7f7KCYk2Qe56kf4io5szZ4nYpkPNsiFr+lhVddoFgt3aP/78Evht+8tsoztK9K7Ov8
+         OOq/t9GYGYrZBHHrmS/uvtqr16n0hU38MfB38KRRIj/Mcn6eagwuasi/574asyI0y9Ks
+         7WXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705640042; x=1706244842;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y71tDrnHlFAjTSJYX5ZJ8aBPgsWUNxkItv56LfnWwu8=;
+        b=vuSNoQ67RpPhyHI/B+dvI20Ut4ogJfzxcSuwOYGgk7LHZ/gdtkNnjaqNKc+a1g8UBD
+         fpR6dthggh22+kuj+omdiIO43rTQJqX2v+4BaSYPgH8NGJksWDO8Bqm5+nQ0lnuO9g6f
+         9poJvPqyVm86I3n5w4iYuONpxvl4x6aIMDzF2HSp2M2kXewOx3wAFkIjRV69CMavXcgJ
+         x2FYma7e7rjm/WO1aIgmedzBufOzSWXpI4e//bUQG1F+4SDWQ086Zfo11YHtR49BRPVw
+         wP1ihjPRn1IzqX00oVy4gLJqeCkSvU9n5kdsa/hTmAUnMLREC/g5oXm6DsvY+aSajkkF
+         l7Ww==
+X-Gm-Message-State: AOJu0Yw6xyXFruN05EoATY5ZQ2drvLi5u71Uy77HJLHVsMP02HA+ePpt
+	fm50fdGrGos6AXnZTCWSukVoi6xxytSuxOahLkiToYy/QeeG5RLnDOTCOmyhiA4DA2p+g1k8qaU
+	1XTK3epkcnY4pGfmXPxE2PSU2maaV54oKabE=
+X-Google-Smtp-Source: AGHT+IFmc9Jc1MJl+D83iFjF4N7mUhiSiro8D7lJ45L/cjgwLWOIPvT8oe5j2nps8BdCrm8vytMQi0pBxgJJ2H8ZMuw=
+X-Received: by 2002:a81:4ac1:0:b0:5e8:545:e0cf with SMTP id
+ x184-20020a814ac1000000b005e80545e0cfmr1728030ywa.100.1705640040572; Thu, 18
+ Jan 2024 20:54:00 -0800 (PST)
+MIME-Version: 1.0
+References: <CAED1fXeyMZhepCA+0uRNjSJRxzOQ3_5PdwVsDRsBBXY2AsGOVQ@mail.gmail.com>
+In-Reply-To: <CAED1fXeyMZhepCA+0uRNjSJRxzOQ3_5PdwVsDRsBBXY2AsGOVQ@mail.gmail.com>
+From: Richard Harrison <poonk.harrison@gmail.com>
+Date: Thu, 18 Jan 2024 23:53:36 -0500
+Message-ID: <CAHkFA5t9DffPY7mqDnHDDz5x6vk8qnX1CnM5-qMt9=EJXnCn_g@mail.gmail.com>
+Subject: Re: 2024 Carnaval Rio - Footy at Maracana
+To: Auner Moncada <aunermoncada@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000bbac79060f4544be"
+
+--000000000000bbac79060f4544be
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Def down for futbol  I can see if my local friend wants to come with us to
+football match.  The only thing ima likely pass on is hikes lol.
+
+On Mon, Jan 15, 2024 at 2:25=E2=80=AFPM Auner Moncada <aunermoncada@gmail.c=
+om>
+wrote:
+
+> Bucket list item. Gave you options from what I could find in a couple of
+> hours. The website seems interesting. Not sure if you had someone who cou=
+ld
+> get us tickets and we watch with them instead of a stranger. Either way, =
+it
+> seems fun.
+>
+> Flamengo also does museum/tour at R $80.00 ($16.42 USD). I would imagine
+> Fluminense does something similar; just haven't found it. lol
+>
+> Still researching. This is just the start
+>
+>
+
+--000000000000bbac79060f4544be
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Def down for futbol=C2=A0 I can see if my local friend wan=
+ts to come with us to football match.=C2=A0 The only thing ima likely pass =
+on is hikes lol.</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">On Mon, Jan 15, 2024 at 2:25=E2=80=AFPM Auner Moncada &lt;<=
+a href=3D"mailto:aunermoncada@gmail.com">aunermoncada@gmail.com</a>&gt; wro=
+te:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px =
+0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"=
+ltr"><div>Bucket list item. Gave you options from what I could find in a co=
+uple of hours. The website seems interesting. Not sure if you had someone w=
+ho could get us tickets and we watch with them instead of a stranger. Eithe=
+r way, it seems fun.</div><div><br></div><div>Flamengo also does museum/tou=
+r at R $80.00 ($16.42 USD). I would imagine Fluminense does something simil=
+ar; just haven&#39;t found it. lol</div><div><br></div>Still researching. T=
+his is just the start<br><div><div><a class=3D"gmail_plusreply" id=3D"m_624=
+3791156517245224m_808638191116702520plusReplyChip-0"><br></a></div></div></=
+div>
+</blockquote></div>
+
+--000000000000bbac79060f4544be--

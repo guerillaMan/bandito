@@ -1,0 +1,287 @@
+Delivered-To: aunermoncada+rj@gmail.com
+Received: by 2002:a2e:240c:0:b0:2d0:ad09:251 with SMTP id k12csp982828ljk;
+        Fri, 16 Feb 2024 08:04:10 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGw/ycQb9nlX8NI4xmlRTsPWKgXZSiVydbINzbh03FvmAGCae4jCjssJILc2OuScgHlI1OE
+X-Received: by 2002:a05:6808:309d:b0:3c1:342a:856a with SMTP id bl29-20020a056808309d00b003c1342a856amr5892017oib.0.1708099449721;
+        Fri, 16 Feb 2024 08:04:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1708099449; cv=none;
+        d=google.com; s=arc-20160816;
+        b=QkgY2h1G6YMat5Q4xEk+Ovz7lFjCxUMynyG+e1C/Vy0R92NapIF4jPbwuCAkbx847J
+         /ic0+4IWA3rZrGEOneu4Aw9fd19Y50Tju8DfiQzJ9zPtZaeiSGKp1mb8Y7z+6xzNkdMt
+         +pQcIhL4LmK+OJS2LvKTZ0Yf5IOBSgXoddHHnloUprugvTDFH+fnWRXbqpYEbUk5XRjr
+         LnDoQ5wIlUr+KvwNQA8FebrsKXDItVkzxkpbNmC7+QKVEZX0pNK/iKxpvkEMdltAVV/T
+         0EGPBzeFq41bjOjDfLMrp+kcf1XT8g4TUpdmvInZ7Q2Lr9PzjZ5lnUJjYElmKvwsCnu8
+         dEoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:mime-version:date:content-transfer-encoding:message-id
+         :subject:to:from:dkim-signature;
+        bh=63OqFQ8y4Gn40QjByV5PRZ3i6x3EPY+uc9C1XD0Vbvw=;
+        fh=ZhsTUqZRw1uw4s81AYzALkctuz1ELL80G/sNJScpOy4=;
+        b=pYrg4LhyJ0r6+rG1flnikjOlfeLllxgy6eUTgsr6SehDB+cfQDGaOkGdu+WS1C6D40
+         xVFRBb4vTIw3YbHeNcYCM5FZGFG3m4jdXrYIr8Px07852I32A8D5rbGi+1TVAgrowMCl
+         k9wMLR1O8UZvdzNfG8LY6tTo0vNjUkxoSOAmorYQHgRAUvh4k2platfHax3D/33lQR81
+         sHusVUMBCO0tNxUE43eFOsyDcPMsxwxMP0vDybuu12aEegPgiGDCVQ9rODk9LkGnHNdb
+         jBmoHMS3Q7v67LqVwAADxd+6S/tMytdAAB9CvMuVBI4Ad9glJJLxneGF32L6AN9L98Ky
+         2LXQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=n3kzslanjhdj36g2753vor472zw45rsk header.b=dQlblEhP;
+       spf=pass (google.com: domain of 0103018db2a92e90-59986d60-8d8c-4e94-9648-6eb4ada550fd-000000@sa-east-1.amazonses.com designates 23.249.215.8 as permitted sender) smtp.mailfrom=0103018db2a92e90-59986d60-8d8c-4e94-9648-6eb4ada550fd-000000@sa-east-1.amazonses.com
+Return-Path: <0103018db2a92e90-59986d60-8d8c-4e94-9648-6eb4ada550fd-000000@sa-east-1.amazonses.com>
+Received: from d215-8.smtp-out.sa-east-1.amazonses.com (d215-8.smtp-out.sa-east-1.amazonses.com. [23.249.215.8])
+        by mx.google.com with ESMTPS id w15-20020a0568080d4f00b003c07efaef75si48160oik.41.2024.02.16.08.04.08
+        for <aunermoncada+rj@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 16 Feb 2024 08:04:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of 0103018db2a92e90-59986d60-8d8c-4e94-9648-6eb4ada550fd-000000@sa-east-1.amazonses.com designates 23.249.215.8 as permitted sender) client-ip=23.249.215.8;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=n3kzslanjhdj36g2753vor472zw45rsk header.b=dQlblEhP;
+       spf=pass (google.com: domain of 0103018db2a92e90-59986d60-8d8c-4e94-9648-6eb4ada550fd-000000@sa-east-1.amazonses.com designates 23.249.215.8 as permitted sender) smtp.mailfrom=0103018db2a92e90-59986d60-8d8c-4e94-9648-6eb4ada550fd-000000@sa-east-1.amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=n3kzslanjhdj36g2753vor472zw45rsk; d=amazonses.com; t=1708099448;
+	h=Content-Type:From:To:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Feedback-ID;
+	bh=Nazoulz5cCsg6I7IbJgZDB5SUNZrwXpVYLx/eJzgFDA=;
+	b=dQlblEhPUj6OF0m7qjZgsM4wvDh6eQrZ7eRG3pgF+/Zq9BkqanGJjc09Geu5ty3X
+	/LuWnUZmoEYrMrY2o8yz5lY4jJUQkYzK98bLDy7SNUfTS8R/kdus2DAuJMC+nzZ7jtk
+	9VRaFi0k/RJx90J4UxDw+QqyPio11DrRzgzgRQmA=
+Content-Type: text/html; charset=utf-8
+From: =?UTF-8?Q?Privil=C3=A8ge_Brasil?= <contato@privilegebrasil.com>
+To: Auner Moncada <aunermoncada+rj@gmail.com>
+Subject: =?UTF-8?Q?Como_foi_a_sua_experi=C3=AAncia_no_Privi?=
+ =?UTF-8?Q?l=C3=A8ge_Festival=2C_Auner_Moncada=3F?=
+Message-ID: <0103018db2a92e90-59986d60-8d8c-4e94-9648-6eb4ada550fd-000000@sa-east-1.amazonses.com>
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 16 Feb 2024 16:04:08 +0000
+MIME-Version: 1.0
+Feedback-ID: 1.sa-east-1.YhJElyfcjnytCyOmFw4upo+9Y25uQVexAtRBMHeAzxA=:AmazonSES
+X-SES-Outgoing: 2024.02.16-23.249.215.8
+
+<body style=3D"background-color: #f0f0f0; color: #000">
+  <div
+    style=3D"
+      font-family: Roboto, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 21px;
+      max-width: 700px;
+      margin: auto;
+      background-color: white;
+    "
+  >
+    <div
+      style=3D"
+        max-width: 700px;
+        padding: 20px 0;
+        background-color: #fff;
+        margin: auto;
+        text-align: center;
+      "
+    >
+      <img
+        src=3D"https://b2s.s3.sa-east-1.amazonaws.com/logo/e873c63242e2e0ac=
+b94a-whatsapp-image-2024-02-15-at-16.30.15.jpeg"
+        =
+alt=3D"Privil=C3=A8ge Brasil"
+        style=3D"width: 140px; height: 140px;=
+ border-radius: 50%"
+      />
+    </div>
+
+    <div style=3D"background-colo=
+r: #fff; max-width: 700px; padding: 10px">
+     <p>Primeiramente, muito =
+obrigado por confiar no nosso trabalho e esperamos que tenhamos atendido =
+=C3=A0s suas expectativas!</p><p>Para que continuemos melhorando o nosso =
+servi=C3=A7o, voc=C3=AA poderia deixar a sua avalia=C3=A7=C3=A3o na nossa =
+pesquisa de satisfa=C3=A7=C3=A3o?</p><p>Em menos de 2 minutos voc=C3=AA =
+consegue finalizar e nos ajuda a te surpreender cada vez mais! =
+=F0=9F=98=81</p><p>
+      <p>
+        Em uma escala <b>de 0 a 10</b>, o =
+quanto voc=C3=AA indicaria a ERRORR - RIO DE JANEIRO para um amigo ou =
+familiar?
+      </p>
+      <a href=3D"https://falae.experienciab2s.=
+com/formularios/privilege-eventos-rio-de-janeiro-rj/satisfacao-geral/inicia=
+l?d=3D6313d79f-e764-429c-927e-7d51dd4a25d3&c=3D2ff9ce27-16e1-4fe2-9f37-29d6=
+b86755ff" style=3D"text-decoration: none; color: #000">
+        <table style=3D"margin: auto">
+          <thead>
+            <tr style=3D"cursor: pointer">
+              <th =
+style=3D"text-align: center">
+                <table>
+                  <thead>
+                    <tr>
+                      =
+<th
+                        style=3D"
+                          width: =
+36px;
+                          height: 36px;
+                          =
+background-color: #dd4445;
+                          border-radius: 4px;
+                        "
+                      >
+                        =
+<p style=3D"margin: auto">0</p>
+                      </th>
+                      <th
+                        style=3D"
+                          width: 36px;
+                          height: =
+36px;
+                          background-color: #dd4445;
+                          border-radius: 4px;
+                        "
+                      >
+                        <p style=3D"margin: =
+auto">1</p>
+                      </th>
+                      <th
+                        style=3D"
+                          width: 36px;
+                          height: 36px;
+                          =
+background-color: #dd4445;
+                          border-radius: 4px;
+                        "
+                      >
+                        =
+<p style=3D"margin: auto">2</p>
+                      </th>
+                      <th
+                        style=3D"
+                          width: 36px;
+                          height: =
+36px;
+                          background-color: #dd4445;
+                          border-radius: 4px;
+                        "
+                      >
+                        <p style=3D"margin: =
+auto">3</p>
+                      </th>
+                      <th
+                        style=3D"
+                          width: 36px;
+                          height: 36px;
+                          =
+background-color: #DD5D45;
+                          border-radius: 4px;
+                        "
+                      >
+                        =
+<p style=3D"margin: auto">4</p>
+                      </th>
+                      <th
+                        style=3D"
+                          width: 36px;
+                          height: =
+36px;
+                          background-color: #DD6945;
+                          border-radius: 4px;
+                        "
+                      >
+                        <p style=3D"margin: =
+auto">5</p>
+                      </th>
+                      <th
+                        style=3D"
+                          width: 36px;
+                          height: 36px;
+                          =
+background-color: #DD9F45;
+                          border-radius: 4px;
+                        "
+                      >
+                        =
+<p style=3D"margin: auto">6</p>
+                      </th>
+                      <th
+                        style=3D"
+                          width: 36px;
+                          height: =
+36px;
+                          background-color: #fdc230;
+                          border-radius: 4px;
+                        "
+                      >
+                        <p style=3D"margin: =
+auto">7</p>
+                      </th>
+                      <th
+                        style=3D"
+                          width: 36px;
+                          height: 36px;
+                          =
+background-color: #E7C230;
+                          border-radius: 4px;
+                        "
+                      >
+                        =
+<p style=3D"margin: auto">8</p>
+                      </th>
+                      <th
+                        style=3D"
+                          width: 36px;
+                          height: =
+36px;
+                          background-color: #82A846;
+                          border-radius: 4px;
+                        "
+                      >
+                        <p style=3D"margin: =
+auto">9</p>
+                      </th>
+                      <th
+                        style=3D"
+                          width: 36px;
+                          height: 36px;
+                          =
+background-color: #53a846;
+                          border-radius: 4px;
+                        "
+                      >
+                        =
+<p style=3D"margin: auto">10</p>
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </a></p>
+    <div =
+style=3D"text-align: center; padding: 10px 0px">
+      <img
+        src=3D"https://drive.google.com/thumbnail?id=3D1Cnto_DLclAlxv2ccQhU=
+FOYyt49vYVr96"
+        alt=3D"Fala=C3=AA"
+        width=3D"72px"
+      />
+    </div>
+  </div>
+
+  <div>
+    <p style=3D"text-align: center">
+      =C2=A9 2023
+      <a href=3D"https://falae.app/" =
+target=3D"_blank">B2S</a>. Todos os
+      direitos reservados.
+    </p>
+    <p style=3D"text-align: center">
+      <a
+        style=3D"color: #999;=
+ text-decoration: none"
+        href=3D"https://app.experienciab2s.=
+com/email/cancelamento/privilege-eventos-rio-de-janeiro-rj/2ff9ce27-16e1-4f=
+e2-9f37-29d6b86755ff"
+        target=3D"_blank"
+      >N=C3=A3o quero =
+receber mais e-mails</a>
+    </p>
+  </div>
+</body>
