@@ -1,0 +1,1209 @@
+Delivered-To: aunermoncada+rj@gmail.com
+Received: by 2002:a2e:9f09:0:b0:2d0:ad09:251 with SMTP id u9csp1269349ljk;
+        Sat, 10 Feb 2024 18:47:36 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEqq4fJJ4eCLLMe8PGnE4ke1OgB/QfJt5p6ROJwheuttvaHARd4PIrB0FD0jI9wsTunoyFz
+X-Received: by 2002:a05:6358:88e:b0:178:f482:6e59 with SMTP id m14-20020a056358088e00b00178f4826e59mr3077378rwj.3.1707619655892;
+        Sat, 10 Feb 2024 18:47:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1707619655; cv=none;
+        d=google.com; s=arc-20160816;
+        b=PelxepJfzy6pJELBedWZYR5x0SroXIL3e729n2qozRgX9JMy6ENsubfNnPnlKaa3fy
+         z5AaBTs2Avt0THmhWuidW9iI9YIaKIujDrxF/03pukS64xfRhRk/P4cX/KtKKSlGh/Fh
+         TyOCZ7Lk0ceFgXb4HS0PBCiVvDXI3zbt549Ds+wwYqxlX+42KfviWOWMqD22OghYxSxQ
+         QuAW6jHdtCtUd8gipsEjB+YIi8zj7BV50m1HgI306vX14NLWZxjzySx+q2MqF7mjRGph
+         /3gr1jrAFNuG6u6TYah1x3lWtkSqe3dQKzV/YoUdKmHUUd/nwHUB8P7Su8XqOyb5TMsr
+         T6Xw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:date:message-id:feedback-id:to:subject:from
+         :dkim-signature:dkim-signature;
+        bh=cwhODpV2KJPaZ2XJjCGrWPqwJyFP4kTH9e/wEoFysvM=;
+        fh=ZhsTUqZRw1uw4s81AYzALkctuz1ELL80G/sNJScpOy4=;
+        b=ZSIOghwfYJChq0QybkHm+8H4Tk4MLHWMWYMjxcM9FmT8lftdW0hOzkorUmRjZHA7pH
+         bLsXyESAKW11zCRtb4w3lEJ2txoi9k/wp+l8sDpZtP98+GGB8ef0MOWnRns09Tw348Su
+         VTVEU960sIXtfdBfLCVs7PR4fin4R7eb6C9MvjJJcGbhGnL9AZyG6KPY12WTTXEmyLSr
+         +Ep8+6VaIqFSnHU7LAgkZ11LwzWGzQANWQr+zdgZMuQNuuik6/QAanQzcGP7t/JL074c
+         7sIFeBEKB5roaIIwnrD69iU0+SPMIDX7C+J25wUX5JYAS+oLwF6Lh69rcUBy7k4Ep2Ji
+         9z+A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mandrillapp.com header.s=mte1 header.b=xzOL5WbC;
+       dkim=pass header.i=@ingresse.com header.s=mandrill header.b="M29/qej7";
+       spf=pass (google.com: domain of bounce-md_30004977.65c83547.v1-6537b0952c754fb1bc04608fdf924e48@click.ingresse.com designates 198.2.128.130 as permitted sender) smtp.mailfrom=bounce-md_30004977.65c83547.v1-6537b0952c754fb1bc04608fdf924e48@click.ingresse.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ingresse.com
+Return-Path: <bounce-md_30004977.65c83547.v1-6537b0952c754fb1bc04608fdf924e48@click.ingresse.com>
+Received: from mail128-130.atl41.mandrillapp.com (mail128-130.atl41.mandrillapp.com. [198.2.128.130])
+        by mx.google.com with ESMTPS id g20-20020a25ae54000000b00dc7649ba730si998882ybe.707.2024.02.10.18.47.35
+        for <aunermoncada+rj@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 10 Feb 2024 18:47:35 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-md_30004977.65c83547.v1-6537b0952c754fb1bc04608fdf924e48@click.ingresse.com designates 198.2.128.130 as permitted sender) client-ip=198.2.128.130;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mandrillapp.com header.s=mte1 header.b=xzOL5WbC;
+       dkim=pass header.i=@ingresse.com header.s=mandrill header.b="M29/qej7";
+       spf=pass (google.com: domain of bounce-md_30004977.65c83547.v1-6537b0952c754fb1bc04608fdf924e48@click.ingresse.com designates 198.2.128.130 as permitted sender) smtp.mailfrom=bounce-md_30004977.65c83547.v1-6537b0952c754fb1bc04608fdf924e48@click.ingresse.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ingresse.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com;
+	s=mte1; t=1707619655; x=1707880155;
+	bh=cwhODpV2KJPaZ2XJjCGrWPqwJyFP4kTH9e/wEoFysvM=;
+	h=From:Subject:To:Feedback-ID:Message-Id:Date:MIME-Version:
+	 Content-Type:CC:Date:Subject:From;
+	b=xzOL5WbC1bB3a6d5lMGLhpyiYVIbzGXQB+43J2+fBWVjeyynv0+u04VTli2/3ke+c
+	 XJfEZRoiqcWkYXHYZlQ3V1JZTtwvje5d15pihLexU1VK5zlFvb/D3J+SKwSR/GF1W1
+	 UYeIPCKzht2ngABp2TvzhE/FBTnBkWdSCYeGaHSrM2E3d36igz7GaI7HBBlTaz4bGS
+	 ONHtd3BwwzxWAi2733d7gnML7DxiGaMXIebGnFUkhDoTD4cEKqflp81qze+zapVmwX
+	 GOEOSLyVZiewttVtmKaRNhZENtc22Xe0yKngKGQd0SJSZy2iurIIWyHfltEV2Nhn+0
+	 e8Vm+LizMdxiA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ingresse.com;
+	s=mandrill; t=1707619655; x=1707880155; i=contato@ingresse.com;
+	bh=cwhODpV2KJPaZ2XJjCGrWPqwJyFP4kTH9e/wEoFysvM=;
+	h=From:Subject:To:Feedback-ID:Message-Id:Date:MIME-Version:
+	 Content-Type:CC:Date:Subject:From;
+	b=M29/qej7PyUqRtdfxbJ6BmfX5sx3mX/+dWKICeQxNb8tEonU/MVg4S1U59VJUUrfY
+	 Y+pnaH7MLB0FrdRA7Rj8Hoez2F4//b7esupN3aWvdGbmJ1UDcEMW/Bv4G69smy/erA
+	 btgmI/EU/kBajprGO8jVEzhHhGFIR8+t5T6r8f54=
+Received: from pmta08.mandrill.prod.atl01.rsglab.com (localhost [127.0.0.1])
+	by mail128-130.atl41.mandrillapp.com (Mailchimp) with ESMTP id 4TXX7W4ZKYzS62GWT
+	for <aunermoncada+rj@gmail.com>; Sun, 11 Feb 2024 02:47:35 +0000 (GMT)
+From: Ingresse <contato@ingresse.com>
+Subject: =?utf-8?Q?Seu=20ingresso=20foi=20aceito?=
+Received: from [34.203.182.203] by mandrillapp.com id 6537b0952c754fb1bc04608fdf924e48; Sun, 11 Feb 2024 02:47:35 +0000
+To: Auner Moncada <aunermoncada+rj@gmail.com>
+X-Native-Encoded: 1
+X-Report-Abuse: =?UTF-8?Q?Please=20forward=20a=20copy=20of=20this=20message,=20including=20all=20headers,=20to=20abuse@mandrill.com.=20You=20can=20also=20report=20abuse=20here:=20https://mandrillapp.com/contact/abuse=3Fid=3D30004977.6537b0952c754fb1bc04608fdf924e48?=
+X-Mandrill-User: md_30004977
+Feedback-ID: 30004977:30004977.20240211:md
+Message-Id: <30004977.20240211024735.65c8354792a814.03083498@mail128-130.atl41.mandrillapp.com>
+Date: Sun, 11 Feb 2024 02:47:35 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_av-dKRLWaMV9BDakMLhODV_OQ"
+
+--_av-dKRLWaMV9BDakMLhODV_OQ
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+     Seu ingresso foi aceito | Ingresse         =C2=A0
+<https://www.ingresse.com>      =3D  *Richard Harrison
+aceitou seu ingresso * =3D
+
+          
+             =3D=3D  *PRIVIL=C3=88GE FESTIVAL CARNAVAL - RIO DE JANEIRO * =
+=3D=3D
+
+  10/02/2024 =C3=A0s 19:00  
+ 
+ 
+ 
+     =3D=3D  No dia do evento, mostre os ingressos no celular!  =3D=3D
+
+     Baixe o aplicativo e acesse seus ingressos com a sua conta da
+Ingresse.
+
+Deseja encaminhar o ingresso para um amigo?
+
+Caso esteja dispon=C3=ADvel, transfira diretamente da sua carteira pelo app=
+ ou
+site da Ingresse na p=C3=A1gina =E2=80=98Meus Ingressos=E2=80=99.     *Baix=
+e na App Store e
+PlayStore
+<https://play.google.com/store/apps/details?id=3Dcom.ingresse.ticketbooth>*
+<https://itunes.apple.com/br/app/ingresse-ingressos-para-eventos/id81535976=
+0?mt=3D8>
+   
+   Termos de Servi=C3=A7o & Pol=C3=ADticas de Privacidade
+<https://sobre.ingresse.com/termos-de-privacidade>
+  Copyright =C2=A9 2019 Ingresse,
+Todos os direitos reservados 
+ 
+     =C2=A0
+
+--_av-dKRLWaMV9BDakMLhODV_OQ
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+    <title>Seu ingresso foi aceito | Ingresse</title>
+    <style type=3D"text/css" media=3D"all">
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        src: local("Roboto Light"), local("Roboto-Light"),
+          url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fBB=
+c9.ttf)
+            format("truetype");
+      }
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        src: local("Roboto"), local("Roboto-Regular"),
+          url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxP.t=
+tf)
+            format("truetype");
+      }
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        src: local("Roboto Medium"), local("Roboto-Medium"),
+          url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fBB=
+c9.ttf)
+            format("truetype");
+      }
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 700;
+        src: local("Roboto Bold"), local("Roboto-Bold"),
+          url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfBB=
+c9.ttf)
+            format("truetype");
+      }
+    </style>
+    <style type=3D"text/css" media=3D"all">
+      @media (max-width: 639px) {
+        .container {
+          padding: 0 !important;
+        }
+        .container .segment {
+          border: none !important;
+          border-radius: 0 !important;
+        }
+        .container .segment--with-shadow {
+          border: none !important;
+          -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+        }
+        .p-5-xs {
+          padding: 5px !important;
+        }
+        .p-5-ver-xs {
+          padding-top: 5px !important;
+          padding-bottom: 5px;
+        }
+        .p-5-hor-xs {
+          padding-right: 5px !important;
+          padding-left: 5px !important;
+        }
+        .p-5-top-xs {
+          padding-top: 5px !important;
+        }
+        .p-5-rig-xs {
+          padding-right: 5px !important;
+        }
+        .p-5-bot-xs {
+          padding-bottom: 5px !important;
+        }
+        .p-5-lef-xs {
+          padding-left: 5px !important;
+        }
+        .p-10-xs {
+          padding: 10px !important;
+        }
+        .p-10-ver-xs {
+          padding-top: 10px !important;
+          padding-bottom: 10px;
+        }
+        .p-10-hor-xs {
+          padding-right: 10px !important;
+          padding-left: 10px !important;
+        }
+        .p-10-top-xs {
+          padding-top: 10px !important;
+        }
+        .p-10-rig-xs {
+          padding-right: 10px !important;
+        }
+        .p-10-bot-xs {
+          padding-bottom: 10px !important;
+        }
+        .p-10-lef-xs {
+          padding-left: 10px !important;
+        }
+        .p-13-xs {
+          padding: 13px !important;
+        }
+        .p-13-ver-xs {
+          padding-top: 13px !important;
+          padding-bottom: 13px;
+        }
+        .p-13-hor-xs {
+          padding-right: 13px !important;
+          padding-left: 13px !important;
+        }
+        .p-13-top-xs {
+          padding-top: 13px !important;
+        }
+        .p-13-rig-xs {
+          padding-right: 13px !important;
+        }
+        .p-13-bot-xs {
+          padding-bottom: 13px !important;
+        }
+        .p-13-lef-xs {
+          padding-left: 13px !important;
+        }
+        .p-15-xs {
+          padding: 15px !important;
+        }
+        .p-15-ver-xs {
+          padding-top: 15px !important;
+          padding-bottom: 15px;
+        }
+        .p-15-hor-xs {
+          padding-right: 15px !important;
+          padding-left: 15px !important;
+        }
+        .p-15-top-xs {
+          padding-top: 15px !important;
+        }
+        .p-15-rig-xs {
+          padding-right: 15px !important;
+        }
+        .p-15-bot-xs {
+          padding-bottom: 15px !important;
+        }
+        .p-15-lef-xs {
+          padding-left: 15px !important;
+        }
+        .p-20-xs {
+          padding: 20px !important;
+        }
+        .p-20-ver-xs {
+          padding-top: 20px !important;
+          padding-bottom: 20px;
+        }
+        .p-20-hor-xs {
+          padding-right: 20px !important;
+          padding-left: 20px !important;
+        }
+        .p-20-top-xs {
+          padding-top: 20px !important;
+        }
+        .p-20-rig-xs {
+          padding-right: 20px !important;
+        }
+        .p-20-bot-xs {
+          padding-bottom: 20px !important;
+        }
+        .p-20-lef-xs {
+          padding-left: 20px !important;
+        }
+        .p-25-xs {
+          padding: 25px !important;
+        }
+        .p-25-ver-xs {
+          padding-top: 25px !important;
+          padding-bottom: 25px;
+        }
+        .p-25-hor-xs {
+          padding-right: 25px !important;
+          padding-left: 25px !important;
+        }
+        .p-25-top-xs {
+          padding-top: 25px !important;
+        }
+        .p-25-rig-xs {
+          padding-right: 25px !important;
+        }
+        .p-25-bot-xs {
+          padding-bottom: 25px !important;
+        }
+        .p-25-lef-xs {
+          padding-left: 25px !important;
+        }
+        .p-30-xs {
+          padding: 30px !important;
+        }
+        .p-30-ver-xs {
+          padding-top: 30px !important;
+          padding-bottom: 30px;
+        }
+        .p-30-hor-xs {
+          padding-right: 30px !important;
+          padding-left: 30px !important;
+        }
+        .p-30-top-xs {
+          padding-top: 30px !important;
+        }
+        .p-30-rig-xs {
+          padding-right: 30px !important;
+        }
+        .p-30-bot-xs {
+          padding-bottom: 30px !important;
+        }
+        .p-30-lef-xs {
+          padding-left: 30px !important;
+        }
+        .p-35-xs {
+          padding: 35px !important;
+        }
+        .p-35-ver-xs {
+          padding-top: 35px !important;
+          padding-bottom: 35px;
+        }
+        .p-35-hor-xs {
+          padding-right: 35px !important;
+          padding-left: 35px !important;
+        }
+        .p-35-top-xs {
+          padding-top: 35px !important;
+        }
+        .p-35-rig-xs {
+          padding-right: 35px !important;
+        }
+        .p-35-bot-xs {
+          padding-bottom: 35px !important;
+        }
+        .p-35-lef-xs {
+          padding-left: 35px !important;
+        }
+        .p-40-xs {
+          padding: 40px !important;
+        }
+        .p-40-ver-xs {
+          padding-top: 40px !important;
+          padding-bottom: 40px;
+        }
+        .p-40-hor-xs {
+          padding-right: 40px !important;
+          padding-left: 40px !important;
+        }
+        .p-40-top-xs {
+          padding-top: 40px !important;
+        }
+        .p-40-rig-xs {
+          padding-right: 40px !important;
+        }
+        .p-40-bot-xs {
+          padding-bottom: 40px !important;
+        }
+        .p-40-lef-xs {
+          padding-left: 40px !important;
+        }
+        .container {
+          width: 100% !important;
+        }
+        .container__content {
+          padding-right: 0 !important;
+          padding-left: 0 !important;
+        }
+        .hidden--xs {
+          display: none !important;
+          opacity: 0 !important;
+          height: 0 !important;
+          font-size: 0 !important;
+          line-height: 0 !important;
+        }
+        .app {
+          padding: 10px 20px !important;
+        }
+        .app__banner,
+        .app__banner__container,
+        .app__content {
+          display: table !important;
+          width: 100% !important;
+        }
+        .app__content__download,
+        .app__content__text,
+        .app__content__title {
+          text-align: center !important;
+        }
+        .app__content__title {
+          padding-top: 0 !important;
+          padding-right: 0 !important;
+        }
+        .app__content__text {
+          height: auto !important;
+          padding-bottom: 15px !important;
+        }
+        .app__banner__container {
+          padding-top: 20px !important;
+        }
+        .btn {
+          line-height: 50px !important;
+        }
+        .btn--block-xs {
+          width: 100% !important;
+        }
+        .btn--block-xs .btn__container,
+        .btn--block-xs .btn__container__link {
+          width: 100% !important;
+        }
+        .btn__container,
+        .btn__container__link {
+          border-radius: 50px !important;
+        }
+        .btn__container {
+          line-height: 50px !important;
+        }
+        .btn__container__link {
+          line-height: 48px !important;
+        }
+        .cart {
+          padding-bottom: 0 !important;
+          border-radius: 0 !important;
+          border-right: 0 !important;
+          border-left: 0 !important;
+        }
+        .cart-container {
+          padding-bottom: 10px !important;
+        }
+        .cart__footer__installments,
+        .cart__footer__tax-value,
+        .cart__footer__tickets-value,
+        .cart__footer__total-value,
+        .cart__footer__value,
+        .cart__header__installments,
+        .cart__header__tax-value,
+        .cart__header__tickets-value,
+        .cart__header__total-value,
+        .cart__header__value,
+        .cart__item__installments,
+        .cart__item__tax-value,
+        .cart__item__tickets-value,
+        .cart__item__total-value,
+        .cart__item__value {
+          padding-right: 15px !important;
+        }
+        .cart__footer__installments,
+        .cart__footer__qtty,
+        .cart__footer__session,
+        .cart__footer__tax,
+        .cart__footer__ticket,
+        .cart__footer__tickets,
+        .cart__footer__total,
+        .cart__footer__type,
+        .cart__header__installments,
+        .cart__header__qtty,
+        .cart__header__session,
+        .cart__header__tax,
+        .cart__header__ticket,
+        .cart__header__tickets,
+        .cart__header__total,
+        .cart__header__type,
+        .cart__item__installments,
+        .cart__item__qtty,
+        .cart__item__session,
+        .cart__item__tax,
+        .cart__item__ticket,
+        .cart__item__tickets,
+        .cart__item__total,
+        .cart__item__type {
+          padding-left: 15px !important;
+        }
+        .cart__header__qtty,
+        .cart__header__ticket,
+        .cart__header__value {
+          padding-top: 10px !important;
+          padding-bottom: 9px !important;
+        }
+        .cart__item__qtty,
+        .cart__item__ticket,
+        .cart__item__value {
+          padding-top: 14px !important;
+        }
+        .cart__item__session {
+          padding-top: 5px !important;
+          padding-bottom: 11px !important;
+        }
+        .cart__item__session__label {
+          width: 185px !important;
+        }
+        .cart__item__session__label .label__prefix {
+          width: 52px !important;
+        }
+        .cart__footer__spacer-xs {
+          display: table-cell !important;
+        }
+        .cart__footer__tickets,
+        .cart__footer__tickets-value {
+          padding-top: 24px !important;
+        }
+        .cart__footer__total-value {
+          font-size: 20px !important;
+        }
+        .cart-resume {
+          font-size: 16px !important;
+          text-align: center !important;
+        }
+        .content {
+          padding-right: 30px !important;
+          padding-left: 30px !important;
+        }
+        .content--lg,
+        .content--md {
+          padding-right: 30px !important;
+          padding-left: 30px !important;
+        }
+        .event {
+          padding: 20px 0 !important;
+        }
+        .event__poster__link__image {
+          width: 100px !important;
+          height: 135px !important;
+          min-height: 135px !important;
+        }
+        .event__info,
+        .event__poster {
+          display: block !important;
+          width: 100% !important;
+        }
+        .event__info {
+          padding: 10px 0 5px !important;
+        }
+        .event__info__title {
+          font-size: 20px !important;
+        }
+        .event__info__address {
+          font-size: 16px !important;
+        }
+        .event__info__action {
+          padding: 35px 0 5px !important;
+        }
+        .events__item {
+          display: table !important;
+          width: 100% !important;
+        }
+        .events__item__spacer {
+          width: 10px !important;
+        }
+        .events__item__action {
+          padding-top: 5px !important;
+        }
+        .events__item__action .btn__container__link {
+          width: 220px !important;
+        }
+        .events-container {
+          text-align: center;
+        }
+        .events-container .events:last-of-type tr:last-of-type .events__row=
+ {
+          border-radius: 0 !important;
+        }
+        .featured-event__poster__image {
+          border-radius: 0 !important;
+        }
+        .footer {
+          padding: 25px 20px !important;
+          font-size: 12px !important;
+        }
+        .footer__legal {
+          padding-bottom: 10px !important;
+        }
+        .footer__copyright__br {
+          display: block !important;
+        }
+        .footer--newsletter {
+          padding-bottom: 5px !important;
+        }
+        .hero {
+          padding: 25px 15px !important;
+        }
+        .hero--condensed {
+          padding: 10px 15px !important;
+        }
+        .hero__title {
+          font-size: 28px !important;
+          line-height: 30px !important;
+          font-weight: 700;
+          margin: 0 auto;
+        }
+        .label {
+          border-radius: 4px !important;
+        }
+        .label td {
+          font-size: 14px !important;
+          line-height: 28px !important;
+        }
+        .label--prefixed td.label__prefix {
+          border-radius: 4px 0 0 4px !important;
+        }
+        .label--prefixed td.label__content {
+          border-radius: 0 4px 4px 0 !important;
+        }
+        .message {
+          line-height: 15px !important;
+          padding-top: 5px !important;
+          padding-bottom: 5px !important;
+        }
+        .segment__content {
+          padding-right: 20px !important;
+          padding-left: 20px !important;
+        }
+        .segment__content--stretch-xs {
+          padding-right: 0 !important;
+          padding-left: 0 !important;
+        }
+        .warning {
+          p-top: 25px !important;
+        }
+        .warning + .warning {
+          p-top: 5px !important;
+        }
+        .unsub {
+          padding-right: 20px !important;
+          padding-left: 20px !important;
+        }
+        .default {
+          background-color: #fff !important;
+        }
+        .adv-container {
+          padding-top: 10px !important;
+        }
+        .adv__container {
+          text-align: center !important;
+          border-radius: 0 !important;
+        }
+        .adv__banner {
+          width: 100% !important;
+        }
+        .adv__banner__container__link__image {
+          max-width: 600px !important;
+          border-radius: 0 !important;
+        }
+      }
+    </style>
+  </head>
+  <body class=3D"default" style=3D"
+      font-family: -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-s=
+erif;
+      font-size: 16px;
+      line-height: 20px;
+      padding: 0;
+      margin: 0;
+      background-color: #dddfe0;
+    ">
+    <table class=3D"container" align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 660px;
+      " width=3D"660">
+      <tbody style=3D"-webkit-box-sizing: border-box; box-sizing: border-bo=
+x">
+        <tr class=3D"hidden--xs" style=3D"-webkit-box-sizing: border-box; b=
+ox-sizing: border-box">
+          <td class=3D"spacer" style=3D"
+              -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              font-family: -apple-system, BlinkMacSystemFont, Roboto, Arial=
+,
+                sans-serif;
+              height: 49px;
+              font-size: 5px;
+              line-height: 5px;
+              padding: 0;
+              margin: 0;
+            " height=3D"49">
+            =C2=A0
+          </td>
+        </tr>
+        <tr style=3D"-webkit-box-sizing: border-box; box-sizing: border-box=
+">
+          <td class=3D"container__content" style=3D"
+              -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              font-family: -apple-system, BlinkMacSystemFont, Roboto, Arial=
+,
+                sans-serif;
+              font-size: 16px;
+              line-height: 20px;
+              padding: 0;
+              padding-right: 30px;
+              padding-left: 30px;
+            ">
+            <div class=3D"segment segment--with-shadow bg--white" style=3D"
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                background-color: #fff;
+                color: #2d2d2d;
+                display: block;
+                width: 100%;
+                border-radius: 8px;
+                -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+                box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+              ">
+              <table class=3D"top-bar" cellspacing=3D"0" border=3D"0" style=
+=3D"
+                  -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+                  width: 100%;
+                " width=3D"100%">
+                <tbody style=3D"-webkit-box-sizing: border-box; box-sizing:=
+ border-box">
+                  <tr style=3D"
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                    ">
+                    <td class=3D"top-bar__logo" align=3D"center" valign=3D"=
+middle" style=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                        font-family: -apple-system, BlinkMacSystemFont, Rob=
+oto,
+                          Arial, sans-serif;
+                        font-size: 16px;
+                        line-height: 20px;
+                        padding: 0;
+                      ">
+                      <a href=3D"http://click.ingresse.com/track/click/3000=
+4977/www.ingresse.com?p=3DeyJzIjoiUkhZQVdPWDVucUVNRC16NWltQ3BhR2c3Yk9BIiwid=
+iI6MSwicCI6IntcInVcIjozMDAwNDk3NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxc=
+L3d3dy5pbmdyZXNzZS5jb21cIixcImlkXCI6XCI2NTM3YjA5NTJjNzU0ZmIxYmMwNDYwOGZkZjk=
+yNGU0OFwiLFwidXJsX2lkc1wiOltcIjE5ZDU5OTg0MjNlODJkNjk4MzI0MzBlNWQ1MGI4YjU3OG=
+U2MzliYjRcIl19In0" target=3D"_blank" title=3D"Ingresse" class=3D"link text-=
+white top-bar__link" style=3D"
+                          -webkit-box-sizing: border-box;
+                          box-sizing: border-box;
+                          color: #fff;
+                          display: inline-block;
+                          padding: 18px 20px;
+                          text-decoration: none;
+                        ">
+                    
+                        <img class=3D"top-bar__image" src=3D"https://ingres=
+se-webstatic.s3.amazonaws.com/images/company/logo/4385019076133b5eaa38a92.5=
+9909883/small.jpg" loading=3D"lazy" alt=3D"Ingresse" border=3D"0" width=3D"=
+40" height=3D"40" style=3D"
+                            -webkit-box-sizing: border-box;
+                            box-sizing: border-box;
+                            display: block;
+                            margin: 0 auto;
+                            width: 40px;
+                            height: 40px;
+                          ">
+                      
+                    </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class=3D"hero hero--condensed transfer" style=3D"
+                  -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+                  display: block;
+                  text-align: center;
+                  background-color: #f8f8f8;
+                  padding: 10px 20px;
+                  width: 100%;
+                ">
+                <h1 class=3D"hero__title text-upper text-center" style=3D"
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                    font-size: 28px;
+                    line-height: 30px;
+                    font-weight: 700;
+                    margin: 0;
+                    text-align: center;
+                    text-transform: uppercase;
+                    padding: 11px 0 9px;
+                    color: #2d2d2d;
+                  ">
+                  <strong style=3D"
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      font-weight: 500;
+                    ">Richard Harrison<br style=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                      ">aceitou seu ingresso
+                </strong></h1>
+                <table class=3D"transfer__table" align=3D"center" cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0" style=3D"
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                    width: 100%;
+                    border-collapse: collapse;
+                  " width=3D"100%">
+                  <tbody style=3D"
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                    ">
+                    <tr style=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                      ">
+                      <td class=3D"transfer__user p-10-top" align=3D"center=
+" valign=3D"middle" style=3D"
+                          -webkit-box-sizing: border-box;
+                          box-sizing: border-box;
+                          font-family: -apple-system, BlinkMacSystemFont, R=
+oboto,
+                            Arial, sans-serif;
+                          font-size: 16px;
+                          padding: 0;
+                          padding-top: 10px;
+                          line-height: 0;
+                        ">
+                        <img class=3D"transfer__user__img" src=3D"https://d=
+pz4c7q921os3.cloudfront.net/images/friends-list/user_no_picture.png" width=
+=3D"60" height=3D"60" style=3D"
+                            -webkit-box-sizing: border-box;
+                            box-sizing: border-box;
+                            width: 60px;
+                            height: 60px;
+                            margin: 0;
+                            border-radius: 50%;
+                            background-image: url(https://dpz4c7q921os3.clo=
+udfront.net/images/friends-list/user_no_picture.png);
+                            background-color: #fff;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: contain;
+                          ">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class=3D"content p-30-ver text-center" style=3D"
+                  -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+                  padding-top: 30px;
+                  padding-bottom: 30px;
+                  padding-right: 30px;
+                  padding-left: 30px;
+                  text-align: center;
+                ">
+                <div class=3D"transfer-event" style=3D"-webkit-box-sizing: =
+border-box; box-sizing: border-box">
+                  <table class=3D"transfer-event__table" align=3D"center" c=
+ellspacing=3D"0" border=3D"0" width=3D"234" style=3D"
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      border-collapse: collapse;
+                    ">
+                    <tbody style=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                      ">
+                      <tr style=3D"
+                          -webkit-box-sizing: border-box;
+                          box-sizing: border-box;
+                        ">
+                        <td class=3D"transfer-event__table__poster" align=
+=3D"center" valign=3D"middle" style=3D"
+                            -webkit-box-sizing: border-box;
+                            box-sizing: border-box;
+                            font-family: -apple-system, BlinkMacSystemFont,
+                              Roboto, Arial, sans-serif;
+                            font-size: 16px;
+                            background-color: #fff;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: contain;
+                            padding: 10px 26px;
+                            line-height: 0;
+                          ">
+                          <img class=3D"transfer-event__table__poster__img"=
+ width=3D"172.5" height=3D"230" src=3D"https://event-kraken.s3.amazonaws.co=
+m/event/posters/68860/medium.jpg" style=3D"
+                              -webkit-box-sizing: border-box;
+                              box-sizing: border-box;
+                              background-repeat: no-repeat;
+                              background-position: center;
+                              background-size: contain;
+                              border-radius: 8px;
+                              background-color: #f8f8f8;
+                              background-image: url(https://event-kraken.s3=
+.amazonaws.com/event/posters/default/medium.jpg);
+                            ">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class=3D"content p-5-top p-15-bot text-center" style=
+=3D"
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      padding-top: 5px;
+                      padding-bottom: 15px;
+                      padding-right: 30px;
+                      padding-left: 30px;
+                      text-align: center;
+                    ">
+                    <h2 class=3D"sub title text-center" style=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                        text-align: center;
+                        line-height: 30px;
+                        margin: 0;
+                        font-weight: 400;
+                        font-size: 20px;
+                        padding: 0;
+                      ">
+                      <strong style=3D"
+                          -webkit-box-sizing: border-box;
+                          box-sizing: border-box;
+                          font-weight: 500;
+                        ">PRIVIL=C3=88GE FESTIVAL CARNAVAL - RIO DE JANEIRO
+                    </strong></h2>
+                    <h3 class=3D"sub title text-center text--dark-grey" sty=
+le=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                        color: #7a8085;
+                        text-align: center;
+                        line-height: 30px;
+                        margin: 0;
+                        font-weight: 400;
+                        font-size: 20px;
+                        padding: 0;
+                      ">
+                      10/02/2024 =C3=A0s 19:00
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class=3D"app" style=3D"
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                padding-top: 30px;
+              ">
+              <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=
+=3D"app__content" style=3D"
+                  -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+                  display: inline-block;
+                  vertical-align: middle;
+                  width: 350px;
+                " width=3D"350">
+                <tr style=3D"-webkit-box-sizing: border-box; box-sizing: bo=
+rder-box">
+                  <td class=3D"app__content__title" style=3D"
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      font-family: -apple-system, BlinkMacSystemFont, Robot=
+o,
+                        Arial, sans-serif;
+                      font-size: 16px;
+                      line-height: 20px;
+                      padding: 0;
+                      padding-top: 15px;
+                      padding-right: 15px;
+                    ">
+                    <h2 class=3D"title text--black" style=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                        color: #2d2d2d;
+                        font-weight: 500;
+                        margin: 0;
+                        padding: 11px 0 9px;
+                        font-size: 20px;
+                        line-height: 25px;
+                      ">
+                      No dia do evento, mostre os ingressos no celular!
+                    </h2>
+                  </td>
+                </tr>
+                <tr style=3D"-webkit-box-sizing: border-box; box-sizing: bo=
+rder-box">
+                  <td class=3D"app__content__text text--dark-grey" style=3D=
+"
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      font-family: -apple-system, BlinkMacSystemFont, Robot=
+o,
+                        Arial, sans-serif;
+                      font-size: 16px;
+                      line-height: 20px;
+                      padding: 0;
+                      color: #7a8085;
+                      padding-top: 20px;
+                      padding-bottom: 20px;
+                    ">
+                    Baixe o aplicativo e acesse seus ingressos com a sua co=
+nta
+                    da Ingresse.<br style=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                      "><br style=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                      ">Deseja encaminhar o ingresso para um amigo?<br styl=
+e=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                      "><br style=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                      ">Caso esteja dispon=C3=ADvel, transfira diretamente =
+da sua
+                    carteira pelo app ou site da Ingresse na p=C3=A1gina =
+=E2=80=98Meus
+                    Ingressos=E2=80=99.
+                  </td>
+                </tr>
+                <tr style=3D"-webkit-box-sizing: border-box; box-sizing: bo=
+rder-box">
+                  <td class=3D"app__content__download text--dark-grey" styl=
+e=3D"
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      font-family: -apple-system, BlinkMacSystemFont, Robot=
+o,
+                        Arial, sans-serif;
+                      font-size: 16px;
+                      line-height: 20px;
+                      padding: 0;
+                      color: #7a8085;
+                    ">
+                    <strong style=3D"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                        font-weight: 500;
+                      ">Baixe na
+                      <a class=3D"link text--blue" style=3D"-webkit-box-siz=
+ing:border-box;box-sizing:border-box;color:#00a5db;text-decoration:none" ta=
+rget=3D"_blank" title=3D"Aplicativo Ingresse para iOS na App Store" href=3D=
+"http://click.ingresse.com/track/click/30004977/itunes.apple.com?p=3DeyJzIj=
+oia3pHSzA4VUtNM09DaW0zRUkydTlpTUpiZ0U0IiwidiI6MSwicCI6IntcInVcIjozMDAwNDk3N=
+yxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL2l0dW5lcy5hcHBsZS5jb21cXFwvYnJc=
+XFwvYXBwXFxcL2luZ3Jlc3NlLWluZ3Jlc3Nvcy1wYXJhLWV2ZW50b3NcXFwvaWQ4MTUzNTk3NjA=
+_bXQ9OFwiLFwiaWRcIjpcIjY1MzdiMDk1MmM3NTRmYjFiYzA0NjA4ZmRmOTI0ZTQ4XCIsXCJ1cm=
+xfaWRzXCI6W1wiMjExMzVmZjUzMDg3ZGYwODBlNWI3YjBlYjBmNGRlMGFlODVjYjE4MlwiXX0if=
+Q">App Store e
+                      <a class=3D"link text--blue" style=3D"-webkit-box-siz=
+ing:border-box;box-sizing:border-box;color:#00a5db;text-decoration:none" ta=
+rget=3D"_blank" title=3D"Aplicativo Ingresse para Android na Google Play" h=
+ref=3D"http://click.ingresse.com/track/click/30004977/play.google.com?p=3De=
+yJzIjoiNk8tVkI4Y2lLRlU3OVdPUlBqQ1ZkTEZZQTNBIiwidiI6MSwicCI6IntcInVcIjozMDAw=
+NDk3NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3BsYXkuZ29vZ2xlLmNvbVxcXC9=
+zdG9yZVxcXC9hcHBzXFxcL2RldGFpbHM_aWQ9Y29tLmluZ3Jlc3NlLnRpY2tldGJvb3RoXCIsXC=
+JpZFwiOlwiNjUzN2IwOTUyYzc1NGZiMWJjMDQ2MDhmZGY5MjRlNDhcIixcInVybF9pZHNcIjpbX=
+CJhZGEyYzFiZjNlZWYwMDI0NzAzYjJiNTdmMmNmMjc3YTU2MDIyYjU1XCJdfSJ9">PlayStore
+                  </a></a></strong></td>
+                </tr>
+              </table>
+              <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=
+=3D"app__banner" style=3D"
+                  -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+                  display: inline-block;
+                  vertical-align: middle;
+                  width: 245px;
+                " width=3D"245">
+                <tr style=3D"-webkit-box-sizing: border-box; box-sizing: bo=
+rder-box">
+                  <td class=3D"app__banner__container" style=3D"
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      font-family: -apple-system, BlinkMacSystemFont, Robot=
+o,
+                        Arial, sans-serif;
+                      font-size: 16px;
+                      padding: 0;
+                      width: 245px;
+                      line-height: 0;
+                      text-align: center;
+                    " width=3D"245">
+                    <a class=3D"app__banner__container__link" target=3D"_bl=
+ank" title=3D"Aplicativo Ingresse para iOS na App Store" href=3D"http://cli=
+ck.ingresse.com/track/click/30004977/itunes.apple.com?p=3DeyJzIjoia3pHSzA4V=
+UtNM09DaW0zRUkydTlpTUpiZ0U0IiwidiI6MSwicCI6IntcInVcIjozMDAwNDk3NyxcInZcIjox=
+LFwidXJsXCI6XCJodHRwczpcXFwvXFxcL2l0dW5lcy5hcHBsZS5jb21cXFwvYnJcXFwvYXBwXFx=
+cL2luZ3Jlc3NlLWluZ3Jlc3Nvcy1wYXJhLWV2ZW50b3NcXFwvaWQ4MTUzNTk3NjA_bXQ9OFwiLF=
+wiaWRcIjpcIjY1MzdiMDk1MmM3NTRmYjFiYzA0NjA4ZmRmOTI0ZTQ4XCIsXCJ1cmxfaWRzXCI6W=
+1wiMjExMzVmZjUzMDg3ZGYwODBlNWI3YjBlYjBmNGRlMGFlODVjYjE4MlwiXX0ifQ" style=3D=
+"
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                        display: inline-block;
+                        line-height: 0;
+                      "><img class=3D"app__banner__container__link__image" =
+loading=3D"lazy" alt=3D"Aplicativo Ingresse" src=3D"https://s3.amazonaws.co=
+m/ingresse-static/emails/ingresse-app--my-tickets.png" style=3D"
+                          -webkit-box-sizing: border-box;
+                          box-sizing: border-box;
+                          width: 220px;
+                          min-height: 320px;
+                          border: none;
+                        " width=3D"220"></a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            
+            <div class=3D"footer" style=3D"
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                padding: 27px 0 28px;
+                font-size: 10px;
+                line-height: 15px;
+                text-align: center;
+              ">
+              
+              <div class=3D"footer__legal text-dark-grey" style=3D"
+                  -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+                  color: #7a8085;
+                  text-transform: uppercase;
+                  padding-bottom: 5px;
+                ">
+                <a class=3D"link text--blue" style=3D"-webkit-box-sizing:bo=
+rder-box;box-sizing:border-box;color:#00a5db;text-decoration:none" target=
+=3D"_blank" title=3D"Leia nossos Termos de Servi=C3=A7o" href=3D"http://cli=
+ck.ingresse.com/track/click/30004977/sobre.ingresse.com?p=3DeyJzIjoiVVdWeEN=
+DZ0prU0M3V0QxTVE1TF9obEV4aHJzIiwidiI6MSwicCI6IntcInVcIjozMDAwNDk3NyxcInZcIj=
+oxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3NvYnJlLmluZ3Jlc3NlLmNvbVxcXC90ZXJtb3MtZ=
+GUtc2Vydmljb1wiLFwiaWRcIjpcIjY1MzdiMDk1MmM3NTRmYjFiYzA0NjA4ZmRmOTI0ZTQ4XCIs=
+XCJ1cmxfaWRzXCI6W1wiNjUyM2NlZjE4MzM3ZDA5Mjc5YmU2YTFmNzhiMzQ3Nzg5ZjUwNjg1Zlw=
+iXX0ifQ">Termos de Servi=C3=A7o &
+                <a class=3D"link text--blue" style=3D"-webkit-box-sizing:bo=
+rder-box;box-sizing:border-box;color:#00a5db;text-decoration:none" target=
+=3D"_blank" title=3D"Leia nossas Pol=C3=ADticas de Privacidade" href=3D"htt=
+p://click.ingresse.com/track/click/30004977/sobre.ingresse.com?p=3DeyJzIjoi=
+TU50Ni1EMDJkWGJwZGMya2NLU2J2Ti1ZVWo4IiwidiI6MSwicCI6IntcInVcIjozMDAwNDk3Nyx=
+cInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3NvYnJlLmluZ3Jlc3NlLmNvbVxcXC90ZX=
+Jtb3MtZGUtcHJpdmFjaWRhZGVcIixcImlkXCI6XCI2NTM3YjA5NTJjNzU0ZmIxYmMwNDYwOGZkZ=
+jkyNGU0OFwiLFwidXJsX2lkc1wiOltcImM4MTk2MDMxZjI5ZDM4YjRkMDcwMDg4NDYwZWYyZDc5=
+OWI2ZDQwZWVcIl19In0">Pol=C3=ADticas de Privacidade
+              </a></a></div>
+              
+              <div class=3D"footer__copyright text-dark-grey" style=3D"
+                  -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+                  color: #7a8085;
+                ">
+                Copyright =C2=A9 2019 Ingresse,<br class=3D"footer__copyrig=
+ht__br" style=3D"
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                    display: none;
+                  ">Todos os direitos reservados
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr style=3D"-webkit-box-sizing: border-box; box-sizing: border-box=
+">
+          <td class=3D"spacer" style=3D"
+              -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              font-family: -apple-system, BlinkMacSystemFont, Roboto, Arial=
+,
+                sans-serif;
+              height: 11px;
+              font-size: 5px;
+              line-height: 5px;
+              padding: 0;
+              margin: 0;
+            " height=3D"11">
+            =C2=A0
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <img src=3D"http://click.ingresse.com/track/open.php?u=3D30004977&id=3D65=
+37b0952c754fb1bc04608fdf924e48" height=3D"1" width=3D"1" alt=3D""></body>
+</html>
+
+--_av-dKRLWaMV9BDakMLhODV_OQ--
+

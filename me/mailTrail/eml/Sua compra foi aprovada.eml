@@ -1,0 +1,576 @@
+Delivered-To: aunermoncada+rj@gmail.com
+Received: by 2002:a2e:9f09:0:b0:2d0:ad09:251 with SMTP id u9csp1250991ljk;
+        Sat, 10 Feb 2024 17:11:57 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFLRJVB81yVpWTyEz9holszZjEM/ZCb+N00hjh5Xd9KgX2C7dIMDYbSnHmnqZOaFSVCJK2Y
+X-Received: by 2002:a05:6358:590a:b0:178:b0c6:577b with SMTP id g10-20020a056358590a00b00178b0c6577bmr3303567rwf.2.1707613916664;
+        Sat, 10 Feb 2024 17:11:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1707613916; cv=none;
+        d=google.com; s=arc-20160816;
+        b=WNinD1rwTtI8xqjFLTwLkie3hpP6axWraI/V/sBdBsuG4fonMLyY8xfnLsl6NzUAp/
+         asojrIvANtX4UhsFKxkV2KnTSAD++R71RlM14pIbCjRW7uc3GvhGS95v39pkm6CuLHaV
+         fzBeOw4zub1hVPqpUesF0rr4A8XPKQPdYmbvJHltNrlV38FqcEq3dEGOGXfWj2QEqEJM
+         nHboqj0ehuGluHDG3uTfVYnAodnhZ5VPwJJYUzvuei3y2mKmpOL5DxZgxIlegmcMknn1
+         9+A7GzK/DL5wd4aZgytCM6LBJK5U83i8EVxK1+szpn5sXXddVxwVScwBcP0EIfi+Jn7U
+         78MA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:date:message-id:feedback-id:to:subject:from
+         :dkim-signature:dkim-signature;
+        bh=1ekTg8BMNAzx+MobeIX9YPCpAt5PgcBbLZd9CzeE06Q=;
+        fh=ZhsTUqZRw1uw4s81AYzALkctuz1ELL80G/sNJScpOy4=;
+        b=JDXgHuWseESi4H++CNS0NmwfmEFho8Nno0iyNoz/WWHoI5CnftLHgdViyn6P04ObGk
+         RKEM4cGt1nNYc9rzncfkP89yiaqJCcGibQy9m8JEYOwDXYi/xOzcZy5N8B7TCb3vMYyS
+         TDyPri4zvenjy64oHqPfqr5OWzQxdxXTooDgETOrySnJztFvkoFptHcvjebVE77VcYpY
+         UEwmpr0nRgUlc9WOK6eZbeUvNU2N3Y9nnuCcliWVcnW0FTjcxOtkxnpmgIX2aA0L2jSr
+         UqoZ++dJ8u16HVKcDOIC+dp6xLV4iuAvLvGaE091tpFGzIYu4TmlqTuybEXKXpmbfinA
+         LenQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mandrillapp.com header.s=mte1 header.b=rtmfSEfS;
+       dkim=pass header.i=@ingresse.com header.s=mandrill header.b=Wc8CML7B;
+       spf=pass (google.com: domain of bounce-md_30004977.65c81edc.v1-d30713183dc14dc1911cd35d57e8f83e@click.ingresse.com designates 198.2.135.19 as permitted sender) smtp.mailfrom=bounce-md_30004977.65c81edc.v1-d30713183dc14dc1911cd35d57e8f83e@click.ingresse.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ingresse.com
+Return-Path: <bounce-md_30004977.65c81edc.v1-d30713183dc14dc1911cd35d57e8f83e@click.ingresse.com>
+Received: from mail135-19.atl141.mandrillapp.com (mail135-19.atl141.mandrillapp.com. [198.2.135.19])
+        by mx.google.com with ESMTPS id z17-20020a0dd711000000b006048262be37si1118225ywd.491.2024.02.10.17.11.56
+        for <aunermoncada+rj@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 10 Feb 2024 17:11:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-md_30004977.65c81edc.v1-d30713183dc14dc1911cd35d57e8f83e@click.ingresse.com designates 198.2.135.19 as permitted sender) client-ip=198.2.135.19;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mandrillapp.com header.s=mte1 header.b=rtmfSEfS;
+       dkim=pass header.i=@ingresse.com header.s=mandrill header.b=Wc8CML7B;
+       spf=pass (google.com: domain of bounce-md_30004977.65c81edc.v1-d30713183dc14dc1911cd35d57e8f83e@click.ingresse.com designates 198.2.135.19 as permitted sender) smtp.mailfrom=bounce-md_30004977.65c81edc.v1-d30713183dc14dc1911cd35d57e8f83e@click.ingresse.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ingresse.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com;
+	s=mte1; t=1707613916; x=1707874416;
+	bh=1ekTg8BMNAzx+MobeIX9YPCpAt5PgcBbLZd9CzeE06Q=;
+	h=From:Subject:To:Feedback-ID:Message-Id:Date:MIME-Version:
+	 Content-Type:CC:Date:Subject:From;
+	b=rtmfSEfSzjBO/GECOOJ8vkmfzzqztEAmoBu0ntVIL3SrZuYcpZckyHSgb4z6mcMMl
+	 TM34yOVdt4VXTha2UxmzFXmd8OBk7yBA5AWwURqr5zadvRM26+wH0VkbvZ7A39jJut
+	 ZgRFD0FELJkTOV5U5R0RMhzkI+O0mTzhR9hQSbT1WP7C/Sqgu311b4tEhvH8Mks8Ab
+	 Y7of/4Uvqc3HK/VfBuXx/XsSGz+bVY7X3/sqpRIeBRe6kc4/2C2QuqHJZdjJF6YzzV
+	 BPoXZnD6vZsUCL0HpoqHZoaferAfcU/hnjeUFE5AsI2s7wgnXcVwYgiOuunz7YCwVY
+	 sOBDYq/Te11Iw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ingresse.com;
+	s=mandrill; t=1707613916; x=1707874416; i=contato@ingresse.com;
+	bh=1ekTg8BMNAzx+MobeIX9YPCpAt5PgcBbLZd9CzeE06Q=;
+	h=From:Subject:To:Feedback-ID:Message-Id:Date:MIME-Version:
+	 Content-Type:CC:Date:Subject:From;
+	b=Wc8CML7BbAVAw0/6eQ7/BJGC8THPkCHe5wspagNGqlakTX+jCUjl3Zc2E3GZWlhW4
+	 UUQfhlls/DKISh41KgR0eFTQvjtLBQxZec2Ih1X8drjVCdOGKUKV4ej19C4PqCseld
+	 qsk1SMurixlQ1nQWujFr3JPyx3+vN++rSkquBs48=
+Received: from pmta14.mandrill.prod.atl01.rsglab.com (localhost [127.0.0.1])
+	by mail135-19.atl141.mandrillapp.com (Mailchimp) with ESMTP id 4TXV182YfTz19D
+	for <aunermoncada+rj@gmail.com>; Sun, 11 Feb 2024 01:11:56 +0000 (GMT)
+From: Ingresse <contato@ingresse.com>
+Subject: =?utf-8?Q?Sua=20compra=20foi=20aprovada?=
+Received: from [52.7.208.199] by mandrillapp.com id d30713183dc14dc1911cd35d57e8f83e; Sun, 11 Feb 2024 01:11:56 +0000
+To: Auner Moncada <aunermoncada+rj@gmail.com>
+X-Native-Encoded: 1
+X-Report-Abuse: =?UTF-8?Q?Please=20forward=20a=20copy=20of=20this=20message,=20including=20all=20headers,=20to=20abuse@mandrill.com.=20You=20can=20also=20report=20abuse=20here:=20https://mandrillapp.com/contact/abuse=3Fid=3D30004977.d30713183dc14dc1911cd35d57e8f83e?=
+X-Mandrill-User: md_30004977
+Feedback-ID: 30004977:30004977.20240211:md
+Message-Id: <30004977.20240211011156.65c81edc39c1f0.76424474@mail135-19.atl141.mandrillapp.com>
+Date: Sun, 11 Feb 2024 01:11:56 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_av--kkU4J33xBE7ZKPsx8T3-A"
+
+--_av--kkU4J33xBE7ZKPsx8T3-A
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Sua compra foi aprovada | Ingresse <https://www.ingresse.com>=3D Compra
+realizada com sucesso =3D
+<https://www.ingresse.com/privilege-festival-carnaval>
+PRIVIL=C3=88GE FESTIVAL CARNAVAL - RIO DE JANEIRO
+<https://www.ingresse.com/privilege-festival-carnaval>  MARINA DA GLORIA -
+Avenida Infante Dom Henrique, S/N 
+ Rio de Janeiro - RJ <https://maps.google.com/?q=3D-22.93032%2C-43.17306>
+VER MEUS INGRESSOS <https://www.ingresse.com/tickets>
+
+ REALIZADO EM 10/02/2024 - 18:20
+
+QTDINGRESSOSVALOR 2=C3=81rea Vip Privilege Lote 3Inteira (10%)
+R$1108,80 S=C3=A1b10/02 - 19:00  TOTAL EM INGRESSOSR$1187,30  TOTAL
+PAGOR$1187,30  
+
+*RESERVE A SUA ESTADIA*
+<https://www.stay22.com/embed/gm?aid=3Dingresse&lat=3D-22.93032&lng=3D-43.1=
+7306&maincolor=3DFFFFFF&fontcolor=3D000000&markerimage=3Dhttps://images.squ=
+arespace-cdn.com/content/v1/59d68fe3017db263203e4b79/1507233943500-PL0SQBRD=
+1YH3ZW3J4GDH/Logo%403x.png?format=3D1500w>
+
+ =3D=3D No dia do evento, mostre os ingressos no celular! =3D=3D
+
+Baixe o aplicativo e acesse seus ingressos com a sua conta da Ingresse.
+
+Deseja encaminhar o ingresso para um amigo?
+
+Caso esteja dispon=C3=ADvel, transfira diretamente da sua carteira pelo app=
+ ou
+site da Ingresse na p=C3=A1gina =E2=80=98Meus Ingressos=E2=80=99.*Baixe na =
+App Store
+<https://itunes.apple.com/br/app/ingresse-ingressos-para-eventos/id81535976=
+0?mt=3D8>e
+PlayStore
+<https://play.google.com/store/apps/details?id=3Dcom.ingresse.ticketbooth>*
+<https://itunes.apple.com/br/app/ingresse-ingressos-para-eventos/id81535976=
+0?mt=3D8>
+ Termos de Servi=C3=A7o <https://sobre.ingresse.com/termos-de-servico>&
+Pol=C3=ADticas de Privacidade
+<https://sobre.ingresse.com/termos-de-privacidade>
+Copyright =C2=A9 2022 Ingresse
+Todos os direitos reservados
+
+--_av--kkU4J33xBE7ZKPsx8T3-A
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"tex=
+t/html; charset=3Dutf-8"><meta name=3D"viewport" content=3D"width=3Ddevice-=
+width"><title>Sua compra foi aprovada | Ingresse</title><style type=3D"text=
+/css" media=3D"all">@font-face{font-family:Roboto;font-style:normal;font-we=
+ight:300;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5=
+fBBc9.ttf) format('truetype')}@font-face{font-family:Roboto;font-style:norm=
+al;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu=
+92Fr1Mu4mxP.ttf) format('truetype')}@font-face{font-family:Roboto;font-styl=
+e:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v30/KFO=
+lCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype')}@font-face{font-family:Roboto=
+;font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/robo=
+to/v30/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype')}</style><style type=
+=3D"text/css" media=3D"all">@media (max-width:639px){.container{padding:0!i=
+mportant}.container .segment{border:none!important;border-radius:0!importan=
+t}.container .segment--with-shadow{border:none!important;box-shadow:none!im=
+portant}.container .segment--with-shadow-xs{border-radius:8px!important}.co=
+ntainer{width:100%!important}.container__content{padding-right:0!important;=
+padding-left:0!important}.hidden--xs{display:none!important;opacity:0!impor=
+tant;height:0!important;font-size:0!important;line-height:0!important}.app{=
+padding:10px 20px!important}.app__banner,.app__banner__container,.app__cont=
+ent{display:table!important;width:100%!important}.app__content__download,.a=
+pp__content__text,.app__content__title{text-align:center!important}.app__co=
+ntent__title{padding-top:0!important;padding-right:0!important}.app__conten=
+t__text{height:auto!important;padding-bottom:15px!important}.app__banner__c=
+ontainer{padding-top:20px!important}.btn{line-height:50px!important}.btn--b=
+lock-xs{width:100%!important}.btn--block-xs .btn__container,.btn--block-xs =
+.btn__container__link{width:100%!important}.btn__container,.btn__container_=
+_link{border-radius:50px!important}.btn__container{line-height:50px!importa=
+nt}.btn__container__link{line-height:48px!important}.cart{padding-bottom:0!=
+important;border-radius:0!important;border-right:0!important;border-left:0!=
+important}.cart-container{padding-bottom:10px!important}.cart__footer__inst=
+allments,.cart__footer__tax-value,.cart__footer__tickets-value,.cart__foote=
+r__total-value,.cart__footer__value,.cart__header__installments,.cart__head=
+er__tax-value,.cart__header__tickets-value,.cart__header__total-value,.cart=
+__header__value,.cart__item__installments,.cart__item__tax-value,.cart__ite=
+m__tickets-value,.cart__item__total-value,.cart__item__value{padding-right:=
+15px!important}.cart__footer__installments,.cart__footer__qtty,.cart__foote=
+r__session,.cart__footer__tax,.cart__footer__ticket,.cart__footer__tickets,=
+.cart__footer__total,.cart__footer__type,.cart__header__installments,.cart_=
+_header__qtty,.cart__header__session,.cart__header__tax,.cart__header__tick=
+et,.cart__header__tickets,.cart__header__total,.cart__header__type,.cart__i=
+tem__installments,.cart__item__qtty,.cart__item__session,.cart__item__tax,.=
+cart__item__ticket,.cart__item__tickets,.cart__item__total,.cart__item__typ=
+e{padding-left:15px!important}.cart__header__qtty,.cart__header__ticket,.ca=
+rt__header__value{padding-top:10px!important;padding-bottom:9px!important}.=
+cart__item__qtty,.cart__item__ticket,.cart__item__value{padding-top:14px!im=
+portant}.cart__item__session{padding-top:5px!important;padding-bottom:11px!=
+important}.cart__item__session__label{width:185px!important}.cart__item__se=
+ssion__label .label__prefix{width:52px!important}.cart__footer__spacer-xs{d=
+isplay:table-cell!important}.cart__footer__tickets,.cart__footer__tickets-v=
+alue{padding-top:24px!important}.cart__footer__total-value{font-size:20px!i=
+mportant}.cart-resume{font-size:16px!important;text-align:center!important}=
+.content{padding-right:30px!important;padding-left:30px!important}.content-=
+-lg,.content--md{padding-right:30px!important;padding-left:30px!important}.=
+event{padding:20px 0!important}.event__poster__link__image{width:100px!impo=
+rtant;height:135px!important;min-height:135px!important}.event__info,.event=
+__poster{display:block!important;width:100%!important}.event__info{padding:=
+10px 0 5px!important}.event__info__address{font-size:16px!important}.event_=
+_info__action{padding:35px 0 5px!important}.events__item{display:table!impo=
+rtant;width:100%!important}.events__item__spacer{width:10px!important}.even=
+ts__item__action{padding-top:5px!important}.events__item__action .btn__cont=
+ainer__link{width:220px!important}.events-container{text-align:center}.even=
+ts-container .events:last-of-type tr:last-of-type .events__row{border-radiu=
+s:0!important}.featured-event__poster__image{border-radius:0!important}.foo=
+ter{padding:25px 20px!important;font-size:12px!important}.footer__legal{pad=
+ding-bottom:10px!important}.footer__copyright__br{display:block!important}.=
+footer--newsletter{padding-bottom:5px!important}.hero{padding:25px 15px!imp=
+ortant}.hero--condensed{padding:10px 15px!important}.hero__title{font-size:=
+28px!important;line-height:30px!important;font-weight:700;margin:0 auto}.la=
+bel{border-radius:4px!important}.label td{font-size:14px!important;line-hei=
+ght:28px!important}.label--prefixed td.label__prefix{border-radius:4px 0 0 =
+4px!important}.label--prefixed td.label__content{border-radius:0 4px 4px 0!=
+important}.message{line-height:15px!important;padding-top:5px!important;pad=
+ding-bottom:5px!important}.segment__content,.segment__content-padded{paddin=
+g-right:20px!important;padding-left:20px!important}.segment__content--stret=
+ch-xs,.segment__content-padded--stretch-xs{padding-right:0!important;paddin=
+g-left:0!important}.warning{p-top:25px!important}.warning+.warning{p-top:5p=
+x!important}.unsub{padding-right:20px!important;padding-left:20px!important=
+}.default{background-color:#fff!important}.adv-container{padding-top:10px!i=
+mportant}.adv__container{text-align:center!important;border-radius:0!import=
+ant}.adv__banner{width:100%!important}.adv__banner__container__link__image{=
+max-width:600px!important;border-radius:0!important}.mr__warning__figure{wi=
+dth:80px!important}.mr__steps__item{width:100%!important}.p-0-xs{padding:0!=
+important}.p-0-ver-xs{padding-top:0!important;padding-bottom:0}.p-0-hor-xs{=
+padding-right:0!important;padding-left:0!important}.p-0-top-xs{padding-top:=
+0!important}.p-0-rig-xs{padding-right:0!important}.p-0-bot-xs{padding-botto=
+m:0!important}.p-0-lef-xs{padding-left:0!important}.p-5-xs{padding:5px!impo=
+rtant}.p-5-ver-xs{padding-top:5px!important;padding-bottom:5px}.p-5-hor-xs{=
+padding-right:5px!important;padding-left:5px!important}.p-5-top-xs{padding-=
+top:5px!important}.p-5-rig-xs{padding-right:5px!important}.p-5-bot-xs{paddi=
+ng-bottom:5px!important}.p-5-lef-xs{padding-left:5px!important}.p-10-xs{pad=
+ding:10px!important}.p-10-ver-xs{padding-top:10px!important;padding-bottom:=
+10px}.p-10-hor-xs{padding-right:10px!important;padding-left:10px!important}=
+.p-10-top-xs{padding-top:10px!important}.p-10-rig-xs{padding-right:10px!imp=
+ortant}.p-10-bot-xs{padding-bottom:10px!important}.p-10-lef-xs{padding-left=
+:10px!important}.p-13-xs{padding:13px!important}.p-13-ver-xs{padding-top:13=
+px!important;padding-bottom:13px}.p-13-hor-xs{padding-right:13px!important;=
+padding-left:13px!important}.p-13-top-xs{padding-top:13px!important}.p-13-r=
+ig-xs{padding-right:13px!important}.p-13-bot-xs{padding-bottom:13px!importa=
+nt}.p-13-lef-xs{padding-left:13px!important}.p-15-xs{padding:15px!important=
+}.p-15-ver-xs{padding-top:15px!important;padding-bottom:15px}.p-15-hor-xs{p=
+adding-right:15px!important;padding-left:15px!important}.p-15-top-xs{paddin=
+g-top:15px!important}.p-15-rig-xs{padding-right:15px!important}.p-15-bot-xs=
+{padding-bottom:15px!important}.p-15-lef-xs{padding-left:15px!important}.p-=
+20-xs{padding:20px!important}.p-20-ver-xs{padding-top:20px!important;paddin=
+g-bottom:20px}.p-20-hor-xs{padding-right:20px!important;padding-left:20px!i=
+mportant}.p-20-top-xs{padding-top:20px!important}.p-20-rig-xs{padding-right=
+:20px!important}.p-20-bot-xs{padding-bottom:20px!important}.p-20-lef-xs{pad=
+ding-left:20px!important}.p-25-xs{padding:25px!important}.p-25-ver-xs{paddi=
+ng-top:25px!important;padding-bottom:25px}.p-25-hor-xs{padding-right:25px!i=
+mportant;padding-left:25px!important}.p-25-top-xs{padding-top:25px!importan=
+t}.p-25-rig-xs{padding-right:25px!important}.p-25-bot-xs{padding-bottom:25p=
+x!important}.p-25-lef-xs{padding-left:25px!important}.p-30-xs{padding:30px!=
+important}.p-30-ver-xs{padding-top:30px!important;padding-bottom:30px}.p-30=
+-hor-xs{padding-right:30px!important;padding-left:30px!important}.p-30-top-=
+xs{padding-top:30px!important}.p-30-rig-xs{padding-right:30px!important}.p-=
+30-bot-xs{padding-bottom:30px!important}.p-30-lef-xs{padding-left:30px!impo=
+rtant}.p-35-xs{padding:35px!important}.p-35-ver-xs{padding-top:35px!importa=
+nt;padding-bottom:35px}.p-35-hor-xs{padding-right:35px!important;padding-le=
+ft:35px!important}.p-35-top-xs{padding-top:35px!important}.p-35-rig-xs{padd=
+ing-right:35px!important}.p-35-bot-xs{padding-bottom:35px!important}.p-35-l=
+ef-xs{padding-left:35px!important}.p-40-xs{padding:40px!important}.p-40-ver=
+-xs{padding-top:40px!important;padding-bottom:40px}.p-40-hor-xs{padding-rig=
+ht:40px!important;padding-left:40px!important}.p-40-top-xs{padding-top:40px=
+!important}.p-40-rig-xs{padding-right:40px!important}.p-40-bot-xs{padding-b=
+ottom:40px!important}.p-40-lef-xs{padding-left:40px!important}}</style></he=
+ad><body class=3D"default" style=3D"font-family:-apple-system,BlinkMacSyste=
+mFont,Roboto,Arial,sans-serif;font-size:16px;line-height:20px;padding:0;mar=
+gin:0;background-color:#dddfe0"><div itemscope=3D"" itemtype=3D"http://sche=
+ma.org/EventReservation" style=3D"box-sizing:border-box"><meta itemprop=3D"=
+reservationNumber" content=3D"9904438-68860-E52B5E1F369A83E2D64C82DF5B65547=
+2"><link itemprop=3D"reservationStatus" href=3D"http://schema.org/Confirmed=
+"><div itemprop=3D"underName" itemscope=3D"" itemtype=3D"http://schema.org/=
+Person" style=3D"box-sizing:border-box"><meta itemprop=3D"name" content=3D"=
+Auner Moncada"></div><div itemprop=3D"reservationFor" itemscope=3D"" itemty=
+pe=3D"http://schema.org/Event" style=3D"box-sizing:border-box"><meta itempr=
+op=3D"name" content=3D"PRIVIL=C3=88GE FESTIVAL CARNAVAL - RIO DE JANEIRO"><=
+meta itemprop=3D"url" content=3D"https://www.ingresse.com/privilege-festiva=
+l-carnaval"><meta itemprop=3D"image" content=3D"https://event-kraken.s3.ama=
+zonaws.com/event/posters/68860/medium.jpg"> <meta itemprop=3D"startDate" co=
+ntent=3D"2024-02-10 19:00:00.000000"> <div itemprop=3D"location" itemscope=
+=3D"" itemtype=3D"http://schema.org/Place" style=3D"box-sizing:border-box">=
+<meta itemprop=3D"name" content=3D"MARINA DA GLORIA"><div itemprop=3D"addre=
+ss" itemscope=3D"" itemtype=3D"http://schema.org/PostalAddress" style=3D"bo=
+x-sizing:border-box"><meta itemprop=3D"streetAddress" content=3D"Avenida In=
+fante Dom Henrique, S/N"><meta itemprop=3D"addressLocality" content=3D"Rio =
+de Janeiro"><meta itemprop=3D"addressRegion" content=3D"RJ"><meta itemprop=
+=3D"postalCode" content=3D""><meta itemprop=3D"addressCountry" content=3D"B=
+R"></div></div></div><div itemprop=3D"potentialAction" itemscope=3D"" itemt=
+ype=3D"http://schema.org/ViewAction" style=3D"box-sizing:border-box"><meta =
+itemprop=3D"name" content=3D"Ver ingressos"><meta itemprop=3D"url" content=
+=3D"https://www.ingresse.com/tickets"></div></div><table class=3D"container=
+" align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=
+=3D"box-sizing:border-box;width:660px" width=3D"660"><tbody style=3D"box-si=
+zing:border-box"><tr class=3D"hidden--xs" style=3D"box-sizing:border-box"><=
+td class=3D"spacer" style=3D"box-sizing:border-box;font-family:-apple-syste=
+m,BlinkMacSystemFont,Roboto,Arial,sans-serif;height:49px;font-size:5px;line=
+-height:5px;padding:0;margin:0" height=3D"49">&nbsp;</td></tr><tr style=3D"=
+box-sizing:border-box"><td class=3D"container__content" style=3D"box-sizing=
+:border-box;font-family:-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-=
+serif;font-size:16px;line-height:20px;padding:0;padding-right:30px;padding-=
+left:30px"><div class=3D"segment segment--with-shadow bg--white" style=3D"b=
+ox-sizing:border-box;background-color:#fff;color:#2d2d2d;display:block;over=
+flow:hidden;width:100%;border-radius:8px;box-shadow:0 0 4px 0 rgba(0,0,0,.2=
+5)"><table class=3D"top-bar" cellspacing=3D"0" border=3D"0" style=3D"box-si=
+zing:border-box;width:100%" width=3D"100%"><tbody style=3D"box-sizing:borde=
+r-box"><tr style=3D"box-sizing:border-box"><td class=3D"top-bar__logo no-lh=
+" align=3D"center" valign=3D"middle" height=3D"80px" style=3D"box-sizing:bo=
+rder-box;font-family:-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-ser=
+if;font-size:16px;padding:0;line-height:0"><a href=3D"http://click.ingresse=
+.com/track/click/30004977/www.ingresse.com?p=3DeyJzIjoiUzNXSXRnbTBjMEtqVFRm=
+Qmt2TXNCb0xidnRnIiwidiI6MSwicCI6IntcInVcIjozMDAwNDk3NyxcInZcIjoxLFwidXJsXCI=
+6XCJodHRwczpcXFwvXFxcL3d3dy5pbmdyZXNzZS5jb21cIixcImlkXCI6XCJkMzA3MTMxODNkYz=
+E0ZGMxOTExY2QzNWQ1N2U4ZjgzZVwiLFwidXJsX2lkc1wiOltcIjE5ZDU5OTg0MjNlODJkNjk4M=
+zI0MzBlNWQ1MGI4YjU3OGU2MzliYjRcIl19In0" target=3D"_blank" title=3D"Ingresse=
+" class=3D"link text-white top-bar__link" style=3D"box-sizing:border-box;co=
+lor:#fff;display:inline-block;padding:10px;text-decoration:none"><img class=
+=3D"top-bar__image" src=3D"https://ingresse-webstatic.s3.amazonaws.com/imag=
+es/company/logo/4385019076133b5eaa38a92.59909883/medium.jpg" loading=3D"laz=
+y" alt=3D"Ingresse" border=3D"0" width=3D"60" height=3D"60" style=3D"box-si=
+zing:border-box;display:block;margin:0 auto;width:60px;height:60px"></a></t=
+d></tr></tbody></table><div class=3D"hero border-green" style=3D"box-sizing=
+:border-box;border-color:#60c659;display:block;text-align:center;background=
+-color:#f8f8f8;padding:25px 20px 25px;border-top-width:10px;border-top-styl=
+e:solid"><h1 class=3D"hero__title" style=3D"box-sizing:border-box;font-size=
+:28px;line-height:30px;font-weight:700;margin:0;padding:0">Compra realizada=
+ com sucesso</h1></div><div class=3D"block segment__content" style=3D"box-s=
+izing:border-box;display:block;padding-right:30px;padding-left:30px"><div c=
+lass=3D"event" style=3D"box-sizing:border-box;width:100%;padding:30px 0 20p=
+x"><div class=3D"event__poster" style=3D"box-sizing:border-box;width:180px;=
+padding:0;display:inline-block;vertical-align:middle"><a class=3D"event__po=
+ster__link" target=3D"_blank" title=3D"Detalhes do evento no site" href=3D"=
+http://click.ingresse.com/track/click/30004977/www.ingresse.com?p=3DeyJzIjo=
+iODhmMjhmZ0xRS1MzR1l4UU02Y1BsZHYxVXA4IiwidiI6MSwicCI6IntcInVcIjozMDAwNDk3Ny=
+xcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5pbmdyZXNzZS5jb21cXFwvcHJpd=
+mlsZWdlLWZlc3RpdmFsLWNhcm5hdmFsXCIsXCJpZFwiOlwiZDMwNzEzMTgzZGMxNGRjMTkxMWNk=
+MzVkNTdlOGY4M2VcIixcInVybF9pZHNcIjpbXCIyNjVhMzc3N2Y3NjZjZDBhMzYyZjJlMWEyYzY=
+wYzY0MDMzNDdhODU5XCJdfSJ9" style=3D"box-sizing:border-box;display:block;lin=
+e-height:0;color:#d4d7d9;text-decoration:none"><img class=3D"event__poster_=
+_link__image" loading=3D"lazy" width=3D"180" height=3D"240" src=3D"https://=
+event-kraken.s3.amazonaws.com/event/posters/68860/medium.jpg?time=3D18:20" =
+style=3D"box-sizing:border-box;width:180px;height:240px;min-height:240px;bo=
+rder-radius:8px;background:#f8f8f8;display:block;margin:0 auto"></a></div><=
+div class=3D"event__info" style=3D"box-sizing:border-box;padding:15px 0 15p=
+x 25px;text-align:center;display:inline-block;vertical-align:middle;width:c=
+alc(100% - 185px)"><a class=3D"event__info__title" target=3D"_blank" title=
+=3D"Detalhes do evento no site" href=3D"http://click.ingresse.com/track/cli=
+ck/30004977/www.ingresse.com?p=3DeyJzIjoiODhmMjhmZ0xRS1MzR1l4UU02Y1BsZHYxVX=
+A4IiwidiI6MSwicCI6IntcInVcIjozMDAwNDk3NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcX=
+FwvXFxcL3d3dy5pbmdyZXNzZS5jb21cXFwvcHJpdmlsZWdlLWZlc3RpdmFsLWNhcm5hdmFsXCIs=
+XCJpZFwiOlwiZDMwNzEzMTgzZGMxNGRjMTkxMWNkMzVkNTdlOGY4M2VcIixcInVybF9pZHNcIjp=
+bXCIyNjVhMzc3N2Y3NjZjZDBhMzYyZjJlMWEyYzYwYzY0MDMzNDdhODU5XCJdfSJ9" style=3D=
+"box-sizing:border-box;font-size:20px;line-height:30px;font-weight:500;disp=
+lay:inline-block;color:#2d2d2d;text-decoration:none">PRIVIL=C3=88GE FESTIVA=
+L CARNAVAL - RIO DE JANEIRO</a><div class=3D"event__info__address text-dark=
+-grey p-10-top" style=3D"box-sizing:border-box;color:#7a8085;font-weight:50=
+0;font-size:14px;line-height:20px;padding-top:10px"> <a class=3D"link text-=
+-blue" style=3D"box-sizing:border-box;color:#00a5db;text-decoration:none" t=
+itle=3D"Ver endere=C3=A7o do evento no Mapa" target=3D"_blank" href=3D"http=
+://click.ingresse.com/track/click/30004977/maps.google.com?p=3DeyJzIjoiXzRh=
+X0VWWWNfQ25UZ25WdnJpRnRNRkRjYkprIiwidiI6MSwicCI6IntcInVcIjozMDAwNDk3NyxcInZ=
+cIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL21hcHMuZ29vZ2xlLmNvbVxcXC8_cT0tMjIuOT=
+MwMzIlMkMtNDMuMTczMDZcIixcImlkXCI6XCJkMzA3MTMxODNkYzE0ZGMxOTExY2QzNWQ1N2U4Z=
+jgzZVwiLFwidXJsX2lkc1wiOltcImFjYjgxOWYyNTJlNjA4ODMwZmIxMmZhNDAxNDkwN2ZiY2Y2=
+ZWNmZTNcIl19In0">  MARINA DA GLORIA -   Avenida Infante Dom Henrique, S/N <=
+br style=3D"box-sizing:border-box"> Rio de Janeiro   - RJ    </a></div><div=
+ class=3D"event__info__action" style=3D"box-sizing:border-box;padding:40px =
+0 0"><table class=3D"btn btn--block-xs btn--green" align=3D"center" cellpad=
+ding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"box-sizing:border-box;li=
+ne-height:40px;border:0;border-spacing:0;border-radius:50px;border-collapse=
+:collapse;text-transform:uppercase;width:100%;max-width:220px" width=3D"100=
+%"><tr style=3D"box-sizing:border-box"><td class=3D"btn__container" style=
+=3D"box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,Robo=
+to,Arial,sans-serif;padding:0;color:#fff;border-radius:40px;border-radius:5=
+0px;text-align:center;font-size:16px;font-weight:400;line-height:40px;backg=
+round:#60c659;padding-right:0;padding-left:0;width:220px;border-color:#fca3=
+11;background-color:#fca311;text-decoration:none" width=3D"220"><a class=3D=
+"btn__container__link" style=3D"box-sizing:border-box;color:#fff;border-rad=
+ius:40px;border-radius:50px;text-align:center;font-size:16px;font-weight:40=
+0;line-height:38px;padding-top:1px;background:#60c659;padding-right:0;paddi=
+ng-left:0;width:220px;border-color:#fca311;background-color:#fca311;text-de=
+coration:none;display:inline-block" target=3D"_blank" title=3D"Acesse sua C=
+arteira de Ingressos" href=3D"http://click.ingresse.com/track/click/3000497=
+7/www.ingresse.com?p=3DeyJzIjoiM3J5TXE1OE5XRWplLWpjbnJGTDh3aExwWUdNIiwidiI6=
+MSwicCI6IntcInVcIjozMDAwNDk3NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d=
+3dy5pbmdyZXNzZS5jb21cXFwvdGlja2V0c1wiLFwiaWRcIjpcImQzMDcxMzE4M2RjMTRkYzE5MT=
+FjZDM1ZDU3ZThmODNlXCIsXCJ1cmxfaWRzXCI6W1wiMjY1YTM3NzdmNzY2Y2QwYTM2MmYyZTFhM=
+mM2MGM2NDAzMzQ3YTg1OVwiXX0ifQ">VER MEUS INGRESSOS</a></td></tr></table></di=
+v></div></div></div>               <div class=3D"segment__content" style=3D=
+"box-sizing:border-box;padding-right:30px;padding-left:30px"><div class=3D"=
+block cart-resume" style=3D"box-sizing:border-box;display:block;padding:5px=
+ 0 0;font-weight:500;font-size:14px;line-height:20px;text-align:left;text-t=
+ransform:uppercase">REALIZADO EM 10/02/2024 - 18:20</div></div><div class=
+=3D"segment__content segment__content--stretch-xs" style=3D"box-sizing:bord=
+er-box;padding-right:30px;padding-left:30px"><div class=3D"block cart-conta=
+iner" style=3D"box-sizing:border-box;display:block;padding:15px 0 30px"><ta=
+ble cellspacing=3D"0" cellpadding=3D"0" border=3D"0" class=3D"cart" style=
+=3D"box-sizing:border-box;width:100%;background:#f8f8f8;border:1px solid #d=
+4d7d9;border-radius:8px" width=3D"100%"><!-- / CART HEADER --><tr style=3D"=
+box-sizing:border-box"><td class=3D"cart__header__qtty" valign=3D"top" styl=
+e=3D"box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,Rob=
+oto,Arial,sans-serif;padding:0;padding-left:20px;color:#7a8085;font-weight:=
+500;padding-top:5px;padding-bottom:4px;border-bottom:1px solid #d4d7d9;text=
+-transform:uppercase;width:10%;font-size:14px;line-height:20px" width=3D"10=
+%">QTD</td><td class=3D"cart__header__ticket" valign=3D"top" style=3D"box-s=
+izing:border-box;font-family:-apple-system,BlinkMacSystemFont,Roboto,Arial,=
+sans-serif;padding:0;padding-left:20px;color:#7a8085;font-weight:500;paddin=
+g-top:5px;padding-bottom:4px;border-bottom:1px solid #d4d7d9;text-transform=
+:uppercase;width:65%;font-size:14px;line-height:20px" width=3D"65%">INGRESS=
+OS</td><td class=3D"cart__header__value" valign=3D"top" style=3D"box-sizing=
+:border-box;font-family:-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-=
+serif;padding:0;text-align:right;padding-right:20px;color:#7a8085;font-weig=
+ht:500;padding-top:5px;padding-bottom:4px;border-bottom:1px solid #d4d7d9;t=
+ext-transform:uppercase;width:25%;font-size:14px;line-height:20px" width=3D=
+"25%">VALOR</td></tr><!-- / CART HEADER --><!-- CART ITEMS --> <tr style=3D=
+"box-sizing:border-box"><td class=3D"cart__item__qtty" valign=3D"top" rowsp=
+an=3D"2" style=3D"box-sizing:border-box;font-family:-apple-system,BlinkMacS=
+ystemFont,Roboto,Arial,sans-serif;padding:0;padding-left:20px;padding-top:1=
+5px;font-size:14px;line-height:20px">2</td><td class=3D"cart__item__ticket"=
+ valign=3D"top" style=3D"box-sizing:border-box;font-family:-apple-system,Bl=
+inkMacSystemFont,Roboto,Arial,sans-serif;padding:0;padding-left:20px;paddin=
+g-top:15px;font-size:14px;line-height:20px">=C3=81rea Vip Privilege Lote 3<=
+div class=3D"text--dark-grey" style=3D"box-sizing:border-box;color:#7a8085"=
+>Inteira (10%)</div></td><td class=3D"cart__item__value" valign=3D"top" sty=
+le=3D"box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,Ro=
+boto,Arial,sans-serif;padding:0;text-align:right;padding-right:20px;padding=
+-top:15px;font-size:14px;line-height:20px">R$1108,80</td></tr><tr style=3D"=
+box-sizing:border-box"><td class=3D"cart__item__session" valign=3D"top" col=
+span=3D"2" style=3D"box-sizing:border-box;font-family:-apple-system,BlinkMa=
+cSystemFont,Roboto,Arial,sans-serif;padding:0;padding-left:20px;padding-top=
+:14px;padding-bottom:20px;font-size:14px;line-height:20px"> <table cellspac=
+ing=3D"0" cellpadding=3D"0" border=3D"0" class=3D"label label--prefixed car=
+t__item__session__label" style=3D"box-sizing:border-box;width:120px;border-=
+radius:2px;box-shadow:0 0 1px 0 rgba(45,45,45,.2)" width=3D"120"><tr style=
+=3D"box-sizing:border-box"><td class=3D"label__prefix" valign=3D"middle" st=
+yle=3D"box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,R=
+oboto,Arial,sans-serif;padding:0;background:#d4d7d9;font-size:12px;line-hei=
+ght:18px;text-align:center;text-transform:uppercase;border:1px solid #d4d7d=
+9;width:35px;border-radius:2px 0 0 2px" width=3D"35">S=C3=A1b</td><td class=
+=3D"label__content" valign=3D"middle" style=3D"box-sizing:border-box;font-f=
+amily:-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;padding:0;co=
+lor:#2d2d2d;background:#f8f8f8;font-size:12px;line-height:18px;text-align:c=
+enter;text-transform:uppercase;border:1px solid #d4d7d9;border-radius:0 2px=
+ 2px 0">10/02 - 19:00</td></tr></table> </td></tr><!-- / CART ITEMS --><!--=
+ CART FOOTER --><tr style=3D"box-sizing:border-box"><td class=3D"spacer car=
+t__footer__spacer-xs" colspan=3D"3" height=3D"8" style=3D"box-sizing:border=
+-box;font-family:-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;d=
+isplay:none;font-size:5px;line-height:5px;padding:0;margin:0">&nbsp;</td></=
+tr><tr style=3D"box-sizing:border-box"><td class=3D"cart__footer__tickets" =
+valign=3D"top" colspan=3D"2" style=3D"box-sizing:border-box;font-family:-ap=
+ple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;padding:0;padding-lef=
+t:20px;padding-top:14px;border-top:1px solid #d4d7d9;font-weight:500;color:=
+#7a8085;font-size:14px;line-height:20px">TOTAL EM INGRESSOS</td><td class=
+=3D"cart__footer__tickets-value" valign=3D"top" style=3D"box-sizing:border-=
+box;font-family:-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;pa=
+dding:0;text-align:right;padding-right:20px;padding-top:14px;border-top:1px=
+ solid #d4d7d9;font-size:14px;line-height:20px">R$1187,30</td></tr> <tr sty=
+le=3D"box-sizing:border-box"><td class=3D"spacer" colspan=3D"3" height=3D"1=
+0" style=3D"box-sizing:border-box;font-family:-apple-system,BlinkMacSystemF=
+ont,Roboto,Arial,sans-serif;font-size:5px;line-height:5px;padding:0;margin:=
+0">&nbsp;</td></tr><tr style=3D"box-sizing:border-box"><td class=3D"cart__f=
+ooter__total" valign=3D"middle" colspan=3D"2" style=3D"box-sizing:border-bo=
+x;font-family:-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;padd=
+ing:0;padding-left:20px;font-weight:500;color:#7a8085;font-size:14px;line-h=
+eight:20px">TOTAL PAGO</td><td class=3D"cart__footer__total-value" valign=
+=3D"middle" colspan=3D"2" style=3D"box-sizing:border-box;font-family:-apple=
+-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;padding:0;text-align:rig=
+ht;padding-right:20px;font-weight:500;line-height:20px;font-size:16px">R$11=
+87,30</td></tr><tr style=3D"box-sizing:border-box"><td class=3D"spacer hidd=
+en-xs" colspan=3D"3" height=3D"14" style=3D"box-sizing:border-box;font-fami=
+ly:-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;font-size:5px;l=
+ine-height:5px;padding:0;margin:0">&nbsp;</td></tr><tr style=3D"box-sizing:=
+border-box"><td class=3D"spacer cart__footer__spacer-xs" colspan=3D"3" heig=
+ht=3D"25" style=3D"box-sizing:border-box;font-family:-apple-system,BlinkMac=
+SystemFont,Roboto,Arial,sans-serif;display:none;font-size:5px;line-height:5=
+px;padding:0;margin:0">&nbsp;</td></tr><!-- / CART FOOTER --></table></div>=
+</div><div class=3D"segment__content" style=3D"box-sizing:border-box;paddin=
+g-right:30px;padding-left:30px"><strong style=3D"box-sizing:border-box;font=
+-weight:700">RESERVE A SUA ESTADIA</strong><div class=3D"p-15-top p-20-bot"=
+ style=3D"box-sizing:border-box;padding-top:15px;padding-bottom:20px"><a ta=
+rget=3D"_blank" class=3D"link" href=3D"http://click.ingresse.com/track/clic=
+k/30004977/www.stay22.com?p=3DeyJzIjoiYmx2WmxKQlBKVHVOWFJyVVkzTUstczl5X0Y4I=
+iwidiI6MSwicCI6IntcInVcIjozMDAwNDk3NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwv=
+XFxcL3d3dy5zdGF5MjIuY29tXFxcL2VtYmVkXFxcL2dtP2FpZD1pbmdyZXNzZSZsYXQ9LTIyLjk=
+zMDMyJmxuZz0tNDMuMTczMDYmbWFpbmNvbG9yPUZGRkZGRiZmb250Y29sb3I9MDAwMDAwJm1hcm=
+tlcmltYWdlPWh0dHBzOlxcXC9cXFwvaW1hZ2VzLnNxdWFyZXNwYWNlLWNkbi5jb21cXFwvY29ud=
+GVudFxcXC92MVxcXC81OWQ2OGZlMzAxN2RiMjYzMjAzZTRiNzlcXFwvMTUwNzIzMzk0MzUwMC1Q=
+TDBTUUJSRDFZSDNaVzNKNEdESFxcXC9Mb2dvJTQwM3gucG5nP2Zvcm1hdD0xNTAwd1wiLFwiaWR=
+cIjpcImQzMDcxMzE4M2RjMTRkYzE5MTFjZDM1ZDU3ZThmODNlXCIsXCJ1cmxfaWRzXCI6W1wiZj=
+RjZDI3ZWY4NzRiYzU3MGZhY2JlOTEzOGQwNWY4YWY5MWRkMGY0ZVwiXX0ifQ" style=3D"box-=
+sizing:border-box;text-decoration:none"><img class=3D"img--responsive img--=
+rounded" style=3D"box-sizing:border-box;width:100%;height:auto;border-radiu=
+s:8px;min-height:270px" src=3D"https://static.stay22.com/embed/gm?aid=3Ding=
+resse&width=3D540&height=3D270&zoom=3D16&lat=3D-22.93032&lng=3D-43.17306&ve=
+nue=3DMARINA DA GLORIA&maincolor=3DFFFFFF&fontcolor=3D000000&markerimage=3D=
+https://images.squarespace-cdn.com/content/v1/59d68fe3017db263203e4b79/1507=
+233943500-PL0SQBRD1YH3ZW3J4GDH/Logo%403x.png"></a></div></div></div> <div c=
+lass=3D"app" style=3D"box-sizing:border-box;padding-top:30px"><table cellpa=
+dding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"app__content" style=3D"=
+box-sizing:border-box;display:inline-block;vertical-align:middle;width:350p=
+x" width=3D"350"><tr style=3D"box-sizing:border-box"><td class=3D"app__cont=
+ent__title" style=3D"box-sizing:border-box;font-family:-apple-system,BlinkM=
+acSystemFont,Roboto,Arial,sans-serif;font-size:16px;line-height:20px;paddin=
+g:0;padding-top:15px;padding-right:15px"><h2 class=3D"title text--black" st=
+yle=3D"box-sizing:border-box;color:#2d2d2d;font-weight:500;margin:0;padding=
+:11px 0 9px;font-size:20px;line-height:25px">No dia do evento, mostre os in=
+gressos no celular!</h2></td></tr><tr style=3D"box-sizing:border-box"><td c=
+lass=3D"app__content__text text--dark-grey" style=3D"box-sizing:border-box;=
+font-family:-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;font-s=
+ize:16px;line-height:20px;padding:0;color:#7a8085;padding-top:20px;padding-=
+bottom:20px">Baixe o aplicativo e acesse seus ingressos com a sua conta da =
+Ingresse.<br style=3D"box-sizing:border-box"><br style=3D"box-sizing:border=
+-box">Deseja encaminhar o ingresso para um amigo?<br style=3D"box-sizing:bo=
+rder-box"><br style=3D"box-sizing:border-box">Caso esteja dispon=C3=ADvel, =
+transfira diretamente da sua carteira pelo app ou site da Ingresse na p=C3=
+=A1gina =E2=80=98Meus Ingressos=E2=80=99.</td></tr><tr style=3D"box-sizing:=
+border-box"><td class=3D"app__content__download text--dark-grey" style=3D"b=
+ox-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,Roboto,Ar=
+ial,sans-serif;font-size:16px;line-height:20px;padding:0;color:#7a8085"><st=
+rong style=3D"box-sizing:border-box;font-weight:700">Baixe na <a class=3D"l=
+ink text--blue" style=3D"box-sizing:border-box;color:#00a5db;text-decoratio=
+n:none" target=3D"_blank" title=3D"Aplicativo Ingresse para iOS na App Stor=
+e" href=3D"http://click.ingresse.com/track/click/30004977/itunes.apple.com?=
+p=3DeyJzIjoiS3BpY1VvRGRDQjNyVkZlUnQzNmxiVmpNQTRRIiwidiI6MSwicCI6IntcInVcIjo=
+zMDAwNDk3NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL2l0dW5lcy5hcHBsZS5jb2=
+1cXFwvYnJcXFwvYXBwXFxcL2luZ3Jlc3NlLWluZ3Jlc3Nvcy1wYXJhLWV2ZW50b3NcXFwvaWQ4M=
+TUzNTk3NjA_bXQ9OFwiLFwiaWRcIjpcImQzMDcxMzE4M2RjMTRkYzE5MTFjZDM1ZDU3ZThmODNl=
+XCIsXCJ1cmxfaWRzXCI6W1wiMjExMzVmZjUzMDg3ZGYwODBlNWI3YjBlYjBmNGRlMGFlODVjYjE=
+4MlwiXX0ifQ">App Store </a>e <a class=3D"link text--blue" style=3D"box-sizi=
+ng:border-box;color:#00a5db;text-decoration:none" target=3D"_blank" title=
+=3D"Aplicativo Ingresse para Android na Google Play" href=3D"http://click.i=
+ngresse.com/track/click/30004977/play.google.com?p=3DeyJzIjoiOEF3RkswMkNvSm=
+4xRGQxNnAtaU9QZmZmUnNZIiwidiI6MSwicCI6IntcInVcIjozMDAwNDk3NyxcInZcIjoxLFwid=
+XJsXCI6XCJodHRwczpcXFwvXFxcL3BsYXkuZ29vZ2xlLmNvbVxcXC9zdG9yZVxcXC9hcHBzXFxc=
+L2RldGFpbHM_aWQ9Y29tLmluZ3Jlc3NlLnRpY2tldGJvb3RoXCIsXCJpZFwiOlwiZDMwNzEzMTg=
+zZGMxNGRjMTkxMWNkMzVkNTdlOGY4M2VcIixcInVybF9pZHNcIjpbXCJhZGEyYzFiZjNlZWYwMD=
+I0NzAzYjJiNTdmMmNmMjc3YTU2MDIyYjU1XCJdfSJ9">PlayStore</a></strong></td></tr=
+></table><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"a=
+pp__banner" style=3D"box-sizing:border-box;display:inline-block;vertical-al=
+ign:middle;width:245px" width=3D"245"><tr style=3D"box-sizing:border-box"><=
+td class=3D"app__banner__container" style=3D"box-sizing:border-box;font-fam=
+ily:-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;font-size:16px=
+;padding:0;width:245px;line-height:0;text-align:center" width=3D"245"><a cl=
+ass=3D"app__banner__container__link" target=3D"_blank" title=3D"Aplicativo =
+Ingresse para iOS na App Store" href=3D"http://click.ingresse.com/track/cli=
+ck/30004977/itunes.apple.com?p=3DeyJzIjoiS3BpY1VvRGRDQjNyVkZlUnQzNmxiVmpNQT=
+RRIiwidiI6MSwicCI6IntcInVcIjozMDAwNDk3NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcX=
+FwvXFxcL2l0dW5lcy5hcHBsZS5jb21cXFwvYnJcXFwvYXBwXFxcL2luZ3Jlc3NlLWluZ3Jlc3Nv=
+cy1wYXJhLWV2ZW50b3NcXFwvaWQ4MTUzNTk3NjA_bXQ9OFwiLFwiaWRcIjpcImQzMDcxMzE4M2R=
+jMTRkYzE5MTFjZDM1ZDU3ZThmODNlXCIsXCJ1cmxfaWRzXCI6W1wiMjExMzVmZjUzMDg3ZGYwOD=
+BlNWI3YjBlYjBmNGRlMGFlODVjYjE4MlwiXX0ifQ" style=3D"box-sizing:border-box;di=
+splay:inline-block;line-height:0"><img class=3D"app__banner__container__lin=
+k__image" loading=3D"lazy" alt=3D"Aplicativo Ingresse" src=3D"https://s3.am=
+azonaws.com/ingresse-static/emails/ingresse-app--my-tickets.png" style=3D"b=
+ox-sizing:border-box;width:220px;min-height:320px;border:none" width=3D"220=
+"></a></td></tr></table></div> <div class=3D"footer" style=3D"box-sizing:bo=
+rder-box;padding:27px 0 28px;font-size:10px;line-height:15px;text-align:cen=
+ter"><div class=3D"footer__legal text-dark-grey" style=3D"box-sizing:border=
+-box;color:#7a8085;text-transform:uppercase;padding-bottom:5px"><a class=3D=
+"link text--blue" style=3D"box-sizing:border-box;color:#00a5db;text-decorat=
+ion:none" target=3D"_blank" title=3D"Leia nossos Termos de Servi=C3=A7o" hr=
+ef=3D"http://click.ingresse.com/track/click/30004977/sobre.ingresse.com?p=
+=3DeyJzIjoiZ2hpRDNSMHFGbFFEUUhUdmZYR0tEa2lnOWRZIiwidiI6MSwicCI6IntcInVcIjoz=
+MDAwNDk3NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3NvYnJlLmluZ3Jlc3NlLmN=
+vbVxcXC90ZXJtb3MtZGUtc2Vydmljb1wiLFwiaWRcIjpcImQzMDcxMzE4M2RjMTRkYzE5MTFjZD=
+M1ZDU3ZThmODNlXCIsXCJ1cmxfaWRzXCI6W1wiNjUyM2NlZjE4MzM3ZDA5Mjc5YmU2YTFmNzhiM=
+zQ3Nzg5ZjUwNjg1ZlwiXX0ifQ">Termos de Servi=C3=A7o </a>&amp; <a class=3D"lin=
+k text--blue" style=3D"box-sizing:border-box;color:#00a5db;text-decoration:=
+none" target=3D"_blank" title=3D"Leia nossas Pol=C3=ADticas de Privacidade"=
+ href=3D"http://click.ingresse.com/track/click/30004977/sobre.ingresse.com?=
+p=3DeyJzIjoiT3NKNUliZnJSendJRUFzWjBHR0hobkQyYTAwIiwidiI6MSwicCI6IntcInVcIjo=
+zMDAwNDk3NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3NvYnJlLmluZ3Jlc3NlLm=
+NvbVxcXC90ZXJtb3MtZGUtcHJpdmFjaWRhZGVcIixcImlkXCI6XCJkMzA3MTMxODNkYzE0ZGMxO=
+TExY2QzNWQ1N2U4ZjgzZVwiLFwidXJsX2lkc1wiOltcImM4MTk2MDMxZjI5ZDM4YjRkMDcwMDg4=
+NDYwZWYyZDc5OWI2ZDQwZWVcIl19In0">Pol=C3=ADticas de Privacidade</a></div><di=
+v class=3D"footer__copyright text-dark-grey" style=3D"box-sizing:border-box=
+;color:#7a8085">Copyright =C2=A9 2022 Ingresse<br style=3D"box-sizing:borde=
+r-box">Todos os direitos reservados</div></div></td></tr><tr style=3D"box-s=
+izing:border-box"><td class=3D"spacer" style=3D"box-sizing:border-box;font-=
+family:-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;height:11px=
+;font-size:5px;line-height:5px;padding:0;margin:0" height=3D"11">&nbsp;</td=
+></tr></tbody></table><img src=3D"http://click.ingresse.com/track/open.php?=
+u=3D30004977&id=3Dd30713183dc14dc1911cd35d57e8f83e" height=3D"1" width=3D"1=
+" alt=3D""></body></html>
+
+--_av--kkU4J33xBE7ZKPsx8T3-A--
+

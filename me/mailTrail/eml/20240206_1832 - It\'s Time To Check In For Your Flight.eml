@@ -1,0 +1,1544 @@
+Delivered-To: aunermoncada@gmail.com
+Received: by 2002:a2e:3313:0:b0:2d0:ad09:251 with SMTP id d19csp547959ljc;
+        Tue, 6 Feb 2024 15:32:34 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGrwFYjOQgETjIM0t69VVHebXBRo4flUFlF+VdGY6kwdJ8R4fbz9WHpsMTu0kTRgPw9glLd
+X-Received: by 2002:a05:6102:9cf:b0:46d:49ac:fb91 with SMTP id g15-20020a05610209cf00b0046d49acfb91mr1923220vsi.3.1707262353811;
+        Tue, 06 Feb 2024 15:32:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1707262353; cv=none;
+        d=google.com; s=arc-20160816;
+        b=d3l3G6OPsx2vtQIUW7L+z48JYitiYrpZv8zlulqEYpX7mrqkdPrwf42rQTqSTmKSt4
+         +ZlcF0duqA3S/7Pptqsa1CO7i2iRWqzcORXKVlxjho7o4JO/7Q0gebTyeykS0tgS1Ey1
+         UPdw7bKxWX3N668GUypcK8SsT1jqqRSbxVY+Te4NXldXEDAHasGuQSOGRODjqBZSAc6y
+         g13ReeGCZrGUZdhzedP3uKhH0sggXVMHsGO6q/Nzlgnu2Ct7M1TsKdGzJJrWOJ8tOFgT
+         F/2wH4gST72fPVJE6MFMRVkPNg/UmVXAFJmgim9QtL9sJbND6X/SLjFVYrGv33ISKdhH
+         kUSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:message-id:list-id:reply-to:mime-version:list-help:date
+         :subject:to:from:dkim-signature;
+        bh=AqcFh4PBw8OZVRzUEGGpwxXp90tktZyljNanXnXHolM=;
+        fh=fDKbYr9RaS12W/R0kg2sDK3+MnIR+ptWqSuEo7VHB5Y=;
+        b=NJ3nFpp+qKJWlN9eOCNVrqD81REioR8NECe7szD/K5Anhj7MyXLR+UQD0HK9QgQpLC
+         qWRyH53+9BaSCPbnDR4xxddlOaCA2XuXXsqfEtASffa0WbvGOjzUOHxPeShMgzr9ZVpH
+         bLR62oIo++63+XP6QtU7JmP/aD34G4egZfuR6uORftNHpXfEmt5m5XQSFmwbATzJLGd2
+         NcdFdUQp9IZaBgGUJ7mdlpwEIkPKSWBvp1w22/fnoIIYpzFfDBFPCutApsMGBzw+SgbC
+         GVW14GL2O72lsfPEoaj3G4qOpo/IcmDn5mQiZhHBi6eQgBfEDOamnakyYNJ9ahpXC9Dl
+         EC6A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@t.delta.com header.s=200608 header.b=EwpC1KXJ;
+       spf=pass (google.com: domain of bounce-14_html-72645599-375163-10982494-197226@bounce.t.delta.com designates 13.111.57.152 as permitted sender) smtp.mailfrom=bounce-14_HTML-72645599-375163-10982494-197226@bounce.t.delta.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=t.delta.com
+Return-Path: <bounce-14_HTML-72645599-375163-10982494-197226@bounce.t.delta.com>
+Received: from mta.t.delta.com (mta.t.delta.com. [13.111.57.152])
+        by mx.google.com with ESMTPS id s15-20020ad4524f000000b0068c8dfa3751si3440700qvq.255.2024.02.06.15.32.33
+        for <AUNERMONCADA@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 06 Feb 2024 15:32:33 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-14_html-72645599-375163-10982494-197226@bounce.t.delta.com designates 13.111.57.152 as permitted sender) client-ip=13.111.57.152;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@t.delta.com header.s=200608 header.b=EwpC1KXJ;
+       spf=pass (google.com: domain of bounce-14_html-72645599-375163-10982494-197226@bounce.t.delta.com designates 13.111.57.152 as permitted sender) smtp.mailfrom=bounce-14_HTML-72645599-375163-10982494-197226@bounce.t.delta.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=t.delta.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=200608; d=t.delta.com;
+ h=From:To:Subject:Date:List-Help:MIME-Version:Reply-To:List-ID:
+ X-CSA-Complaints:Message-ID:Content-Type; i=DeltaAirLines@t.delta.com;
+ bh=AqcFh4PBw8OZVRzUEGGpwxXp90tktZyljNanXnXHolM=;
+ b=EwpC1KXJXpNC45DgQ4QeZZdakOxe+kOQ4gYCWjaFPfAnZCIIjnvEkq5mN8qxUyWgzBLNCVumRF3o
+   LJ3dTSY+KIozfOk179VygbaAHIw0NjCoBzM9j5wWXqXOpv6AHZ4MysjQx4UgxNvRa10/F6GoJztf
+   rfGJfHmhjO0ysLnQJBQ=
+Received: by mta.t.delta.com id hob0p22fmd4b for <AUNERMONCADA@GMAIL.COM>; Tue, 6 Feb 2024 23:32:21 +0000 (envelope-from <bounce-14_HTML-72645599-375163-10982494-197226@bounce.t.delta.com>)
+From: "Delta Air Lines" <DeltaAirLines@t.delta.com>
+To: <AUNERMONCADA@GMAIL.COM>
+Subject: It's Time To Check In For Your Flight
+Date: Tue, 06 Feb 2024 17:32:20 -0600
+List-Help: <https://click.t.delta.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiIxMDk4MjQ5NCIsInMiOiI3MjY0NTU5OSIsImxpZCI6IjE0IiwiaiI6IjM3NTE2MyIsImpiIjoiMTk3MjI2IiwiZCI6IjEwMTg2In0.-DcLzqKjQKryOe3bD-mHXLqtBxFLzMi8jTPgsFQVzZ4>
+x-CSA-Compliance-Source: SFMC
+MIME-Version: 1.0
+Reply-To: "Transactional Email Reply Inbox" <reply-375163-14_HTML-72645599-10982494-197226@t.delta.com>
+List-ID: <10965567.xt.local>
+X-CSA-Complaints: csa-complaints@eco.de
+x-messageKey: 5ddc01a2-bde8-4f0b-b61b-d9f019cfe146
+X-Delivery: Transactional
+X-SFMC-Stack: 1
+x-job: 10982494_375163
+Message-ID: <4d058912-8c9c-4e32-a84f-c7ef8c357afb@ind1s01mta992.xt.local>
+Feedback-ID: 10982494:375163:13.111.57.152:sfmktgcld
+Content-Type: multipart/alternative;
+	boundary="2IuwngvWX4TF=_?:"
+
+This is a multi-part message in MIME format.
+
+--2IuwngvWX4TF=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Delta Air Lines
+
+
+
+
+
+
+
+ 
+ 
+https://view.t.delta.com/?qs=0145655edd79b15a0a0a578e3f30c089d34c81c4f3c257a04fae6a251aa37b0d53d7242df6c398df0d762e02f68e4504aa3bb283730236d50b607415fc657509e9c2edab45c69c310cfd26449700a554 
+View as a Web Page 
+
+
+ 
+ 
+
+ 
+
+https://click.t.delta.com/u/?qs=b90eb55b8319a48001de969a5f2d89b8973f6997d4b7d01ef564e43471a2de2e1ecac7535bfd97c7ed4c7523c642e67fbdebc73deb19e3a5fa65b0114e0906a3 
+ 
+
+
+ 
+
+https://click.t.delta.com/u/?qs=61010d5a66b97f3cf2a07fea1e21b701c9512bcfa9df7dea6014c4a855046195e31a46b551a324b59770a64e885c08de605f09602af674801891f8688e93efb0 
+#9652045601 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+
+
+
+
+
+
+ 
+ 
+
+ CONFIRMATION #: GTFZS5
+
+
+
+
+
+
+https://click.t.delta.com/u/?qs=3d025beb224ad7c3e4988f0d0aa50c18677feeb37b763206ee0e92a4d48ca1d36c3daeb49f9f58239958ab824f7b6bbe93b86ef10781c15d3d4b7504609c61b0 
+CHECK IN ONLINE 
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+ Your flight on Wednesday, February 07 is available for check-in. Prepare for your flight by reviewing the below itinerary and information on 
+https://click.t.delta.com/u/?qs=c21bcfbf833742465f05d60670b58cde332aec9661e76b130fe8cb821c126c65694e03a77d3a737310ed8bda7cc6cc81155f73dae7ab5b26d008f1fd3cc3077b 
+prohibited items  for checked or carry-on bags.
+ 
+
+
+
+ 
+
+
+
+
+If You Are Not Able To Check In Online
+
+ Please arrive early and stop by a check-in counter at the airport. If you need to make a same-day ticket change or other changes to your trip, review your options 
+https://click.t.delta.com/u/?qs=c8d040c27039ca23ae32bf0f9764cef962c7470646c186405ce744501aaf87a4c9187ef3713730889ad7bba1e6683838e9a6c1d3ea86826e1d848e098c7ad1f3 
+here.
+
+
+
+
+
+Our 8 global airline partners are also working diligently to keep you safe on their flights. 
+https://click.t.delta.com/u/?qs=c8d040c27039ca2300737a170d2db3fdc56cdca455f43728f0028c7fa7264ff7bc354761ac1141bb017a11b7fa0fbbbbc9d48386aa258ade66eb06fc1891fe4e 
+More Information &rsaquo; 
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+ TRIP ONE
+ 
+ 
+
+ 
+
+ 
+
+
+ 
+ 
+ 
+
+ 
+ Wednesday
+ February 07DEPARTARRIVESEAT
+
+ 
+ 
+ Delta Air Lines, Inc 6065
+
+ 
+ Operated by LATAM Airlines
+
+ 
+ 
+ Kennedy Intl, New York
+06:30 pm
+ 
+ Santiago**<br>07:00 am on February 08
+ 
+ 34A
+ 
+
+ 
+
+
+ 
+ 
+ 
+
+ 
+ Thursday
+ February 08DEPARTARRIVESEAT
+
+ 
+ 
+ Delta Air Lines, Inc 6719
+
+ 
+ Operated by LATAM Airlines
+
+ 
+ 
+ Santiago
+08:07 am
+ 
+ Rio de Janeiro, Rio de Janeiro<br>12:20 pm
+ 
+ Seat Assigned after Check-In
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ TRIP TWO
+ 
+ 
+
+ 
+
+ 
+
+
+ 
+ 
+ 
+
+ 
+ Thursday
+ February 15DEPARTARRIVESEAT
+
+ 
+ 
+ Delta Air Lines, Inc 244
+
+ 
+ Operated by Delta Air Lines, Inc
+
+ 
+ 
+ Rio de Janeiro, Rio de Janeiro
+10:15 am
+ 
+ Kennedy Intl, New York<br>06:40 pm
+ 
+ Seat Assigned after Check-In
+ 
+
+ 
+ 
+ 
+ 
+ 
+ **Arrival date is different than departure date.<br>
+
+ 
+
+ 
+ 
+
+
+
+
+Save Time At The Airport
+
+Prepay for checked bag fees, if applicable, online during check-in. Then use our self-service airport kiosks to print your bag tag and attach it to your bag before dropping it with an agent. 
+https://click.t.delta.com/u/?qs=a458a11a22118968726d0593ef01d50c674659f87afa4036d47788c010b0db131e25aaa24be681fefd84d646c1d50c2c80f581c313b66d1bd26da86a9b707371 
+Pay For Bags Through MyTrips &rsaquo; 
+
+
+
+
+
+
+ Arrive Early For Your Flight
+
+
+
+
+ Allow extra time for check-in and security screening before your flight given increased passenger volume. We recommend planning to arrive at least two hours prior to your scheduled departure time for domestic flights and three hours for international flights. Review when 
+https://click.t.delta.com/u/?qs=5e0c70fac1b34eea9779ad0820a70e66846a8b9b05d91c8871c7be2de33d9e643c893d0e6efc85ede399d89e96b3be778b806052a24fae915d0b12580e6cf5fd 
+check-in closes  for your flight.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Plan Ahead For Your Upcoming Flight Out Of JFK T4
+
+
+
+
+ Being dropped off at JFK? Delta One(R) and Sky Priority(R) customers should use curbside Zone B, while all others should use Zones C or D. If you've already checked in and are only taking a carry-on, the drop off at Curb A1 on the Arrivals lower level may be the fastest path through security. Parking? Check the latest info at the 
+https://click.t.delta.com/u/?qs=a458a11a221189681e7e796439961b073142c5a0a3b71e5185b138512b14da59f855b5d626fac93cb965f02e2536de3d35b96072c7e8c64c 
+JFK Airport website. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Review Restricted Hazardous Items Before You Board
+
+
+
+
+ For the safety of all travelers and airport staff, certain items must not be brought on board or checked in baggage.
+
+
+ Lithium-ion batteries found in smart bags, portable chargers, vape pens and more are not allowed in your checked baggage. Additionally, firearms (loaded or unloaded) are not permitted through TSA security checkpoints. For more information on the transport of firearms, firearms parts and ammunition, visit the 
+https://click.t.delta.com/u/?qs=5e0c70fac1b34eea772a648a0138ebedea13a3a70720dbdb214bc5a5cecac012484c627faece5b81f259fa01d9f47c00fad24edf6804ec5e 
+TSA website. 
+
+
+ Delta will not accept the following as carry-on or checked baggage on any Delta mainline or Delta Connection flight:
+	- 
+ Smart bags with non-removable lithium-ion batteries
+	- 
+ Self-balancing transportation devices (Hoverboards)
+	- 
+ Damaged, defective and/or recalled lithium batteries Further information and specific guidelines regarding restricted items can be found on 
+https://click.t.delta.com/u/?qs=5e0c70fac1b34eea2aa0c7f487c70f4a5912f027edb13879cf5d1dc0487836e50b9635b91616faa43efb12536d57dd82a2d721f653589947000ad4c598eae215 
+delta.com .
+
+
+
+
+
+
+ Download Our App
+
+https://click.t.delta.com/u/?qs=5e0c70fac1b34eea4f06e3ed5d6f1d2d27505b65348ccd32da18970af70ec4289c476f193f85d036416917ce21308dde544ec706508d3ae90709aff8c6ea409f 
+Track your checked bags, check your flight status, get your boarding pass, message us and more &rsaquo; 
+
+Calculate Your Baggage Estimate
+
+https://click.t.delta.com/u/?qs=5e0c70fac1b34eeae0ea200e2fb608ccb7beea2cce80a2ab4e0c854ed3edd5445ddc217bce160b5a9787ba1ea9e46bae5d9aa4b8beca77869fee11706776d641 
+Get an estimate of the baggage allowance and fees for your upcoming trip. &rsaquo; 
+
+ Visit Our Help Center
+
+https://click.t.delta.com/u/?qs=5e0c70fac1b34eeaca5b4eca8f03ce8feffacd42ec728eedc39f5528f8be113155b8fd6e9bff2fa3bd43ec0b4cb37c5f8792781b738be70dd092ab14e1f4b2d8 
+Get all your travel questions answered with information on self-service tools, baggage, SkyMiles, and more &rsaquo; 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+https://click.t.delta.com/u/?qs=508aac477e8205272444c86ea833629dafd1c72516e7cb9f1148ebfd1598494b853ea646711c92f1c3dd3552288e38208d671b77ee242dda905b620139e7150c 
+Help Center 
+ -
+ 
+https://click.t.delta.com/u/?qs=508aac477e820527a3529cfbea476cb70a6536ab7225bd3986012a13c17c6ae7d449ffc5b17e78f2bfdb71d50fda7c65152ea2f5375853cfcad47ff189513506 
+Flight Deals 
+ -
+ 
+https://click.t.delta.com/u/?qs=508aac477e820527c6c74d60cc5b38bdb05f0e3712b1090bafebb3569426a7513762c403ddc6d60d5c0c36c7767b823c7fe5b7b3c3f927c5c76df49ce21a0a2f 
+Earn Miles 
+ -
+ 
+https://click.t.delta.com/u/?qs=508aac477e82052711547ef203fa78b350a8a6833b63d020ac3b7f285e5d82140fc91d12a63c9bd406c182bbbe8bd21923c8c62b5babbd3c1be4119be7fd20ab 
+Give Back 
+
+https://click.t.delta.com/u/?qs=2b253dfc29dec18661bb4ad4394d23de24e03d06c7d98d749640df905572d479fb8d7f9b6bfaeb2ea9b9f788ff757f1b315e76bb3d4eeec580dc9ea8f5c84c3b 
+
+https://click.t.delta.com/u/?qs=2b253dfc29dec18671519aa5b6170dcdba11902f9e98e54494a78912b159ca921c4ed4024bae3d5dee2d4406b5c9e5f54a62fc292413f39da5fed44226542306 
+
+https://click.t.delta.com/u/?qs=2b253dfc29dec18686f2c4e1d82d753080cb43d65505446a37c403d9227f25c8abdca0543ab42511b8f17b3c7da131cf6e49a92c53d1d89249f2f0c28fc67d43 
+
+https://click.t.delta.com/u/?qs=2b253dfc29dec186ef24a68aeec9e971fa1f98b5d29fdb094ff99596329443a24c90f31640d33a6427a9f02618277db7403d0616448bf4c52b812441429493db 
+Email Preferences   |  
+https://click.t.delta.com/u/?qs=2b253dfc29dec186da21713bc6de65ded5cb3ce59ed8185e6317bf259a69998456bfcfd4e2d1fb476533c442dfb535b39c3552633c55f40930f07e2561582dcb 
+Privacy Policy 
+
+
+ Conditions of Carriage
+
+
+Air transportation on Delta and the Delta Connection(R) carriers is subject to Delta's 
+https://click.t.delta.com/u/?qs=2b253dfc29dec186fe0e336fab7bbfff48b737df1185f57a0f98ff33b4c9c3be1994807afa2803459fe72fb1c7123a91689623af54b40d6e0cebdda872d740d7 
+conditions of carriage . They include terms governing for example: 
+
+
+- 
+https://click.t.delta.com/u/?qs=2b253dfc29dec186a989900b70eb0be65a7b8f0f2f964cf8cf5b25bc2f44829b3b9ffd8b41912e1bc7857d173f6e4e90f4fb881db63d9be378206bbaafb10218 
+Limits on our liability  for personal injury or death of passengers, and for loss, damage of delay of goods and baggage.
+
+- 
+https://click.t.delta.com/u/?qs=2b253dfc29dec1862cfe9bbf2d72dec13e39bcec5fb70f0b066739b1a1f33c1348967d2976e0205a3c5060b7b6e8d68c69e50ff83f07d9703f31f04f9bab2de6 
+Claim restrictions  including time periods within which you must file a claim or bring action against us.
+
+- Our right to 
+https://click.t.delta.com/u/?qs=2b253dfc29dec186d7c03d4d1024ec9f9c842d718ba73f32c6428f84918e346f08ff374ee80a1f1d613ba604690f35a6d10b21a79d7d62f4e10f160c517d490d 
+change terms  of the contract.
+
+- 
+https://click.t.delta.com/u/?qs=2b253dfc29dec1864ef4caf25ff9a7e98be13b006e2497f8a635f4df002c2b4b892f9807e843c12fafa02a1dc1629ce1a84598136f9bb526d778efdfe8532b3a 
+Check-in requirements  and other rules established when we may 
+https://click.t.delta.com/u/?qs=c727c415a92c0606c1fc106283219331653dd1c0ef46416f36e607d7a456aefb11286439ca7571b6dd011dedba03b3c022ddbc100ff7791cacdc812419a9445c 
+refuse carriage .
+
+- Our rights and limits of our liability for 
+https://click.t.delta.com/u/?qs=c727c415a92c06063d18fd9fa7bddd2d4461651f4be6fd2f864d819bb7a7f1b7df74075876c9912c39d98dca10273b5ea72048d8fcf93ddcf609823bf804c19c 
+delay or failure to perform service  including schedule change, substitution of alternative air carriers or aircraft, and rerouting.
+
+- Our policy on 
+https://click.t.delta.com/u/?qs=c727c415a92c0606dda248698a9c1fe403b086bb86a01941efaa8232abb133433cf44e69135a45fbb641969802752c703f8f91a9b41cee0c127a78a046188464 
+overbooking flights , and your rights if we deny you boarding due to an oversold flight. 
+
+Advice To Passengers On Limitations Of Liability
+
+
+For international travel to or from another country, airline liability is governed by the Montreal Convention or the Warsaw Convention. There are no financial limits for death or bodily injury, and the airline may make an advance payment to cover immediate economic needs. The airline's liability for passenger delay, and for loss, delay or damage to baggage may be limited by the Conventions. In case of baggage, the liability limit is 1131 Special Drawing Rights (approximately US $1787) per passenger for international travel. The baggage limit is US $3,500 per ticketed passenger for US domestic travel. These baggage liability limitations apply unless you declare a higher valuation and pay
+ additional charges at check-in. In case of international travel, any action in court to claim damages must be brought within two years from the date of the actual or scheduled arrival of the aircraft; and, in case of baggage claims, written notice to the carrier must be made within 7 days of the receipt of checked baggage in case of damage, and, in case of delay, within 21 days from the date on which it was placed at the disposal of the passenger. If your journey also involves carriage by other airlines, you should contact them for information on their limits of liability. See the notice with your tickets or consult your airline or travel agent for further information.
+
+Email Subscription
+
+
+You are currently subscribed to receive Delta Messenger Notifications via email at AUNERMONCADA@GMAIL.COM. If you would like to take advantage of other Delta email programs featuring special fares, promotions and information, please visit 
+https://click.t.delta.com/u/?qs=c727c415a92c06063926b76da29ad659dd895e1f9e7799398bdb99b69d7b5054c30a9c85f026e8b2c376ce99548e0e84632a27a6d0bbd84c2ff5ee8040d82b92 
+delta.com/emailprograms 
+
+Privacy Policy
+
+
+Your privacy is important to us. Please review our 
+https://click.t.delta.com/u/?qs=c727c415a92c0606b6fa0e3d29b061d5914995bbe460352f6d0bc59cefa8f776e72627d3cdde5807f748466cea6a91537d623213f0fbaafae15020a706fe0f9c 
+Privacy Policy .
+
+
+Effective December 15, 2019, the Canada Air Passenger Protection Regulations may provide additional protections to passengers traveling to or from Canada:
+
+If you are denied boarding, your flight is cancelled or delayed for at least two hours, or your baggage is lost or damaged, you may be entitled to certain standards of treatment and compensation under the Air Passenger Protection Regulations. For more information about your passenger rights please contact your air carrier (
+https://click.t.delta.com/u/?qs=c727c415a92c0606642cf42f1ba0c44d1fcba81b3d5171a90713e134bc86a4f2da41fc2cbf6d64181fde954dc5c0e78e104ee6e3881de9003a42119687906ff2 
+www.delta.com/appr ) or visit the Canadian Transportation Agency&rsquo;s website.
+
+ Si l&rsquo;embarquement vous est refuse, ou si votre vol est annule ou retarde d&rsquo;au moins deux heures ou si vos bagages sont perdus ou endommages, vous pourriez avoir droit au titre du Reglement sur la protection des passagers aeriens, a certains avantages au titre des normes de traitement applicables et a une indemnite. Pour de plus amples renseignements sur vos droits, veuillez communiquer avec votre transporteur aerien (
+https://click.t.delta.com/u/?qs=c727c415a92c0606642cf42f1ba0c44d1fcba81b3d5171a90713e134bc86a4f2da41fc2cbf6d64181fde954dc5c0e78e104ee6e3881de9003a42119687906ff2 
+www.delta.com/appr ) ou visiter le site Web de l&rsquo;Office des transports du Canada.
+
+Copyright Information
+
+
+This email message and its contents are copyrighted and are proprietary products of Delta Air Lines, Inc. Delta Blvd., P.O. Box 20706 Atlanta, GA 30320-6001. Any unauthorized use, reproduction, or transfer of this message or its contents, in any medium, is strictly prohibited.
+
+ 
+
+This email was sent to: 
+mailto:AUNERMONCADA@GMAIL.COM 
+AUNERMONCADA@GMAIL.COM 
+
+
+ (c) 2024 Delta Air Lines, Inc. All rights reserved.
+ 
+
+ Delta Blvd. P.O. Box 20706 - Atlanta, GA 30320-6001
+ 
+
+
+
+--2IuwngvWX4TF=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+   <!-- Delta Air Lines Email Template -->
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta name="viewport" content="width=device-width; initial-scale=1.0;">
+      <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+      <meta name="x-apple-disable-message-reformatting">
+      <link rel="shortcut icon" href="https://www.delta.com/favicon.ico">
+      <link rel="icon" href="https://www.delta.com/favicon.ico" type="image/x-icon">
+      <title>Delta Air Lines</title>
+      <style type="text/css">
+         ReadMsgBody, .ReadMsgBody {
+         width: 100%;
+         }
+         .ExternalClass {
+         width: 100%;
+         }
+         .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+         line-height: 100%;
+         }
+         /* Samsung alignment fix */
+         #MessageViewBody, #MessageWebViewDiv {
+          width: 100% !important;
+         }
+         #outlook a {
+         padding: 0;
+         }
+         body {
+         font-family: Arial, Helvetica, sans-serif !important;
+         -webkit-text-size-adjust:100%;
+         -ms-text-size-adjust:100%;
+         margin:0 !important;
+         padding: 0 !important;
+         line-height:normal;
+         }
+         h1 {
+         font-family: Arial, Helvetica, sans-serif !important;
+         font-size: 26px;
+         line-height: normal;
+         color:#0B1F66;
+         margin: 0px;
+         padding: 0px;
+         font-weight: normal;
+         }
+         h2 {
+         font-family: Arial, Helvetica, sans-serif !important;
+         font-size: 18px;
+         line-height: normal;
+         color:#0B1F66;
+         margin: 0px;
+         padding: 0px;
+         font-weight: bold;
+         }
+         h2.blue {
+         font-family: Arial, Helvetica, sans-serif !important;
+         font-size: 16px;
+         line-height: normal;
+         color:#7C828A;
+         margin: 0px;
+         font-weight: bold;
+         }
+         h3 {
+         font-family: Arial, Helvetica, sans-serif !important;
+         font-size: 16px;
+         line-height: normal;
+         color:#0B1F66;
+         margin: 0px;
+         padding: 0px;
+         font-weight: normal;
+         }
+         p {
+         font-family: Arial, Helvetica, sans-serif !important;
+         margin: 1em 0;
+         padding: 0px;
+         }
+         table td {
+         font-family: Arial, Helvetica, sans-serif !important;  
+         border-collapse: collapse;
+         }
+         img {
+         outline:0;
+         display: block;
+         border: 0;
+         text-decoration: none;
+         }
+         a {
+         font-size: 16px;
+         /* font-weight: bold; */
+         color: #4470C3;
+         text-decoration: underline;
+         }
+         .copy a {
+         font-weight: bold;
+         }
+         #Greeting a {
+         font-size: 14px;
+         font-weight: normal;
+         color: #0B1F66;
+         }
+         #Terms a {
+         font-size: 12px;
+         font-weight: normal;
+         color: #4470C3;
+         text-decoration: none;
+         }
+         a img {
+         border:none;
+         }
+         sup, sub {
+         font-size: 0.6em !important;
+         line-height: 100% !important;
+         }
+         sup {
+         vertical-align:text-top !important;
+         font-size:66%;
+         line-height:1 !important;
+         mso-text-raise:10%;
+         }
+         sub {
+         vertical-align: text-bottom !important;
+         }
+         .transparent:hover {
+         -khtml-opacity: 0.65;
+         -moz-opacity: 0.65;
+         -ms-filter: progid: DXImageTransform.Microsoft.Alpha(opacity=65);
+         filter: alpha(opacity=65);
+         opacity: 0.65;
+         zoom: 1
+         }
+         a.blueLink:hover {
+           color: #071959 !important;
+           text-decoration: underline;
+         }
+      </style>
+      <!--[if (mso 12) | (mso 14) | (mso 15) | (mso 16)]>       <style type="text/css">          sup, sub {          font-size: 100% !important;          }       </style>       <![endif]-->
+      <!-- Break styles into groups to prevent Gmail ignore -->
+      <style type="text/css">
+         /* Browser-specific workarounds */
+         @-ms-viewport {
+         width: device-width;
+         }
+         /* Stops email clients resizing small text. */
+         *{
+         -ms-text-size-adjust: 100%;
+         -webkit-text-size-adjust: 100%;
+         }
+         /* Centers email on Android 4.4 */
+         div[style*="margin: 16px 0"] {
+         margin:0 !important;
+         }
+         /* Prevents Email Clients and Outlook from adding extra spacing to tables. */
+         table,td {
+         border-spacing: 0 !important;
+         border-collapse: collapse !important;
+         mso-table-lspace: 0pt !important;
+         mso-table-rspace: 0pt !important;
+         }
+         /* Uses a better rendering method when resizing images in IE. */
+         img {
+         -ms-interpolation-mode:bicubic;
+         }
+         /* A work-around for iOS meddling in triggered links. */
+         *[x-apple-data-detectors] {
+         color: inherit !important;
+         text-decoration: none !important;
+         font-size: inherit !important;
+         font-family: inherit !important;
+         font-weight: inherit !important;
+         line-height: inherit !important;
+         }
+         /* A work-around for Gmail meddling in triggered links. */
+         .x-gmail-data-detectors, .x-gmail-data-detectors *, .aBn {
+         border-bottom: 0 !important;
+         cursor: default !important;
+         }
+         /* A work-around for Samsung Mail meddling in triggered links. */
+         #MessageViewBody a {
+         color: inherit;
+         text-decoration: none;
+         font-size: inherit;
+         font-family: inherit;
+         font-weight: inherit;
+         line-height: inherit;
+         }
+         #MessageViewBody, #MessageWebViewDiv {
+          width: 100% !important;
+         }
+         /* Prevents Gmail from displaying an download button on large, non-linked images. */
+         .a6S {
+         display: none !important;
+         opacity: 0.01 !important;
+         }
+         /* Prevents Gmail from displaying large, open spaces when images are not loaded. */
+         td[class=em_hide], table[class=em_hide], span[class=em_hide], br[class=em_hide] {
+         display:none !important;
+         }
+         /* Prevents underlining the button text in Windows 10 */
+         .button-link {
+         text-decoration: none !important;
+         }
+         /* End Browser-specific workarounds */
+      </style>
+      <style type="text/css">
+         @media only screen and (max-width: 600px) {
+         .container {
+         width: 100% !important;
+         }
+         .mobile-hidden {
+         display:none !important;
+         }
+         .desktop-hidden {
+         display:inline !important;
+         }
+         .responsive-td {
+         width:100% !important;
+         display:block !important;
+         padding:0 !important;
+         }
+         body {
+         padding: 0px !important;
+         font-size: 14px !important;
+         }
+         h1 {
+         font-size: 20px;
+         font-weight: normal;
+         }
+         h2 {
+         font-size: 16px;
+         font-weight: bold;
+         }
+         h3 {
+         font-size: 14px;
+         font-weight: normal;
+         }
+         .buttonstyles {
+         font-size:14px !important;
+         line-height:16px !important;
+         padding-left:20px !important;
+         padding-right:20px !important;
+         }
+         .copy {
+         font-size:14px !important;
+         line-height: normal !important;
+         padding:0 !important;
+         }
+         .banner-txt{
+         font-size:14px !important;
+         line-height: normal !important;
+         }
+         .module-mobile-spacer {
+         height:30px !important;
+         }
+         .header_logo {
+         height:21px !important;
+         width: 140px !important;
+         margin-top:0px !important;
+         }
+         .header_jvlogo {
+         height:21px !important;
+         width: auto !important;
+         margin-top:0px !important;
+         }
+         #Greeting a {
+         font-size: 12px !important;
+         font-weight: normal !important;
+         }
+         .SMInfo {
+         font-size: 12px !important;
+         line-height: normal !important;
+         padding-top: 15px !important;
+         text-align:center !important;
+         }
+         .footer_logo {
+         padding-bottom:20px !important;
+         }
+         .navigation_stack {
+         width:100% !important;
+         display:block !important;
+         padding:0.5em 0 !important;
+         }
+         .navigation_divider {
+         width:100% !important;
+         border-style:none !important;
+         border-width:0 !important;
+         padding-bottom:0px !important;
+         }
+         td.social_icons {
+         padding-top:15px !important;
+         padding-bottom:20px !important;
+         }
+         /* Added on 10/4/19 by Evan Vega as very helpful responsive class */
+         .devicewidth {
+         width:100% !important;
+         }
+         .font16 {
+         font-size:16px !important;
+         }
+         .mPadL15 {
+         padding-left: 15px !important;
+         }
+         .mPadT21 {
+         padding-top: 21px !important;
+         }
+         /* Added on 9/30/2019 by Tony Rogers to address poll choices in 2 column layout */
+         td.poll_option {
+         line-height: normal !important;
+         padding: 10px 20px 10px 0;
+         width: 20% !imporatant;
+         }
+         img.social_icons {
+         height:30px !important;
+         width: 30px !important;
+         }
+         .multi_purpose_txt_width {
+         line-height: normal !important;
+         margin: auto !important;
+         width: 256px !important;
+         text-align: left !important;
+         }
+         .multi_purpose_alt_title {
+         font-weight:normal !important;
+         font-size:14px !important;
+         }
+         .multi_purpose_alt_price {
+         font-size:18px !important;
+         font-weight:bold !important;
+         line-height: normal !important;
+         }
+         .multi_purpose_cta_width {
+         font-size:14px !important;
+         line-height: normal !important;
+         margin: auto !important;
+         width: 256px !important;
+         text-align: left !important;
+         }
+         .icon_list_sxs_txt_width {
+         font-size:14px !important;
+         line-height: normal !important;
+         width: auto !important;
+         text-align: left !important;
+         }
+         .icon_list_sxs_txt {
+         font-size:14px !important;
+         line-height: normal !important;
+         }
+         .icon_list_txt_width {
+         font-size:14px !important;
+         line-height: normal !important;
+         margin: auto !important;
+         width: 175px !important;
+         text-align: center !important;
+         }
+         /* Added on 9/27/2019 by Tony Rogers to address Thumbs Up/Down image resizing issues on mobile */
+         img.poll_thumbs {
+         height: 18px !important;
+         width: 18px !important;
+         }
+         img.poll_thumbs_2 {
+         height: 28px !important;
+         width: 60px !important;
+         }
+         /* Added on 9/30/2019 by Tony Rogers to address Flight Info resizing issues on mobile */
+         .itinerary {
+         line-height: normal !important;
+         text-align: center !important;
+         font-size:18px !important;
+         width: auto !important;
+         }
+         .flight_info {
+         line-height: normal !important;
+         text-align: center !important;
+         font-size:10px !important;
+         width: auto !important;
+         }
+         /* Prevents Gmail App from increasing the font sizes on some mobile devices */
+         *[class="gmail-fix"] {
+         width: 100% !important;
+         min-width: 320px !important;
+         height: 1px !important;
+         }
+         .gmail-fix {
+         width: 100% !important;
+         min-width: 320px !important;
+         height: 1px !important;
+         }
+         }
+      </style>
+      <!--[if mso]>       <style type="text/css">          /* Begin Outlook Font Fix */          body, div, table, td {          font-family: Arial, Helvetica, sans-serif ;          font-size:12px;          color:#7C828A;          line-height:14px;          }          /* End Outlook Font Fix */       </style>       <![endif]-->
+      <!--[if gte mso 9]>       <xml>          <o:OfficeDocumentSettings>             <o:AllowPNG></o:AllowPNG>             <o:PixelsPerInch>96</o:PixelsPerInch>          </o:OfficeDocumentSettings>       </xml>       <![endif]-->
+   </head>
+   <body bgcolor="#ffffff" style="background-color: #ffffff; color: #0B1F66; padding: 0px; -webkit-text-size-adjust:none; font-size: 14px; font-family:arial,helvetica,sans-serif;"><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Review important airport and flight information.</div>
+
+     <!-- START: DYNAMIC OMNITURE TAG AMPSCRIPT (CB-dynamic-omniture-tag) -->
+<div data-marker="wrapper" style="" class="stylingblock-content-wrapper"></div>
+<!-- END: DYNAMIC OMNITURE TAG AMPSCRIPT (CB-dynamic-omniture-tag) -->
+     
+     <!-- START: DATE AND FURTURE DATE AMPSCRIPT (CB-date-plus) -->
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+<!-- END: DATE AND FURTURE DATE AMPSCRIPT (CB-date-plus) -->
+
+     <!-- START: CURRENCY SYMBOL LOOKUPROWS AMPSCRIPT (CB-symbol-lookup) -->
+<table cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+<!-- END: CURRENCY SYMBOL LOOKUPROWS AMPSCRIPT (CB-symbol-lookup) -->
+
+      <div style="font-size:0px; line-height:1px;">
+         <img src="https://click.t.delta.com/open.aspx?ffcb10-fec617777065027e-fe2d167075650c7b7c1577-fe5a15707c6c06797c10-ff9a1574-fe501372736001787c1d-fec415797266067b&d=10186&bmt=0" width="1" height="1" alt="">
+         
+         <!-- BEGIN CONTENT BLOCK LINK TABLE LOOKUP SCRIPT -->
+        <!-- <table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table> -->
+         <!-- END CONTENT BLOCK LINK TABLE LOOKUP SCRIPT -->
+      </div>
+      <!-- BEGIN OUTER TABLE WITH 100% WIDTH -->
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" role="presentation">
+         <tr>
+            <td width="100%" align="center" style="background-color:#ffffff;" bgcolor="#ffffff">
+               <!-- BEGIN CONTAINER TABLE FOR EMAIL BODY -->
+               <table width="600" class="container" align="center" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto; padding: 0;" role="presentation">
+
+                  <tr>
+                     <td align="center" valign="top">
+                        <!-- BEGIN EMAIL BODY TABLE -->
+                        <table cellspacing="0" cellpadding="0" style="width:100%" role="presentation">
+                           <tbody>
+                              <!-- BEGIN HEADER REGION -->
+                              <tr>
+                                 <td class="mobile-hidden" style="padding-top:20px; text-align:right; font-size:10px; font-weight:normal;">&nbsp;
+                                    <a href="https://view.t.delta.com/?qs=0145655edd79b15a0a0a578e3f30c089d34c81c4f3c257a04fae6a251aa37b0d53d7242df6c398df0d762e02f68e4504aa3bb283730236d50b607415fc6575096e4035d18328602d9bc0e8c296112e57"  target="_blank" style="font-size:10px; font-weight:normal; text-decoration:underline; color:#7C828A">View as a Web Page</a><br /><br />
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td height="20" style="font-size:10px; line-height:10px; font-weight:normal;" bgcolor="#F5F7FA" >&nbsp;</td>
+                              </tr>
+                              <tr>
+                                 <td id="Header" width="100%" align="center" valign="middle" bgcolor="#FFFFFF" style="background-color: #F5F7FA; padding-bottom:0;">
+                                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table class="darkmode" style="background-color:#F5F7FA;" role="presentation" width="100%" cellspacing="0" cellpadding="0" bgcolor="#F5F7FA">
+        <tr><td style="padding-right:20px; padding-left:20px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+            <td class="responsive-td" style="width: 43%; padding-right: 3px;" valign="middle" align="center"><a target="_blank" style="text-decoration:none; margin: auto 0px;" href="https://click.t.delta.com/u/?qs=b90eb55b8319a480cc495c304c06ec93f29a196da8e56eda0525fae3074fe96de2040dfd2fa51ede857a64c06b3894b4ed0f5324e4d9cd3a6d013ba9329807f0" title="DELTA &amp; LATAM"   data-linkto="other"><img data-assetid="18548" src="https://image.t.delta.com/lib/fe5a15707c6c06797c10/m/1/DL-LA_h_c.png" alt="DELTA|LATAM" style="display: block; text-align: center; height:65px; width:288px; margin: 10px auto 0px auto; padding: 0px; border: 0px;" class="header_jvlogo" width="288" height="65"></a></td>
+            <td class="responsive-td" style="width: 57%; padding-left: 3px;" valign="middle"><div class="SM_Info" style="font-family: Arial,Helvetica,sans-serif; text-align:right; color: #0B1F66; font-size:14px; font-weight:normal;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"> <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+
+<table id="Greeting" role="presentation" style="text-align: right;" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+    <tr>
+  <td class="SMInfo" style="padding-right: 0; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.35em; color:#0B1F66; text-align:right;mso-line-height-rule: exactly; line-height: 150% !important" valign="middle" align="right">
+    <br>
+    <a href="https://click.t.delta.com/u/?qs=61010d5a66b97f3cadf122d4e752af78e458991223a576c6cc56131aa334b71c21e18f944c6a717913e6bd01d14f5b6a84a636fa88411c31128adec175f2fc28"  target="_blank" style="font-weight:normal; color:#0B1F66; text-decoration:underline;">#9652045601</a>
+    
+    <span class="mobile-hidden"><br></span>
+    
+    <span class="mobile-hidden"><br></span>
+    
+      </td>
+    </tr>
+
+</table></td></tr></table> </td></tr></table></div></td>
+        </tr>
+    </table>
+          </td>
+        </tr>
+    </table></td></tr></table>
+
+</td></tr></table>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td height="20" style="font-size:10px; font-weight:normal; line-height:10px;" bgcolor="#F5F7FA" >&nbsp;</td>
+                              </tr>
+                              <!-- END HEADER REGION -->
+                              <!-- BEGIN MAIN BODY REGION -->
+                              <tr>
+                                 <td id="Body" width="100%" valign="top" bgcolor="#FFFFFF" style="background-color: #FFFFFF;">
+                                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #0B1F66; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 12px 20px; " class="stylingblock-content-wrapper camarker-inner"><div class="banner-txt" style="font-family: arial, helvetica, sans-serif; font-size: 18px; line-height: 1em; color: #ffffff; text-align: center;">
+	<b>CONFIRMATION #: GTFZS5</b></div></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center"><img data-assetid="44101" src="https://image.t.delta.com/lib/fe5a15707c6c06797c10/m/1/EMAIL+HEADER+1.jpg" alt="Time To Check In" width="600" style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px;"></td></tr></table></td></tr></table>
+</td></tr></table>
+
+<!-- <p>
+Comps: 0<br>
+Reqs: 1
+</p> --><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 30px 30px 10px; " class="stylingblock-content-wrapper camarker-inner"><table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center"><table border="0" cellspacing="0" cellpadding="0" role="presentation"><tr><td class="innertd buttonblock" bgcolor="#E51937" style=" border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; background-color: #E51937;">
+<a target="_blank" class="buttonstyles" style=" font-size: 16px; line-height: 18px; font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; text-align: center; text-decoration: none; display: block; font-weight: bold; padding-top: 16px; padding-right: 50px; padding-bottom: 16px; padding-left: 50px; background-color: #E51937; border: 0px solid #E51937; padding: 16px 50px; border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px;" href="https://click.t.delta.com/u/?qs=1b14117d3d1abd6031ed06fa48f3a77b756e9391875e1a85f981e5f239eb8a9a654bbd29b1e5790f79628c11f43061b1ba1af28bed47528f93d57bdd8f29c01ce9b44d2a8e904bf2" title=""   data-linkto="https://">CHECK IN ONLINE</a></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+
+
+
+
+
+
+ 
+
+ <!--[if mso | IE]>   <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">    <tr>     <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">  <![endif]-->
+ <div style="margin:0px auto;max-width:600px;background:#fffffe; overflow:visible;">
+  <table class="darkmode" role="presentation" style="font-size:0px;width:100%;background:#fffffe;" cellspacing="0" cellpadding="0" border="0" align="center">
+   <tr>
+    <td class="boddy_text_container darkmode" style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:25px 38px 0px 38px;" bgcolor="#fffffe">
+    <!--[if mso | IE]>      <table role="presentation" border="0" cellpadding="0" cellspacing="0">       <tr>        <td style="vertical-align:top;width:600px;">     <![endif]-->
+     <div aria-labelledby="mj-column-per-100" class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;">
+      <table class="darkmode" role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+       <tr>
+        <td class="fontsize_mob_16 copy" style="font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 22px; color:#072358; padding-top: 8px;" valign="top" align="left">
+          Your flight on Wednesday, February 07 is available for check-in. Prepare for your flight by reviewing the below itinerary and information on <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=d2d1aed34130da29c28a782c4a3d70709c0877cf9cf9d0e3711ec6432356f4f850e42eab1dba897ed34cd31f861c9541a97fb148dfd4cb230b1cf84daea4c1d5" style="text-decoration:none; color: #4470C3;" title="">prohibited items</a> for checked or carry-on bags.
+        </td>
+       </tr>
+      </table>
+     </div>
+    <!--[if mso | IE]>        </td>       </tr>      </table>     <![endif]-->
+    </td>
+   </tr>
+  </table>
+ </div>
+ <!--[if mso | IE]>     </td>    </tr>   </table>  <![endif]-->
+
+ 
+</td></tr></table>
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #FFFFFF; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><!--[if mso | IE]>         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">         <tr>         <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">         <![endif]--><table class="darkmode" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="font-size:0px;width:100%;background:#ffffff;">
+ 
+  <tr>
+   <td bgcolor="#ffffff" class="boddy_text_container darkmode" style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:25px 38px 0 38px;">
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+     
+      <tr>
+       <td align="left" class="fontsize_mob_16 copy" style="font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 22px; color:#072358; padding-top: 8px;" valign="top">
+        <strong>If You Are Not Able To Check In Online</strong><br>
+        Please arrive early and stop by a check-in counter at the airport. If you need to make a same-day ticket change or other changes to your trip, review your options <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=5e0c70fac1b34eeaa56b65f579c69fca2a477937b30244a02bc19df3dc73ad43ded54751768b5339d3aff708a6cba3313bc01ca9cccb2bb452c1451bcaa5c40fc6d2175d8ebacd47" style="color: #4470C3; text-decoration: none; font-size: 16px;"><b>here</b>.</a></td></tr></table></td></tr></table><!--[if mso | IE]>         </td></tr></table>         <![endif]--></td></tr></table>
+
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #FFFFFF; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 0px 20px; " class="stylingblock-content-wrapper camarker-inner"><!--[if mso | IE]>         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">         <tr>         <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">         <![endif]--><table class="darkmode" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="font-size:0px;width:100%;background:#ffffff;">
+ 
+  <tr>
+   <td bgcolor="#ffffff" class="boddy_text_container darkmode" style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:25px 38px 0 38px;">
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+     
+      <tr>
+       <td align="left" class="fontsize_mob_16 copy" style="font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 22px; color:#072358; padding-top: 8px;" valign="top">
+        <!-- <strong>We've Got You Covered</strong><br>         Stay in control of your travel plans. We&rsquo;re making it easier to make changes yourself on delta.com and the Fly Delta app. You can cancel or modify your itinerary via <a alias="MyTrips" conversion="true" data-linkto="https://" href="https://www.delta.com/mytrips/findPnr.action?mkcpgn=EM_TRNX_EN_BE_NT_257368_240206&confirmationNumber=GTFZS5&departureAirport=JFK&searchType=1&startFrom=email" style="color:#245AA5;text-decoration:none;" title="">MyTrips
+</a> prior to departure without any change fees. This helps ensure those traveling can be seated further apart while also meeting weight and balance guidelines. You can also check the seat map on <a alias="MyTrips" conversion="true" data-linkto="https://" href="https://www.delta.com/mytrips/findPnr.action?mkcpgn=EM_TRNX_EN_BE_NT_257368_240206&confirmationNumber=GTFZS5&departureAirport=JFK&searchType=1&startFrom=email" style="color:#245AA5;text-decoration:none;" title="">MyTrips</a> prior to departure to see if seats adjacent to yours are occupied or available for sale.<br>         <br> <strong>Confirm You're Healthy To Fly</strong>
+<br>         When you check-in, we&rsquo;ll ask you commit to wearing a mask throughout your trip &ndash; even if you are vaccinated &ndash; and acknowledge that you have not experienced symptoms, been exposed to or tested positive for COVID-19 in the past 10 days. <a alias="More information" conversion="false" data-linkto="https://" href="https://www.delta.com/us/en/travel-planning-center/know-before-you-go/safety-commitment?mkcpgn=EM_TRNX_EN_BE_NT_257368_240206" style="color: rgb(36, 90, 165); text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 18px;" target="_blank" title="More information">More Information&nbsp;&rsaquo;</a><br>         <br>
+<a alias="More information" conversion="false" data-linkto="https://" href="https://www.delta.com/us/en/travel-planning-center/on-the-plane/food-services-amenities?mkcpgn=EM_TRNX_EN_BE_NT_257368_240206" style="color: rgb(36, 90, 165); text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 18px;" target="_blank" title="More information">Learn more</a> about the steps we are taking to provide you with the safest experience.<br>         <br>-->Our 8 global airline partners are also working diligently to keep you safe on their flights. <b><a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=7e4086d85caa12d220c8f98be0b30cc2c22d29dd7be449c969cfae7a96327772f937352370e27c60793c7ae3b4f059788566c2252ea02f6a6adfe3a24a020856" style="color: #4470C3; text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 16px;" target="_blank" title="More Information">More&nbsp;Information&nbsp;&rsaquo;</a></b>
+<!--Ready for your upcoming flight? Save time and check in online now whether you are traveling with or without baggage. If you need to make a same-day ticket change or other changes to your trip, review your options <a alias="Ticket Change" conversion="false" data-linkto="https://" href="https://www.delta.com/us/en/change-cancel/overview?mkcpgn=EM_TRNX_EN_BE_NT_257368_240206_B0_CHANGE" style="color: rgb(36, 90, 165); text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 18px;" target="_blank" title="">here</a>.--></td></tr></table></td></tr></table><!--[if mso | IE]>         </td></tr></table>         <![endif]--></td></tr></table>
+
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 30px 0px 0px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #F5F7FA; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 15px 0px 35px; " class="stylingblock-content-wrapper camarker-inner"><!--[if mso | IE]>  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">   <tr>    
+<td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"> <![endif]-->
+<div style="margin:0px auto;max-width:600px;background:#F5F7FA; overflow:visible;">
+ <table role="presentation" style="font-size:0px;width:100%;background:#F5F7FA;" cellspacing="0" cellpadding="0" border="0" align="center">
+  <tr>
+   <td class="boddy_text_container" style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px 40px 5px 40px;" bgcolor="#F5F7FA">
+    <!--[if mso | IE]>      <table role="presentation" border="0" cellpadding="0" cellspacing="0">       <tr>        <td style="vertical-align:top;width:600px;">     <![endif]-->
+    <div aria-labelledby="mj-column-per-100" class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;">
+    
+
+    
+
+    
+
+    
+
+      <table role="presentation" style="width: 100%;" cellspacing="0" cellpadding="0" border="0">
+       <tr>
+        <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 20px 10px 25px 10px; border: none; width: 100%;" valign="top" bgcolor="#F5F7FA" align="left">
+         
+          <b>TRIP ONE</b>
+          
+        </td>
+       </tr>
+      </table>
+      
+
+     <table role="presentation" style="width: 100%;" cellspacing="0" cellpadding="0" border="0">
+     
+
+     
+
+
+      
+       
+      
+
+     
+      <tr>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>Wednesday<br> February 07</b>
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>DEPART</b>
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>ARRIVE</b>
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>SEAT</b>
+       </td>
+      </tr>
+     
+      <tr>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#ffffff" align="left">
+        Delta Air Lines, Inc 6065<br>
+        
+          Operated by LATAM Airlines<br>
+        
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#ffffff" align="left">
+        Kennedy Intl, New York<br>06:30 pm
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#ffffff" align="left">
+        Santiago**<br>07:00 am on February 08
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#ffffff" align="left">
+        34A
+       </td>
+      </tr>
+     
+
+
+      
+       
+      
+
+     
+      <tr>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>Thursday<br> February 08</b>
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>DEPART</b>
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>ARRIVE</b>
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>SEAT</b>
+       </td>
+      </tr>
+     
+      <tr>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#e7ebef" align="left">
+        Delta Air Lines, Inc 6719<br>
+        
+          Operated by LATAM Airlines<br>
+        
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#e7ebef" align="left">
+        Santiago<br>08:07 am
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#e7ebef" align="left">
+        Rio de Janeiro, Rio de Janeiro<br>12:20 pm
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#e7ebef" align="left">
+        Seat Assigned after Check-In
+       </td>
+      </tr>
+     
+     </table>
+    
+
+      <table role="presentation" style="width: 100%;" cellspacing="0" cellpadding="0" border="0">
+       <tr>
+        <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 20px 10px 25px 10px; border: none; width: 100%;" valign="top" bgcolor="#F5F7FA" align="left">
+         
+          <b>TRIP TWO</b>
+          
+        </td>
+       </tr>
+      </table>
+      
+
+     <table role="presentation" style="width: 100%;" cellspacing="0" cellpadding="0" border="0">
+     
+
+     
+
+
+      
+       
+      
+
+     
+      <tr>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>Thursday<br> February 15</b>
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>DEPART</b>
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>ARRIVE</b>
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#d2d3d5" align="left">
+        <b>SEAT</b>
+       </td>
+      </tr>
+     
+      <tr>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#ffffff" align="left">
+        Delta Air Lines, Inc 244<br>
+        
+          Operated by Delta Air Lines, Inc<br>
+        
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#ffffff" align="left">
+        Rio de Janeiro, Rio de Janeiro<br>10:15 am
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#ffffff" align="left">
+        Kennedy Intl, New York<br>06:40 pm
+       </td>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: 1px solid rgb(136, 134, 132); border-image: initial; width: 25%;" valign="top" bgcolor="#ffffff" align="left">
+        Seat Assigned after Check-In
+       </td>
+      </tr>
+     
+     </table>
+    
+    
+     <table role="presentation" style="width: 100%;" cellspacing="0" cellpadding="0" border="0">
+      <tr>
+       <td class="resize_table_mob fontsize_mob_12" style="border-collapse: collapse; overflow: hidden !important; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; color: rgb(102, 102, 102); padding: 10px; border: none; width: 100%;" valign="top" bgcolor="#F5F7FA" align="left">
+        **Arrival date is different than departure date.<br>
+
+       </td>
+      </tr>
+     </table>
+    
+    </div>
+    <!--[if mso | IE]>        </td>       </tr>      </table>     <![endif]-->
+   </td>
+  </tr>
+ </table>
+</div>
+<!--[if mso | IE]>    </td>   </tr>  </table> <![endif]--></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #F5F7FA; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 0px 20px; " class="stylingblock-content-wrapper camarker-inner"><!--[if mso | IE]>         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">         <tr>         <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">         <![endif]--><table align="center" border="0" cellpadding="0" cellspacing="0" class="darkmode" role="presentation" style="font-size:0px;width:100%;background:#F5F7FA;">
+	
+		<tr>
+			<td bgcolor="#F5F7FA" class="boddy_text_container darkmode" style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:5px 38px 0 38px;">
+				<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+					
+						<tr>
+							<td align="left" class="copy" style="font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 22px; color:#0b1f66; padding-top: 8px;" valign="top">
+								<strong>Save Time At The Airport</strong><br>
+								Prepay for checked bag fees, if applicable, online during check-in. Then use our self-service airport kiosks to print your bag tag and attach it to your bag before dropping it with an agent. <b><a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=a458a11a2211896888c228a799aaae2da53a6c9ebb6caa7f0803f3db365666af7d750952341a768a63e9b28d6b120ecf83db0efdf3e8efe7d1b81f56866feacc7e5dd55daf5cf7aa" style="color: #4470C3; text-decoration: none;">Pay For Bags Through MyTrips&nbsp;&rsaquo;</a></b></td></tr></table></td></tr></table><!--[if mso | IE]>         </td></tr></table>         <![endif]--></td></tr></table>
+
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 10px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 3px solid #A6DBF9; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr>
+<td valign="top" style="width: 5%; padding-bottom: 3px; padding-right: 3px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 5px 5px 0px; " class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center">
+<img data-assetid="73169" src="https://image.t.delta.com/lib/fe5a15707c6c06797c10/m/1/icon_FG_clock.jpg" alt="Clock icon" height="60" width="60" style="display: block; padding: 0px; text-align: center; height: 60px; width: 60px; border: 0px;"></td></tr></table></td></tr></table></td><td valign="top" style="width: 95%; padding-bottom: 3px; padding-left: 3px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 0px; " class="stylingblock-content-wrapper camarker-inner">
+<table align="left" border="0" cellpadding="0" cellspacing="0">
+ 
+  <tr>
+   <td class="copy" style="text-align: left; padding: 5px 0px 0px 0px; color:#0B1F66; font-size:16px; line-height: 1.3; font-family:arial,helvetica,sans-serif;font-weight:bold;" valign="middle">
+    Arrive Early For Your&nbsp;Flight</td></tr></table></td></tr></table></td></tr></table></td></tr><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td valign="top" style="width: 100%; padding-top: 3px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #F5F7FA; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px; " class="stylingblock-content-wrapper camarker-inner">
+<div class="copy" style="padding: 0px 30px; color: rgb(124, 130, 138); font-size: 14px; font-family: arial, helvetica, sans-serif; line-height: 130%;">
+ Allow extra time for check-in and security screening before your flight given increased passenger volume. We recommend planning to arrive at least two hours prior to your scheduled departure time for domestic flights and three hours for international flights. Review when <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=c21bcfbf83374246d6f5f3e4c17d6be9f742603964eaa2cab6bf73fed29ce066d9b53fb35d85b530643395d075ae8e0ba5b0c509176e1d791b104f90220c495f" style="text-decoration: none; color:#4470c3; font-size: 14px;font-weight: bold;" title="">check-in closes</a> for your&nbsp;flight.</div></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table>
+
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 10px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 3px solid #A6DBF9; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr>
+<td valign="top" style="width: 5%; padding-bottom: 3px; padding-right: 3px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 5px 5px 0px; " class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center">
+<img data-assetid="58044" src="https://image.t.delta.com/lib/fe5a15707c6c06797c10/m/1/icon_FG_Wayfinding.jpg" alt="" height="60" width="60" style="display: block; padding: 0px; text-align: center; height: 60px; width: 60px; border: 0px;"></td></tr></table></td></tr></table></td><td valign="top" style="width: 95%; padding-bottom: 3px; padding-left: 3px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 0px; " class="stylingblock-content-wrapper camarker-inner">
+<table align="left" border="0" cellpadding="0" cellspacing="0">
+ 
+  <tr>
+   <td class="copy" style="text-align: left; padding: 5px 0px 0px 0px; color:#0B1F66; font-size:16px; line-height: 1.3; font-family:arial,helvetica,sans-serif;font-weight:bold;" valign="middle">
+    Plan Ahead For Your Upcoming Flight Out Of JFK T4</td></tr></table></td></tr></table></td></tr></table></td></tr><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td valign="top" style="width: 100%; padding-top: 3px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #F5F7FA; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px; " class="stylingblock-content-wrapper camarker-inner">
+<div class="copy" style="padding: 0px 30px; color: rgb(124, 130, 138); font-size: 14px; font-family: arial, helvetica, sans-serif; line-height: 130%;">
+ Being dropped off at JFK? Delta One<sup>&reg;</sup> and Sky Priority<sup>&reg;</sup> customers should use curbside Zone B, while all others should use Zones C or D. If you've already checked in and are only taking a carry-on, the drop off at Curb A1 on the Arrivals lower level may be the fastest path through security. Parking? Check the latest info at the <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=a458a11a221189685400a95de221bb7e7cd114b49647bc106d09c49b9fec88163a7959ccd617f11a1d02606f656778664f446b80ff4eebc0" style="display: inline-block; text-decoration: none; color:#4470c3; font-size: 14px;font-weight: bold;" target="_blank" title="https://www.jfkairport.com/">JFK Airport website.</a></div></td></tr></table></td></tr></table></td></tr>
+</table></td></tr></table></td></tr></table>
+
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><table style="width: 100%;" cellspacing="0" cellpadding="0"><tr><td><table style="width: 100%;" cellspacing="0" cellpadding="0"><tr><td style="width: 100%;" class="responsive-td" valign="top"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 10px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 3px solid #A6DBF9; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr>
+<td valign="top" style="width: 5%; padding-bottom: 3px; padding-right: 3px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 5px 5px 0px; " class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center">
+<img data-assetid="58043" src="https://image.t.delta.com/lib/fe5a15707c6c06797c10/m/1/icon_FG_Policy.jpg" alt="Policy Update" height="60" width="60" style="display: block; padding: 0px; text-align: center; height: 60px; width: 60px; border: 0px;"></td></tr></table></td></tr></table></td><td valign="top" style="width: 95%; padding-bottom: 3px; padding-left: 3px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 0px; " class="stylingblock-content-wrapper camarker-inner">
+<table align="left" border="0" cellpadding="0" cellspacing="0">
+ 
+  <tr>
+   <td class="copy" style="text-align: left; padding: 5px 0px 0px 0px; color:#0B1F66; font-size:16px; line-height: 1.3; font-family:arial,helvetica,sans-serif;font-weight:bold;" valign="middle">
+    Review Restricted Hazardous Items Before&nbsp;You&nbsp;Board</td></tr></table></td></tr></table></td></tr></table></td></tr><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td valign="top" style="width: 100%; padding-top: 3px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #F5F7FA; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px; " class="stylingblock-content-wrapper camarker-inner">
+<div class="copy" style="padding: 0px 30px; color: rgb(124, 130, 138); font-size: 14px; font-family: arial, helvetica, sans-serif; line-height: 130%;">
+ For the safety of all travelers and airport staff, certain items must not be brought on board or checked in baggage.<br>
+ <br>
+ Lithium-ion batteries found in smart bags, portable chargers, vape pens and more are not allowed in your checked baggage. Additionally, firearms (loaded or unloaded) are not permitted through TSA security checkpoints. For more information on the transport of firearms, firearms parts and ammunition, visit the <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=c21bcfbf8337424695a3b5c675996900e7b0c0d95ce9be9b9771832c30ab4ada6cac440e032b53d8ea453e867c5361f132bcde761e72b2e7" style="text-decoration: none; color:#4470c3; font-size: 14px;font-weight: bold;" target="_blank" title="">TSA website.</a><br>
+ <br>
+ Delta will not accept the following as carry-on or checked baggage on any Delta mainline or Delta Connection flight:<ul>
+  <li>
+   Smart bags with non-removable lithium-ion batteries</li><li>
+   Self-balancing transportation devices (Hoverboards)</li><li>
+   Damaged, defective and/or recalled lithium batteries</li></ul> Further information and specific guidelines regarding restricted items can be found on <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=c21bcfbf83374246faa3bf24a20b8f8526f2a9dcb2b0252b273420bfdde419c3771859884ba20b4f12d4328e5edf33ad7501e73b3cad1f4961f2f7400a4c02bf" style="text-decoration: none; color:#4470c3; font-size: 14px;font-weight: bold;" target="_blank" title="">delta.com</a>.</div></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table>
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><table role="presentation" style="width: 100%;" cellspacing="0" cellpadding="0"><tr><td><table role="presentation" style="width: 100%;" cellspacing="0" cellpadding="0"><tr><td class="responsive-td" style="width: 100%; padding-bottom: 3px;" valign="top"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 20px 0px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #F5F7FA; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 40px 10px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;"><tr>
+<td valign="top" class="responsive-td" style="width: 31%; padding-right: 12px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center">
+<img data-assetid="21676" src="https://image.t.delta.com/lib/fe5a15707c6c06797c10/m/1/87e943d2-28bb-4340-bbdf-bb33af258fa6.png" alt="Mobile phone icon" height="118" width="118" style="display: block; padding: 0px; text-align: center; height: 118px; width: 118px; border: 0px;"></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner"><div class="icon_list_txt_width">
+ <h2 style="text-align: center; margin-bottom:0; color:#0B1F66; font-size:18px; font-family:arial,helvetica,sans-serif; line-height:1.1em; font-weight:bold;">
+  Download Our&nbsp;App</h2></div></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 10px; " class="stylingblock-content-wrapper camarker-inner"><div class="icon_list_txt_width" style="text-align: center; color:#7C828A; font-size:16px; font-family:arial,helvetica,sans-serif; line-height:normal;">
+ <a  class="blueLink"  data-linkto="https://" href="https://click.t.delta.com/u/?qs=c21bcfbf83374246b79969ef84b17568e29b1040dc5c84fdffde96739b0a22c9609d5cd8524715908eddb29d5928a360497ab961fd3c99ab91fb2a8daf1d0c56c2adf0d4a17af794" style="color:#4470c3;text-decoration:none; font-size: 16px;font-weight: bold;" target="_blank" title="">Track your checked bags, check your flight status, get your boarding pass, message us and more&nbsp;&rsaquo;</a></div></td></tr></table></td><td valign="top" class="responsive-td" style="width: 39%; padding-left: 6px; padding-right: 6px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr>
+<td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center"><img data-assetid="35136" src="https://image.t.delta.com/lib/fe5a15707c6c06797c10/m/1/img-dark-blue-circle-suitcase.png" alt="Baggage tag icon" height="118" width="118" style="display: block; padding: 0px; text-align: center; height: 118px; width: 118px; border: 0px;"></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr>
+<td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner"><div class="icon_list_txt_width">
+ <h2 style="text-align: center; margin-bottom:0; color:#0B1F66; font-size:18px; font-family:arial,helvetica,sans-serif; line-height:1.1em; font-weight:bold;">
+Calculate Your Baggage Estimate</h2></div></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 20px; " class="stylingblock-content-wrapper camarker-inner"><div class="icon_list_txt_width" style="text-align: center; color:#7C828A; font-size:16px; font-family:arial,helvetica,sans-serif; line-height:normal;">
+	<a  class="blueLink"  data-linkto="https://" href="https://click.t.delta.com/u/?qs=c21bcfbf833742461b93560843620555d59f45d2e746176962cdcbdc38d9301fe919ba2b6096cb8ca034beea97e941d709623284aa268e070366ba29243050d371eaee4069bbddfd" style="color:#4470c3;text-decoration:none; font-size: 16px;font-weight: bold;" target="_blank" title="">Get an estimate of the baggage allowance and fees for your upcoming trip.&nbsp;&rsaquo;</a></div></td></tr></table></td><td valign="top" class="responsive-td" style="width: 30%; padding-left: 12px;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center"><img data-assetid="19131" src="https://image.o.delta.com/lib/fe5815707c6201787313/m/11/3a8c66b3-3e4e-498a-a32c-40bdc084c85f.png" alt="Icons" height="118" width="118" style="display: block; padding: 0px; text-align: center; height: 118px; width: 118px; border: 0px;"></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner">
+<div class="icon_list_txt_width">
+ <h2 style="text-align: center; margin-bottom:0; color:#0B1F66; font-size:18px; font-family:arial,helvetica,sans-serif; line-height:1.1em; font-weight:bold;">
+  Visit&nbsp;Our Help&nbsp;Center</h2></div></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 10px; " class="stylingblock-content-wrapper camarker-inner"><div class="icon_list_txt_width" style="text-align: center; color:#7C828A; font-size:16px; font-family:arial,helvetica,sans-serif; line-height:normal;">
+ <a  class="blueLink"  data-linkto="https://" href="https://click.t.delta.com/u/?qs=c21bcfbf83374246f3a85f8e6bf651e982a068b270b3262192944a7e16725d281670f644e189ddb73eb3a95ccd1b95a0a5e331cc85ce6c72b5aafd73de315eb8" style="color:#4470c3;text-decoration:none; font-size: 15px;mso-line-height-rule: exactly;line-height: normal;font-weight: bold;" target="_blank" title="">Get all your travel questions answered with information on self-service tools, baggage, SkyMiles, and more&nbsp;&rsaquo;</a></div></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table>
+
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table></td></tr></table></td></tr><tr><td><table role="presentation" style="width: 100%;" cellspacing="0" cellpadding="0"><tr><td class="responsive-td" style="width: 100%; padding-top: 3px;" valign="top"></td></tr></table></td></tr></table></td></tr></table>
+                                 </td>
+                              </tr>
+                              <!-- END MAIN BODY REGION -->
+                           </tbody>
+                        </table>
+                        <!-- END EMAIL BODY TABLE -->
+                     </td>
+                  </tr>
+               </table>
+               <!-- END CONTAINER TABLE FOR EMAIL BODY -->
+               <!-- BEGIN FIX TO PREVENT GMAIL APP FROM INCREASING THE FONT SIZES ON SOME MOBILE DEVICES -->
+                     <table class="gmail-fix" cellpadding="0" cellspacing="0" border="0" align="center" width="600" role="presentation" aria-hidden="true">
+                        <tr>
+                           <td class="gmail-fix" style="line-height: 1px; mso-line-height-rule: exactly; min-width: 600px;">
+                              <img alt="" class="gmail-fix" src="http://image.o.delta.com/lib/fe5815707c6201787313/m/10/3f473969-95d8-43bc-8d81-7bdb8c2d4dd8.png" width="600" height="1" style="display: block; max-height: 1px; min-height: 1px; width: 600px;"/>
+                           </td>
+                        </tr>
+                     </table>
+               <!-- END FIX TO PREVENT GMAIL APP FROM INCREASING THE FONT SIZES ON SOME MOBILE DEVICES -->
+            </td>
+         </tr>
+         <tr>
+            <td width="100%" align="center">
+               <!-- BEGIN CONTAINER TABLE FOR FOOTER -->
+               <table width="600" class="container" align="center" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto; padding: 0; background-color:#F5F7FA" bgcolor="#F5F7FA" role="presentation">
+                  <tr>
+                     <td align="center" valign="top">
+                        <!-- BEGIN FOOTER BODY TABLE -->
+                        <table cellspacing="0" cellpadding="0" style="width:100%" role="presentation">
+                           <tbody>
+                              <!-- BEGIN NAVIGATION + SOCIAL REGION -->
+                              <tr>
+                                 <td width="100%" valign="top" bgcolor="#F5F7FA" style="background-color: #F5F7FA">
+                                    <table id="Navigation" border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation">
+                                       <!-- BEGIN FOOTER LOGO REGION -->
+                                       <tr>
+                                          <td align="center" class="footer_logo" style="padding-top:30px; padding-bottom:30px;">
+                                             <img src="http://image.o.delta.com/lib/fe5815707c6201787313/m/9/9132d932-2512-4e6f-9a27-57961c1d9327.png" height="22" width="135" alt="DELTA" style="color:#0B1F66; font-size:1.25em; font-weight: bold; letter-spacing: 0.2em; display:block;" />
+                                          </td>
+                                       </tr>
+                                       <!-- END FOOTER LOGO REGION -->
+                                       <!-- BEGIN NAVIGATION REGION -->
+                                       <tr>
+                                          <td align="center" >
+                                             <table width="540" cellpadding="0" cellspacing="0" class="navigation_divider" align="center" style="border-bottom: 1px solid #d8d8d8; max-width: 540px; padding-bottom: 30px;" role="presentation">
+                                                <tr>
+                                                   <td class="navigation_divider" style="padding-bottom:30px;">
+                                                      <table cellpadding="0" cellspacing="0" border="0" align="center" role="presentation">
+                                                         <tr>
+                                                            <td class="navigation_stack" align="center" style="font-family:arial,helvetica,sans-serif; color:#4A4A4A; vertical-align:middle;">
+                                                               <a href="https://click.t.delta.com/u/?qs=184d15c3e59ba3a6261029dc1cb15bead03dd4a817b741ce210650e03ffe1d6503023692a600483ada84fbbf9de477a939433e5cba73963e6a27168b7ed793f7"  title="" target="_blank" style="text-decoration: none; color:#4A4A4A;font-weight:normal;">Help Center</a>
+                                                            </td>
+                                                            <td class="mobile-hidden" align="center" width="50" style="font-family:arial,helvetica,sans-serif; font-size:30px; color:#d8d8d8; line-height:18px; vertical-align:middle;">
+                                                               &bull;
+                                                            </td>
+                                                            <td class="navigation_stack" align="center" style="font-family:arial,helvetica,sans-serif; font-size:16px; color:#4A4A4A; vertical-align:middle;">
+                                                               <a href="https://click.t.delta.com/u/?qs=184d15c3e59ba3a6dc46f0315c8d6436218b009d95b211e3c0c1defed309373c621efe101f5cea36fe1c905f7ce22ceedcb7a16c99467e95cb251bc67fdb9045"  title="" target="_blank" style="text-decoration: none; color:#4A4A4A;font-weight:normal;">Flight Deals</a>
+                                                            </td>
+                                                            <td class="mobile-hidden" align="center" width="50" style="font-family:arial,helvetica,sans-serif; font-size:30px; color:#d8d8d8; line-height:18px; vertical-align:middle;">
+                                                               &bull;
+                                                            </td>
+                                                            <td class="navigation_stack" align="center" style="font-family:arial,helvetica,sans-serif; font-size:16px; color:#4A4A4A; vertical-align:middle;">
+                                                               <a href="https://click.t.delta.com/u/?qs=184d15c3e59ba3a601eb7043baa6451947be8db52ae33cea6d5030c56b93c4879bcd8e097aabb301d2559f160e828c424dea9474071e63e6923a761f8f6ccd9c"  title="" target="_blank" style="text-decoration: none; color:#4A4A4A;font-weight:normal;">Earn Miles</a>
+                                                            </td>
+                                                            <td class="mobile-hidden" align="center" width="50" style="font-family:arial,helvetica,sans-serif; font-size:30px; color:#d8d8d8; line-height:18px; vertical-align:middle;">
+                                                               &bull;
+                                                            </td>
+                                                            <td class="navigation_stack" align="center" style="font-family:arial,helvetica,sans-serif; font-size:16px; color:#4A4A4A; vertical-align:middle;">
+                                                               <a href="https://click.t.delta.com/u/?qs=184d15c3e59ba3a6a967c2c12399f9c4031f5f22b8d91e5c8565972186d04d12bcaf57e8e98266b274942432e8e0167dd7d4daa82f1afd0c03aa3ce976318a9e"  title="" target="_blank" style="text-decoration: none; color:#4A4A4A; font-weight:normal;">Give Back</a>
+                                                            </td>
+                                                         </tr>
+                                                      </table>
+                                                   </td>
+                                                </tr>
+                                             </table>
+                                          </td>
+                                       </tr>
+                                       <!-- END NAVIGATION REGION -->
+                                    </table>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation">
+                                       <!-- BEGIN SOCIAL REGION -->
+                                       <tr>
+                                          <td align="center">
+                                             <table id="Social" border="0" cellpadding="10" cellspacing="0" role="presentation">
+                                                <tr>
+                                                   <td valign="top" class="social_icons"  style="padding-top:30px; padding-bottom:30px;">
+                                                      <a href="https://click.t.delta.com/u/?qs=184d15c3e59ba3a6f1a870fe727c85b823f8861c7872c049a9ae50691fe3bc770b511121b7910f0043cb0bc02909b15f6dd5153183ebd95c5a32e3c255539cf0"  title="Facebook" target="_blank" style="text-decoration:none;"><img src="http://image.o.delta.com/lib/fe5815707c6201787313/m/9/0650bbdc-2208-4a1d-a595-b86d76783ab2.png" alt="Facebook" height="43" width="43" class="social_icons" style="border:none; display:block; height: 43px; width:43px;" /></a>
+                                                   </td>
+                                                   <td valign="top" class="social_icons" style="padding-top:30px; padding-bottom:30px;">
+                                                      <a href="https://click.t.delta.com/u/?qs=184d15c3e59ba3a6dc4e980bf96f4a259a9a579536d9f196ba43fa4d9f06b03844b631bfe6add042e32c6d62e542c1c83f6b8797bb2c3cf1fb234ae621df20bb"  title="Twitter" target="_blank" style="text-decoration:none;"><img src="http://image.o.delta.com/lib/fe5815707c6201787313/m/9/8da7b1ad-90b2-4d10-9323-9264eecf6d30.png" alt="Twitter" height="43" width="43" class="social_icons" style="border:none; display:block; height: 43px; width:43px;"/></a>
+                                                   </td>
+                                                   <td valign="top" class="social_icons"  style="padding-top:30px; padding-bottom:30px;">
+                                                      <a href="https://click.t.delta.com/u/?qs=4486ed3e824d20a02ad96232ddf283dc49e844408515a9b12e6210c3c6efb25ee4b7a8d140a9c144c865b4b06c593e5b950c59585fb97a6fde011551d8b5d3bb"  title="Instagram" target="_blank" style="text-decoration:none;"><img src="http://image.o.delta.com/lib/fe5815707c6201787313/m/9/ade8219b-eca9-442c-8301-afe4cb85261b.png" alt="Instagram" height="43" width="43" class="social_icons" style="border:none; display:block; height: 43px; width:43px;"/></a>
+                                                   </td>
+                                                </tr>
+                                             </table>
+                                          </td>
+                                       </tr>
+                                       <!-- END SOCIAL REGION -->
+                                       <!-- BEGIN EMAIL PREFERECENCES, UNSUBSCRIBE, AND PRIVACY POLICY REGION -->
+                                       <tr>
+                                          <td align="center">
+                                             <table width="540" cellpadding="0" cellspacing="0" class="navigation_divider" align="center" style="border-bottom: 1px solid #d8d8d8; padding-bottom: 30px; max-width: 540px;" role="presentation">
+                                                <tr>
+                                                   <td class="navigation_divider"  style="font-family:arial,helvetica,sans-serif; text-align: center; color:#7C828A; line-height: 1.5em; padding-bottom: 30px;"><a href="https://click.t.delta.com/u/?qs=4486ed3e824d20a04d20531047793321bb67f2f5db2bfce83d301589d5202ad0478148af877f9d4981725136ace8bd14b82ada6eef4d35e7d1cefdb620d27c82"  title="Email Preferences" target="_blank" style="font-size: 14px; font-weight: normal; text-decoration: none; color:#7C828A">Email Preferences</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://click.t.delta.com/u/?qs=4486ed3e824d20a0a5d66e3afe10a3b9df3bc2dd02ebae3dd743fa72834e9d96a2c12e7b31c9282184da6e246afb21f928d17ba68c7c291fc88318dc612303a8"  title="Privacy Policy" target="_blank" style="font-size: 14px; font-weight: normal; text-decoration: none; color:#7C828A">Privacy Policy</a></td>
+                                                </tr>
+                                             </table>
+                                          </td>
+                                       </tr>
+                                       <!-- END EMAIL PREFERECENCES, UNSUBSCRIBE, AND PRIVACY POLICY REGION -->
+                                    </table>
+                                 </td>
+                              </tr>
+                              <!-- END NAVIGATION + SOCIAL REGION -->
+                              <!-- BEGIN TERMS REGION -->
+                              <tr>
+                                 <td id="Terms" width="100%" valign="top" bgcolor="#F5F7FA" style="background-color: #F5F7FA; font-family:arial,helvetica,sans-serif;  font-size:12px; color:#7C828A; line-height:14px; padding-top:30px; padding-left:30px; padding-right:30px; padding-bottom: 0;">
+                                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #F5F7FA; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><div style="text-align:left; color:#7C828A; font-size:12px; line-height:normal; font-family:Arial,Helvetica,sans-serif;">
+	<b>Conditions of Carriage</b><br>
+	<br>
+	Air transportation on Delta and the Delta Connection<sup>&reg;</sup> carriers is subject to Delta's <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=4486ed3e824d20a00d938f219dd405a59cee2ea3577388f253e0ed12a25133cad89f60a1a533db77beec9dfbb263d92067b2fe121581b94e61e906848d96cff9bdb2a545abc37837" style="color:#4470c3;text-decoration:underline;" title="conditions of carriage">conditions of carriage</a>. They include terms governing for example:&nbsp;<br>
+	<br>
+	&bull; <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=4486ed3e824d20a095b271f783c0f17b6e5a9ecd7506c5b17607136fc325188c4f91c9c93d11edd48ac209fd6b51cf7f78d06868bc0f831c055362594311cbe44a9bb1a6e901259a" style="color:#4470c3;text-decoration:underline;" title="Limits on our liability">Limits on our liability</a> for personal injury or death of passengers, and for loss, damage of delay of goods and baggage.<br>
+	&bull; <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=4486ed3e824d20a0609f5a91432a2872dcdc2b7da8c260d0a1f525e04fc6dd72844381200af0be61b0ab52aea67f43ead3b4ee02198cd36b81efb352520dbc1e14707fa151726136" style="color:#4470c3;text-decoration:underline;" title="Claim restrictions">Claim restrictions</a> including time periods within which you must file a claim or bring action against us.<br>
+	&bull; Our right to <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=4486ed3e824d20a050944efb21f7171a950e5d017955aa8eb39db98cd1ea10589d8007092c51dd97973ff557c5d367b5590219c36de315151424db9bbbcdbd65ce9eedbd09b4dcc7" style="color:#4470c3;text-decoration:underline;" title="change terms">change terms</a> of the contract.<br>
+	&bull; <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=4486ed3e824d20a04f8e9fcc677918c40676fcd36a580299defc9f84a871cfe81eb44fcffbcb9b7290922ce10dec18f5c5123fe6a607cbb4af80f964279e5dbc01afde069cc37eed" style="color:#4470c3;text-decoration:underline;" title="Check-in requirements">Check-in requirements</a> and other rules established when we may <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=4486ed3e824d20a0f6706a3e3d39e1ffd36bfcfee5e5fbd9f9b6ee635419ed7f70b058d94c385f85df56a965c3922735d4883cc67a1f7022f80e64e3b906e3a665aa6aeb76170fb5" style="color:#4470c3;text-decoration:underline;" title="refuse carriage">refuse carriage</a>.<br>
+	&bull; Our rights and limits of our liability for <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=4486ed3e824d20a02871173f0727b589defe724021fe29c9e9d4e9250274ed709ba4034ccfdbd3d434423b04e531cb81edcf816a525ca39067b881f91c55a34d558c437762335225" style="color:#4470c3;text-decoration:underline;" title="delay or failure to perform service">delay or failure to perform service</a> including schedule change, substitution of alternative air carriers or aircraft, and rerouting.<br>
+	&bull; Our policy on <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=3d025beb224ad7c3c6ce4a3d2ab1f30503a144177188f55fc6129a132510780befff4a90899a6584cf98d2bf03fb5565f70dccc513d4364aa5d5da9f35551dde2521fbda6c5da05a" style="color:#4470c3;text-decoration:underline;" title="overbooking flights">overbooking flights</a>, and your rights if we deny you boarding due to an oversold flight.&nbsp;<br>
+	<br>
+	<b>Advice To Passengers On Limitations Of Liability</b><br>
+	<br>
+	For international travel to or from another country, airline liability is governed by the Montreal Convention or the Warsaw Convention. There are no financial limits for death or bodily injury, and the airline may make an advance payment to cover immediate economic needs. The airline's liability for passenger delay, and for loss, delay or damage to baggage may be limited by the Conventions. In case of baggage, the liability limit is 1131 Special Drawing Rights (approximately US $1787) per passenger for international travel. The baggage limit is US $3,500 per ticketed passenger for US domestic travel. These baggage liability limitations apply unless you declare a higher valuation and pay
+ additional charges at check-in. In case of international travel, any action in court to claim damages must be brought within two years from the date of the actual or scheduled arrival of the aircraft; and, in case of baggage claims, written notice to the carrier must be made within 7 days of the receipt of checked baggage in case of damage, and, in case of delay, within 21 days from the date on which it was placed at the disposal of the passenger. If your journey also involves carriage by other airlines, you should contact them for information on their limits of liability. See the notice with your tickets or consult your airline or travel agent for further information.<br>
+	<br>
+	<b>Email Subscription</b><br>
+	<br>
+	You are currently subscribed to receive Delta Messenger Notifications via email at AUNERMONCADA@GMAIL.COM. If you would like to take advantage of other Delta email programs featuring special fares, promotions and information, please visit <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=3d025beb224ad7c3a98aeb5d1f89eee37a9aebd160f57950bab746ab2cc8e144703dcd0e3bfb8e0bfcf23dc07dcc022e38b15d8004f79c08983be9c567d874202bdf6789297a57a4" style="color:#4470c3;text-decoration:underline;" title="delta.com/emailprograms">delta.com/emailprograms</a><br>
+	<br>
+	<b>Privacy Policy</b><br>
+	<br>
+	Your privacy is important to us. Please review our <a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=3d025beb224ad7c3cf8450335afc8652646a7382e235a4ca80cf5831904c4c7418b5a674203abe117fa27877c863f1456f7795bfc8a0cdb121c1e18d792fa269f1918d65eb3a2bc9" style="color:#4470c3;text-decoration:underline;" title="Privacy Policy">Privacy Policy</a>.<br>
+	<br>
+	Effective December 15, 2019, the Canada Air Passenger Protection Regulations may provide additional protections to passengers traveling to or from Canada:<br>
+	<br>
+	<i>If you are denied boarding, your flight is cancelled or delayed for at least two hours, or your baggage is lost or damaged, you may be entitled to certain standards of treatment and compensation under the Air Passenger Protection Regulations. For more information about your passenger rights please contact your air carrier (<a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=3d025beb224ad7c37667a4305482d63377ddd537737475886b1dd4bad75575a64de62c7fe1db0b0777f887850db051e285bb75f555adec644ceeacea8de7ffdf7766b1e509cd2c27" style="color:#4470c3;text-decoration:underline;" title="APPR">www.delta.com/appr</a>) or visit the Canadian Transportation Agency&rsquo;s website.<br>
+	<br>
+	<!--If you are denied boarding or your baggage is lost or damaged, you may be entitled to certain standards of treatment and compensation under the Air Passenger Protection Regulations. For more information about your passenger rights please contact your air carrier (<a alias="APPR 1" conversion="true" data-linkto="https://" href="https://www.delta.com/appr?mkcpgn=EM_TRNX_EN_BE_NT_257368_240206_F0_PRIV&refreshURL=null" style="color:#4470c3;text-decoration:underline;" title="APPR">www.delta.com/appr</a>) or visit the Canadian Transportation Agency&rsquo;s website.<br>   
+<br>--> Si l&rsquo;embarquement vous est refus&eacute;, ou si votre vol est annul&eacute; ou retard&eacute; d&rsquo;au moins deux heures ou si vos bagages sont perdus ou endommag&eacute;s, vous pourriez avoir droit au titre du R&egrave;glement sur la protection des passagers a&eacute;riens, &agrave; certains avantages au titre des normes de traitement applicables et &agrave; une indemnit&eacute;. Pour de plus amples renseignements sur vos droits, veuillez communiquer avec votre transporteur a&eacute;rien (
+<a   data-linkto="https://" href="https://click.t.delta.com/u/?qs=3d025beb224ad7c36ca7b1986a8f542235c2f61929a0e0040ac41af975e06b0366353407c600425b4da8514e29dc3c690c3faeced030e63df91a729ba7c02e8509a3a47bc4b548cd" style="color:#4470c3;text-decoration:underline;" title="APPR">www.delta.com/appr</a>) ou visiter le site Web de l&rsquo;Office des transports du Canada.<!--Si l&rsquo;embarquement vous est refus&eacute; ou si vos bagages sont perdus ou endommag&eacute;s, vous pourriez avoir droit au titre du R&egrave;glement sur la protection des passagers a&eacute;riens, &agrave; certains avantages au titre des normes de traitement applicables et &agrave; une indemnit&eacute;. Pour de plus amples renseignements sur vos droits, veuillez communiquer avec votre transporteur a&eacute;rien (
+<a alias="APPR 2" conversion="true" data-linkto="https://" href="https://www.delta.com/appr?mkcpgn=EM_TRNX_EN_BE_NT_257368_240206_F0_PRIV&refreshURL=null" style="color:#4470c3;text-decoration:underline;" title="APPR">www.delta.com/appr</a>) ou visiter le site Web de l&rsquo;Office des transports du Canada.--></i><br>
+	<br>
+	<b>Copyright Information</b><br>
+	<br>
+	This email message and its contents are copyrighted and are proprietary products of Delta Air Lines, Inc. Delta Blvd., P.O. Box 20706 Atlanta, GA 30320-6001. Any unauthorized use, reproduction, or transfer of this message or its contents, in any medium, is strictly prohibited.</div></td></tr></table>
+                                 </td>
+                              </tr>
+                              <!-- END TERMS REGION -->
+                              <!-- BEGIN FOOTER REGION -->
+                              <tr>
+                                 <td id="Footer" width="100%" valign="top" bgcolor="#F5F7FA" style="font-family:arial,helvetica,sans-serif; background-color: #F5F7FA; padding: 0 30px 30px; font-size:12px; color:#7C828A; line-height:14px;">
+                                    <br>This email was sent to: <a href="mailto:AUNERMONCADA@GMAIL.COM" style="font-size:12px; font-weight:normal; text-decoration: underline; color:#4470C3;">AUNERMONCADA@GMAIL.COM</a>
+                                    <br /><br />
+                                    &copy; 2024 Delta Air Lines, Inc. All rights reserved.
+                                    <br />
+                                    Delta Blvd. P.O. Box 20706 &bull; Atlanta, GA 30320-6001
+                                 </td>
+                              </tr>
+                              <!-- END FOOTER REGION -->
+                           </tbody>
+                        </table>
+                        <!-- END FOOTER BODY TABLE -->
+                     </td>
+                  </tr>
+               </table>
+               <!-- END CONTAINER TABLE FOR FOOTER -->
+            </td>
+         </tr>
+      </table>
+      <!-- END OUTER TABLE WITH 100% WIDTH -->
+     <img src="https://pixel.app.returnpath.net/pixel.gif?r=e12491d037805c1e37202923693f1b36ad5d42d5" width="1" height="1" />
+   </body>
+</html>
+
+--2IuwngvWX4TF=_?:--
+

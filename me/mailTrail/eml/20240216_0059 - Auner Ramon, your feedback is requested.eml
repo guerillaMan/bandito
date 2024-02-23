@@ -1,0 +1,923 @@
+Delivered-To: aunermoncada@gmail.com
+Received: by 2002:a2e:240c:0:b0:2d0:ad09:251 with SMTP id k12csp769791ljk;
+        Thu, 15 Feb 2024 21:59:14 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHuW5TvsWW+vE3Bu9Ohhswu4Q7VKqiGFFMEAR/p0S0GaHzHL5DwN6YNcztI+cuUEH6O9uMR
+X-Received: by 2002:a05:6214:3002:b0:68e:ecdc:1123 with SMTP id ke2-20020a056214300200b0068eecdc1123mr4170185qvb.2.1708063153687;
+        Thu, 15 Feb 2024 21:59:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1708063153; cv=none;
+        d=google.com; s=arc-20160816;
+        b=o9O5ACj+xebRL+FfnOv30aW0ZEkb62zBE+/5H3aDmJYDLaWSJmizL19p8Kis+J0XnP
+         3RbVQSMcUXUBwi1Fi207to68NR15vfQ3kREa5OZU6Qpn0rpagxCk43XXLa3ee78eo7FQ
+         a9iSr+fMaSdxFdEATKcKdPrzmtvwTk0bBRbDiCTqrDllQS+ga8maO6wQo8wH5qDafkcs
+         pUpsn05TMDLkYng2ZosnljCsj/LFNY5IU1Odl3PnWHXLJiiaya9Gd9v5uRtsGHIw6KZD
+         4N81g4y3F9sbCc+mzCbP68veXVCtWMQqzag0vYbAIOwl5vux3h9urJ7UQEQEyAu6V3rZ
+         fbpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:list-unsubscribe:mime-version:subject:message-id:to
+         :reply-to:sender:from:date:dkim-signature;
+        bh=Hiwavsf1S9/BD3PXeZLmP9SBUJUuIheN0DcZzWcNf6Y=;
+        fh=7l8rD/OjUJ5RNPCSz2pMTBDZr5hvvP2QQ5z1he+Tqvo=;
+        b=EcymyYJATCOqmF3UgCWI9Y63kE7b0fLfvnWl/RM8cDmtYnjVqLqwKqkEct3Vts6w5U
+         vPupk0h3kTi7qRMmXkvJz3deI84iIJsruXjBuWn8dcKQ30J+qSoB/Da6Kmfq5XawU+3b
+         UvUhwapf/09K2lNGzrGY1SPnpA/j/Av5Oq0ShMfcIujyRpkR5zVdjzRHHCraIvYT+Cl8
+         6jCrUDgao/TNaYkesecnmT/pyW+Lj5pEslnjWg2Ycs1u+4bSG5N2qNedUiwAWzlHF8PR
+         Tn5kzyUkGH4fIKSGh76a6ON6O552MQdQ8kw8WOg2LvXIeTZX3SzOIJhrAIG0AuPSuPzx
+         C8gQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass (test mode) header.i=@qualtrics-survey.com header.s=qualtrics2k header.b=gjqHtB+Z;
+       spf=pass (google.com: domain of delta@qualtrics-survey.com designates 162.247.216.66 as permitted sender) smtp.mailfrom=Delta@qualtrics-survey.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=qualtrics-survey.com
+Return-Path: <Delta@qualtrics-survey.com>
+Received: from smtp17.iad1.qemailserver.com (smtp17.iad1.qemailserver.com. [162.247.216.66])
+        by mx.google.com with ESMTPS id kc6-20020a056214410600b0068f03325de7si3126839qvb.366.2024.02.15.21.59.13
+        for <AUNERMONCADA@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 15 Feb 2024 21:59:13 -0800 (PST)
+Received-SPF: pass (google.com: domain of delta@qualtrics-survey.com designates 162.247.216.66 as permitted sender) client-ip=162.247.216.66;
+Authentication-Results: mx.google.com;
+       dkim=pass (test mode) header.i=@qualtrics-survey.com header.s=qualtrics2k header.b=gjqHtB+Z;
+       spf=pass (google.com: domain of delta@qualtrics-survey.com designates 162.247.216.66 as permitted sender) smtp.mailfrom=Delta@qualtrics-survey.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=qualtrics-survey.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=simple/relaxed; t=1708063153;
+	s=qualtrics2k; d=qualtrics-survey.com;
+	h=List-Unsubscribe:Content-Type:MIME-Version:Subject:Message-ID:To:Reply-To:Sender:From:Date;
+	l=39955; bh=Hiwavsf1S9/BD3PXeZLmP9SBUJUuIheN0DcZzWcNf6Y=;
+	b=gjqHtB+ZxDtA0KzFHhW4JrXdztEysWIR2DZtqjDpVZ7Gu8b5JFLPZLcJbr7+4PMv
+	OnTJ6e9xkJl457bSI0uHeXlnO4a3hfUq127PtfyuPo6mxjyD8L8M0JBNvrNMP7xZb7b
+	lZau7/gekgrFqQQZ4npsSEa13qtqjRCbIrtWencLMfsiOE7WAQDcPwfmGrbsIm+qQRa
+	jmA2lfScazVufNce9HxizbPtDVIw53GhIZI41YxsASBUR8NUku7kuknJmYqlSQUisxx
+	zhUWPSxWnA9UXfjSG1LxD/V3FK4rdoV+/2vVd+UyryhSsqmSegeLnFI4rEWkMQt/ffw
+	DBcScT41BA==
+Date: Thu, 15 Feb 2024 22:59:13 -0700 (MST)
+From: Delta Air Lines <Delta@qualtrics-survey.com>
+Sender: Delta Air Lines <Delta@qualtrics-survey.com>
+Reply-To: Delta Air Lines <Delta@qualtrics-survey.com>
+To: AUNERMONCADA@GMAIL.COM
+Message-ID: <811237490.3416161.1708063153316@b5c4caa01c2f>
+Subject: Auner Ramon, your feedback is requested
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_3416158_69148284.1708063153313"
+X-QUMID: UR_9S0UO00KZznpSMm-EMD_iEiHcssREIm9kW3-CTR_2txIrDFjFqm8QY5-SV_cU3hi0QDmEXg6VM
+List-Unsubscribe: <https://deltacx.qualtrics.com/CP/Register.php?OptOut=true&RID=CTR_2txIrDFjFqm8QY5&LID=UR_9S0UO00KZznpSMm&DID=EMD_iEiHcssREIm9kW3&CLID=BT_3s03mJs1oCvQe34&BT=ZGVsdGFjeA&_=1>, <mailto:CD.GJ2HQSLSIRDGURTRNU4FCWJV.HFJTAVKPGAYEWWT2NZYFGTLN@unsubscribe.qemailserver.com?subject=qunsub_CTR_2txIrDFjFqm8QY5.UR_9S0UO00KZznpSMm.deltacx.EMD_iEiHcssREIm9kW3.SV_cU3hi0QDmEXg6VM.UR_9S0UO00KZznpSMm.BT_1qX8v5y7sghySnI.https%3A%2F%2Fdeltacx.qualtrics.com%2FCP%2FRegister.php>
+Feedback-ID: EMD_iEiHcssREIm9kW3:SV_cU3hi0QDmEXg6VM:deltacx:qemailserver
+
+------=_Part_3416158_69148284.1708063153313
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_3416159_632759185.1708063153313"
+
+------=_Part_3416159_632759185.1708063153313
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<https://www.delta.com> Hello Auner Ramon,
+
+Thank you for trusting Delta with your most recent trip. Your feedback help=
+s
+us continue to climb, so we would appreciate you taking a few minutes to le=
+t us
+know how we are doing. While we are unable to respond directly, please know=
+ the
+team and I review daily. You are directly helping us continue to create a
+welcoming, elevated, and caring experience on every flight.
+
+Rio de Janeiro (GIG) to New York (JFK) on 2024-02-15.
+How likely are you to recommend Delta Air Lines=C2=AE to others? Definitely=
+ Will
+
+<https://deltacx.qualtrics.com/jfe/form/SV_cU3hi0QDmEXg6VM?Q_DL=3DiEiHcssRE=
+Im9kW3_cU3hi0QDmEXg6VM_CTR_2txIrDFjFqm8QY5&Q_CHL=3Demail&Q_PopulateResponse=
+=3D%7B%22QID1%22:%221%22%7D&Q_PopulateValidate=3D1>
+Probably Will
+
+<https://deltacx.qualtrics.com/jfe/form/SV_cU3hi0QDmEXg6VM?Q_DL=3DiEiHcssRE=
+Im9kW3_cU3hi0QDmEXg6VM_CTR_2txIrDFjFqm8QY5&Q_CHL=3Demail&Q_PopulateResponse=
+=3D%7B%22QID1%22:%222%22%7D&Q_PopulateValidate=3D1>
+May or May Not
+
+<https://deltacx.qualtrics.com/jfe/form/SV_cU3hi0QDmEXg6VM?Q_DL=3DiEiHcssRE=
+Im9kW3_cU3hi0QDmEXg6VM_CTR_2txIrDFjFqm8QY5&Q_CHL=3Demail&Q_PopulateResponse=
+=3D%7B%22QID1%22:%223%22%7D&Q_PopulateValidate=3D1>
+Probably Will Not
+
+<https://deltacx.qualtrics.com/jfe/form/SV_cU3hi0QDmEXg6VM?Q_DL=3DiEiHcssRE=
+Im9kW3_cU3hi0QDmEXg6VM_CTR_2txIrDFjFqm8QY5&Q_CHL=3Demail&Q_PopulateResponse=
+=3D%7B%22QID1%22:%224%22%7D&Q_PopulateValidate=3D1>
+Definitely Will Not
+
+<https://deltacx.qualtrics.com/jfe/form/SV_cU3hi0QDmEXg6VM?Q_DL=3DiEiHcssRE=
+Im9kW3_cU3hi0QDmEXg6VM_CTR_2txIrDFjFqm8QY5&Q_CHL=3Demail&Q_PopulateResponse=
+=3D%7B%22QID1%22:%225%22%7D&Q_PopulateValidate=3D1>
+Your confidence in flying with us means a lot, and we look forward to welco=
+ming
+you aboard one of our flights again soon.
+
+Sincerely, Allison Ausband
+Chief Customer Experience Officer Help Center
+<https://www.delta.com/us/en/need-help/overview> =E2=80=A2 Flight Deals
+<https://www.delta.com/us/en/flight-deals/current-flight-deals> =E2=80=A2 E=
+arn Miles
+<https://www.delta.com/us/en/skymiles/program-resources/get-the-most> =E2=
+=80=A2 Give
+Back <https://www.delta.com/buygftxfer/displayDonateMiles.action>
+<https://www.facebook.com/delta>  <https://twitter.com/delta>
+<https://instagram.com/delta> Privacy Policy
+<https://www.delta.com/us/en/legal/privacy-and-security> This is a customer
+opinion survey designed to evaluate the quality of Delta's services and hel=
+p us
+better serve you in the future. The results will not be used to market to y=
+ou.
+It is not a form for submitting questions or complaints. Delta or its
+affiliates will keep your personal information confidential in accordance w=
+ith
+ourPrivacy Policy <https://www.delta.com/us/en/legal/privacy-and-security>,=
+ but
+may contact you regarding your survey responses.
+
+Comments or Complaints: Any formal complaints should be directed to the
+Comment/Complaint section of the Help Center ondelta.com
+<https://www.delta.com/us/en/need-help/overview>. If you need help with a
+flight, please contact us by texting through the FlyDelta App or go to the =
+Help
+Center ondelta.com <https://www.delta.com/us/en/need-help/overview>. You ca=
+n
+also call us at+1-800-221-1212.
+
+For technical assistance, should you need help accessing or completing this
+survey, please visit: https://www.qualtrics.com/support/
+<http://www.qualtrics.com/support/>. If you prefer to be excluded from futu=
+re
+surveys and survey correspondence, pleaseclick here
+<https://deltacx.qualtrics.com/jfe/form/SV_3UxlZGVgP2pqMWW?ContactID=3DCID_=
+6x0vXaF7y9qnd9I&OptOut=3Dhttps://deltacx.qualtrics.com/CP/Register.php?OptO=
+ut=3Dtrue&RID=3DCTR_2txIrDFjFqm8QY5&LID=3DUR_9S0UO00KZznpSMm&DID=3DEMD_iEiH=
+cssREIm9kW3&CLID=3DBT_3s03mJs1oCvQe34&BT=3DZGVsdGFjeA&_=3D1>
+.
+
+Your privacy is important to us, for more information please review our
+Privacy Policy <https://www.delta.com/us/en/legal/privacy-and-security>.
+
+This email was sent to: AUNERMONCADA@GMAIL.COM <http://AUNERMONCADA@GMAIL.C=
+OM>
+
+=C2=A9 2023 Delta Air Lines, Inc. All rights reserved.
+Delta Blvd. P.O. Box 20706 =E2=80=A2 Atlanta, GA 30320-6001
+------=_Part_3416159_632759185.1708063153313
+Content-Type: multipart/related; 
+	boundary="----=_Part_3416160_2134243187.1708063153313"
+
+------=_Part_3416160_2134243187.1708063153313
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!-- Delta Air Lines Email Template --><html><head><meta http-equiv=3D"Cont=
+ent-Type" content=3D"text/html; charset=3DUTF-8"><meta name=3D"viewport" co=
+ntent=3D"width=3Ddevice-width; initial-scale=3D1.0;"><meta http-equiv=3D"X-=
+UA-Compatible" content=3D"IE=3D9; IE=3D8; IE=3D7; IE=3DEDGE"><meta name=3D"=
+x-apple-disable-message-reformatting">
+<link href=3D"https://www.delta.com/favicon.ico" rel=3D"shortcut icon">
+<link href=3D"https://www.delta.com/favicon.ico" rel=3D"icon" type=3D"image=
+/x-icon">
+<title></title>
+<style type=3D"text/css">ReadMsgBody, .ReadMsgBody {
+         width: 100%;
+         }
+         .ExternalClass {
+         width: 100%;
+         }
+         .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalCl=
+ass font, .ExternalClass td, .ExternalClass div {
+         line-height: 100%;
+         }
+         /* Samsung alignment fix */
+         #MessageViewBody, #MessageWebViewDiv {
+         width: 100% !important;
+         }
+         #outlook a {
+         padding: 0;
+         }
+         body {
+         font-family: Arial, Helvetica, sans-serif !important;
+         -webkit-text-size-adjust:100%;
+         -ms-text-size-adjust:100%;
+         margin:0 !important;
+         padding: 0 !important;
+         line-height:normal;
+         }
+         h1 {
+         font-family: Arial, Helvetica, sans-serif !important;
+         font-size: 26px;
+         line-height: normal;
+         color:#0B1F66;
+         margin: 0px;
+         padding: 0px;
+         font-weight: normal;
+         }
+         h2 {
+         font-family: Arial, Helvetica, sans-serif !important;
+         font-size: 18px;
+         line-height: normal;
+         color:#0B1F66;
+         margin: 0px;
+         padding: 0px;
+         font-weight: bold;
+         }
+         h2.blue {
+         font-family: Arial, Helvetica, sans-serif !important;
+         font-size: 16px;
+         line-height: normal;
+         color:#7C828A;
+         margin: 0px;
+         font-weight: bold;
+         }
+         h3 {
+         font-family: Arial, Helvetica, sans-serif !important;
+         font-size: 16px;
+         line-height: normal;
+         color:#0B1F66;
+         margin: 0px;
+         padding: 0px;
+         font-weight: normal;
+         }
+         p {
+         font-family: Arial, Helvetica, sans-serif !important;
+         margin: 1em 0;
+         padding: 0px;
+         }
+         table td {
+         font-family: Arial, Helvetica, sans-serif !important; =20
+         border-collapse: collapse;
+         }
+         img {
+         outline:0;
+         display: block;
+         border: 0;
+         text-decoration: none;
+         }
+         a {
+         font-size: 16px;
+         color: #4470C3;
+         text-decoration: underline;
+         }
+         #Terms a {
+         font-size: 12px;
+         font-weight: normal;
+         color: #4470C3;
+         text-decoration: none;
+         }
+         a img {
+         border:none;
+         }
+         sup, sub {
+         font-size: 0.6em !important;
+         line-height: 100% !important;
+         }
+         sup {
+         vertical-align:text-top !important;
+         font-size:66%;
+         line-height:1 !important;
+         mso-text-raise:10%;
+         }
+         sub {
+         vertical-align: text-bottom !important;
+         }
+         .transparent:hover {
+         -khtml-opacity: 0.65;
+         -moz-opacity: 0.65;
+         -ms-filter: progid: DXImageTransform.Microsoft.Alpha(opacity=3D65)=
+;
+         filter: alpha(opacity=3D65);
+         opacity: 0.65;
+         zoom: 1
+         }
+         a.blueLink:hover {
+         color: #071959 !important;
+         text-decoration: underline;
+         }
+         .rating:hover {
+         background-color: #E51937 !important;
+         }
+</style>
+<!--[if (mso 12) | (mso 14) | (mso 15) | (mso 16)]>
+      <style type=3D"text/css">
+         sup, sub {
+         font-size: 100% !important;
+         }
+      </style>
+      <![endif]--><!-- Break styles into groups to prevent Gmail ignore -->
+<style type=3D"text/css">/* Browser-specific workarounds */
+         @-ms-viewport {
+         width: device-width;
+         }
+         /* Stops email clients resizing small text. */
+         *{
+         -ms-text-size-adjust: 100%;
+         -webkit-text-size-adjust: 100%;
+         }
+         /* Centers email on Android 4.4 */
+         div[style*=3D"margin: 16px 0"] {
+         margin:0 !important;
+         }
+         /* Prevents Email Clients and Outlook from adding extra spacing to=
+ tables. */
+         table,td {
+         border-spacing: 0 !important;
+         border-collapse: collapse !important;
+         mso-table-lspace: 0pt !important;
+         mso-table-rspace: 0pt !important;
+         }
+         /* Uses a better rendering method when resizing images in IE. */
+         img {
+         -ms-interpolation-mode:bicubic;
+         }
+         /* A work-around for iOS meddling in triggered links. */
+         *[x-apple-data-detectors] {
+         color: inherit !important;
+         text-decoration: none !important;
+         font-size: inherit !important;
+         font-family: inherit !important;
+         font-weight: inherit !important;
+         line-height: inherit !important;
+         }
+         /* A work-around for Gmail meddling in triggered links. */
+         .x-gmail-data-detectors, .x-gmail-data-detectors *, .aBn {
+         border-bottom: 0 !important;
+         cursor: default !important;
+         }
+         /* A work-around for Samsung Mail meddling in triggered links. */
+         #MessageViewBody a {
+         color: inherit;
+         text-decoration: none;
+         font-size: inherit;
+         font-family: inherit;
+         font-weight: inherit;
+         line-height: inherit;
+         }
+         #MessageViewBody, #MessageWebViewDiv {
+         width: 100% !important;
+         }
+         /* Prevents Gmail from displaying an download button on large, non=
+-linked images. */
+         .a6S {
+         display: none !important;
+         opacity: 0.01 !important;
+         }
+         /* Prevents Gmail from displaying large, open spaces when images a=
+re not loaded. */
+         td[class=3Dem_hide], table[class=3Dem_hide], span[class=3Dem_hide]=
+, br[class=3Dem_hide] {
+         display:none !important;
+         }
+         /* Prevents underlining the button text in Windows 10 */
+         .button-link {
+         text-decoration: none !important;
+         }
+         /* End Browser-specific workarounds */
+</style>
+<style type=3D"text/css">@media only screen and (max-width: 600px) {
+         .container {
+         width: 100% !important;
+         }
+         .mobile-hidden {
+         display:none !important;
+         }
+         .desktop-hidden {
+         display:inline !important;
+         }
+         .responsive-td {
+         width:100% !important;
+         display:block !important;
+         padding:0 !important;
+         }
+         body {
+         padding: 0px !important;
+         font-size: 14px !important;
+         }
+         h1 {
+         font-size: 20px;
+         font-weight: normal;
+         }
+         h2 {
+         font-size: 16px;
+         font-weight: bold;
+         }
+         h3 {
+         font-size: 14px;
+         font-weight: normal;
+         }
+         .devicewidth {
+         width:100% !important;
+         }
+         .rating{
+         padding-top:  20px !important;
+         padding-bottom:  20px !important;=20
+         }
+         .number {
+         font-size:  16px !important; =20
+         }
+         /* Prevents Gmail App from increasing the font sizes on some mobil=
+e devices */
+         *[class=3D"gmail-fix"] {
+         width: 100% !important;
+         min-width: 320px !important;
+         height: 1px !important;
+         }
+         .gmail-fix {
+         width: 100% !important;
+         min-width: 320px !important;
+         height: 1px !important;
+         }
+         }
+</style>
+<!--[if mso]>
+      <style type=3D"text/css">
+         /* Begin Outlook Font Fix */
+         body, div, table, td {
+         font-family: Arial, Helvetica, sans-serif ;
+         font-size:12px;
+         color:#7C828A;
+         line-height:14px;
+         }
+         /* End Outlook Font Fix */
+      </style>
+      <![endif]--><!--[if gte mso 9]>
+      <xml>
+         <o:OfficeDocumentSettings>
+            <o:AllowPNG></o:AllowPNG>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+         </o:OfficeDocumentSettings>
+      </xml>
+      <![endif]--><!-- BEGIN OUTER TABLE WITH 100% WIDTH -->
+</head><body><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td align=3D"center" bgcolor=3D"#fffffff" style=3D"background-colo=
+r:#ffffff;" width=3D"100%"><!-- BEGIN CONTAINER TABLE FOR EMAIL BODY -->
+=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"container" role=3D"presentation" style=3D"margin: 0 auto; p=
+adding: 0;" width=3D"600"><!-- BEGIN FIX TO PREVENT GMAIL APP FROM INCREASI=
+NG THE FONT SIZES ON SOME MOBILE DEVICES -->
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td>
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"gmail-fix" role=3D"presentation" width=3D"600">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"gmail-fix" style=3D"line-height: 1p=
+x; mso-line-height-rule: exactly; min-width: 600px;"><img class=3D"gmail-fi=
+x" height=3D"1" src=3D"images/trans_spacer.png" style=3D"display: block; ma=
+x-height: 1px; min-height: 1px; width: 600px;" width=3D"600"></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<!-- END FIX TO PREVENT GMAIL APP FROM INCREASING THE FONT S=
+IZES ON SOME MOBILE DEVICES -->
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center" valign=3D"top"><!-- BEGIN EMAIL BODY=
+ TABLE -->
+=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"width:100%" width=3D"100%">
+=09=09=09=09=09=09=09<tbody><!-- BEGIN HEADER REGION -->
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"left" bgcolor=3D"#F5F7FA" style=3D"=
+background-color: #F5F7FA; padding:20px 20px 30px 30px; text-align: left;" =
+valign=3D"middle"><a href=3D"https://www.delta.com" style=3D"text-decoratio=
+n:none;" target=3D"_blank"><img align=3D"left" alt=3D"DELTA" class=3D"heade=
+r_logo" height=3D"34" src=3D"http://image.o.delta.com/lib/fe5815707c6201787=
+313/m/9/769d78a9-846c-41f4-b1db-e25163914766.png" style=3D"display: block; =
+text-align: left; height: 34px; width: 225px; margin: 12px auto 0px auto; p=
+adding: 0px; border: 0px;" width=3D"225"></a></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<!-- END HEADER REGION --><!-- BEGIN MAIN BODY REGI=
+ON -->
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td bgcolor=3D"#FFFFFF" id=3D"Body" style=3D"bac=
+kground-color: #FFFFFF;" valign=3D"top" width=3D"100%">
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"background-color: transparent; min-width: 100%;"=
+ width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 35px 30px;">&nbsp=
+;
+=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"background-color: transparent; min-width=
+: 100%;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"color:#7c828a; fo=
+nt-size:16px; font-family:Arial,Helvetica,sans-serif; mso-line-height-rule:=
+ exactly; line-height:20px;">Hello Auner Ramon,<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09Thank you for trusting Delta w=
+ith your most recent trip. Your feedback helps us continue to climb, so we =
+would appreciate you taking a few minutes to let us know how we are doing. =
+While we are unable to respond directly, please know the team and I review =
+daily. You are directly helping us continue to create a welcoming, elevated=
+, and caring experience on every flight.<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09Rio de Janeiro (GIG) to New Yo=
+rk (JFK) on 2024-02-15.<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09&nbsp;
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" border=
+=3D"0" border-collapse=3D"collapse" role=3D"presentation" style=3D"padding-=
+bottom:20px; background-color:#FFFFFF; border:0px solid #FFFFFF; border-rad=
+ius:3px; font-family:arial; min-width: 540px; width: 100%; max-width: 700px=
+; table-layout: fixed; border-spacing: 0;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" =
+style=3D"text-align: center; padding-top: 30px; color:#666666; font-size:16=
+px; font-family:Arial,Helvetica,sans-serif; mso-line-height-rule: exactly; =
+line-height:20px;"><span style=3D"color:#0b1f66; font-weight:bold;">How lik=
+ely are you to recommend Delta Air Lines<sup>=C2=AE</sup> to others?</span>=
+</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr style=3D"padding-bot=
+tom: 0; border-collapse: collapse"><!--[if mso]><v:roundrect xmlns:v=3D"urn=
+:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:wor=
+d" rel=3D"noopener" target=3D"_blank" style=3D"height:0; width:540px; borde=
+r: 0; border-collapse: collapse; padding: 0" height=3D"0" stroke=3D"f"></v:=
+roundrect><![endif]-->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding:=
+ 0;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"2" style=3D"text-align:center; word-wrap:br=
+eak-word; word-break:normal; table-layout: fixed; width: 100%; padding: 2px=
+">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr style=3D"he=
+ight: 1px">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"background:#003366; border:1px solid #003366; border-radius:3px; width:20%=
+; border: 1px solid white; height: inherit;"><!--[if mso]><div style=3D'mar=
+gin: 8px 2px 8px 2px; border-radius: 3px'><![endif]--><a href=3D"https://de=
+ltacx.qualtrics.com/jfe/form/SV_cU3hi0QDmEXg6VM?Q_DL=3DiEiHcssREIm9kW3_cU3h=
+i0QDmEXg6VM_CTR_2txIrDFjFqm8QY5&amp;Q_CHL=3Demail&amp;Q_PopulateResponse=3D=
+%7B%22QID1%22:%221%22%7D&amp;Q_PopulateValidate=3D1" style=3D"display:table=
+; font-size:12px; text-decoration:none; color:#FFFFFF; background:#003366; =
+border-radius: 3px; width: 100%; height: 100%; border-spacing: 0;"><span st=
+yle=3D"display: table-cell; vertical-align: middle; word-break: break-word;=
+ padding: 8px 2px 8px 2px;">Definitely Will<br></span></a><!--[if mso]></di=
+v><![endif]--></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"background:#003366; border:1px solid #003366; border-radius:3px; width:20%=
+; border: 1px solid white; height: inherit;"><!--[if mso]><div style=3D'mar=
+gin: 8px 2px 8px 2px; border-radius: 3px'><![endif]--><a href=3D"https://de=
+ltacx.qualtrics.com/jfe/form/SV_cU3hi0QDmEXg6VM?Q_DL=3DiEiHcssREIm9kW3_cU3h=
+i0QDmEXg6VM_CTR_2txIrDFjFqm8QY5&amp;Q_CHL=3Demail&amp;Q_PopulateResponse=3D=
+%7B%22QID1%22:%222%22%7D&amp;Q_PopulateValidate=3D1" style=3D"display:table=
+; font-size:12px; text-decoration:none; color:#FFFFFF; background:#003366; =
+border-radius: 3px; width: 100%; height: 100%; border-spacing: 0;"><span st=
+yle=3D"display: table-cell; vertical-align: middle; word-break: break-word;=
+ padding: 8px 2px 8px 2px;">Probably Will<br></span></a><!--[if mso]></div>=
+<![endif]--></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"background:#003366; border:1px solid #003366; border-radius:3px; width:20%=
+; border: 1px solid white; height: inherit;"><!--[if mso]><div style=3D'mar=
+gin: 8px 2px 8px 2px; border-radius: 3px'><![endif]--><a href=3D"https://de=
+ltacx.qualtrics.com/jfe/form/SV_cU3hi0QDmEXg6VM?Q_DL=3DiEiHcssREIm9kW3_cU3h=
+i0QDmEXg6VM_CTR_2txIrDFjFqm8QY5&amp;Q_CHL=3Demail&amp;Q_PopulateResponse=3D=
+%7B%22QID1%22:%223%22%7D&amp;Q_PopulateValidate=3D1" style=3D"display:table=
+; font-size:12px; text-decoration:none; color:#FFFFFF; background:#003366; =
+border-radius: 3px; width: 100%; height: 100%; border-spacing: 0;"><span st=
+yle=3D"display: table-cell; vertical-align: middle; word-break: break-word;=
+ padding: 8px 2px 8px 2px;">May or May Not<br></span></a><!--[if mso]></div=
+><![endif]--></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"background:#003366; border:1px solid #003366; border-radius:3px; width:20%=
+; border: 1px solid white; height: inherit;"><!--[if mso]><div style=3D'mar=
+gin: 8px 2px 8px 2px; border-radius: 3px'><![endif]--><a href=3D"https://de=
+ltacx.qualtrics.com/jfe/form/SV_cU3hi0QDmEXg6VM?Q_DL=3DiEiHcssREIm9kW3_cU3h=
+i0QDmEXg6VM_CTR_2txIrDFjFqm8QY5&amp;Q_CHL=3Demail&amp;Q_PopulateResponse=3D=
+%7B%22QID1%22:%224%22%7D&amp;Q_PopulateValidate=3D1" style=3D"display:table=
+; font-size:12px; text-decoration:none; color:#FFFFFF; background:#003366; =
+border-radius: 3px; width: 100%; height: 100%; border-spacing: 0;"><span st=
+yle=3D"display: table-cell; vertical-align: middle; word-break: break-word;=
+ padding: 8px 2px 8px 2px;">Probably Will Not<br></span></a><!--[if mso]></=
+div><![endif]--></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"background:#003366; border:1px solid #003366; border-radius:3px; width:20%=
+; border: 1px solid white; height: inherit;"><!--[if mso]><div style=3D'mar=
+gin: 8px 2px 8px 2px; border-radius: 3px'><![endif]--><a href=3D"https://de=
+ltacx.qualtrics.com/jfe/form/SV_cU3hi0QDmEXg6VM?Q_DL=3DiEiHcssREIm9kW3_cU3h=
+i0QDmEXg6VM_CTR_2txIrDFjFqm8QY5&amp;Q_CHL=3Demail&amp;Q_PopulateResponse=3D=
+%7B%22QID1%22:%225%22%7D&amp;Q_PopulateValidate=3D1" style=3D"display:table=
+; font-size:12px; text-decoration:none; color:#FFFFFF; background:#003366; =
+border-radius: 3px; width: 100%; height: 100%; border-spacing: 0;"><span st=
+yle=3D"display: table-cell; vertical-align: middle; word-break: break-word;=
+ padding: 8px 2px 8px 2px;">Definitely Will Not<br></span></a><!--[if mso]>=
+</div><![endif]--></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!--[if gt m=
+so 11]></td><![endif]-->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding-top:  15p=
+x;color:#7c828a; font-size:16px; font-family:Arial,Helvetica,sans-serif; ms=
+o-line-height-rule: exactly; line-height:20px;">Your confidence in flying w=
+ith us means a lot, and we look forward to&nbsp;welcoming you aboard one of=
+ our flights again soon.<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09Sincerely,</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09&nbsp;
+
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"width:100%;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td><img height=3D"69" src=3D"=
+https://deltacx.qualtrics.com/CP/Graphic.php?IM=3DIM_DLKfsBdNj2STA5C" style=
+=3D"width: 138px; height: 69px;" width=3D"138"></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"color:#7c828a; fo=
+nt-size:16px; font-family:Arial,Helvetica,sans-serif; mso-line-height-rule:=
+ exactly; line-height:20px;">Allison Ausband<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09Chief Customer Experience Offi=
+cer</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09&nbsp;&nbsp;
+
+=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<!-- END MAIN BODY REGION -->
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09<!-- END EMAIL BODY TABLE --></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09<!-- END CONTAINER TABLE FOR EMAIL BODY --></td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center" width=3D"100%"><!-- BEGIN CONTAINER =
+TABLE FOR FOOTER -->
+=09=09=09=09=09=09<table align=3D"center" bgcolor=3D"#c0c0c0" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" class=3D"container" role=3D"presentatio=
+n" style=3D"margin: 0 auto; padding: 0; background-color:#c0c0c0" width=3D"=
+100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" valign=3D"top"><!-- BEGIN F=
+OOTER BODY TABLE -->
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"width:100%">
+=09=09=09=09=09=09=09=09=09=09<tbody><!-- BEGIN NAVIGATION + SOCIAL REGION =
+-->
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td bgcolor=3D"#F5F7FA" style=3D"backgr=
+ound-color: #F5F7FA" valign=3D"top" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" id=3D"Navigation" role=3D"presentation" width=3D"100%"><!-=
+- BEGIN FOOTER LOGO REGION -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"=
+footer_logo" style=3D"padding-top:30px; padding-bottom:30px;"><img alt=3D"D=
+ELTA" height=3D"22" src=3D"http://image.o.delta.com/lib/fe5815707c620178731=
+3/m/9/9132d932-2512-4e6f-9a27-57961c1d9327.png" style=3D"color:#0B1F66; fon=
+t-size:16px; font-weight: bold; letter-spacing: 0.2em; display:block;" widt=
+h=3D"135"></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- END FOOTER LOGO REGION --><!=
+-- BEGIN NAVIGATION REGION -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"navigati=
+on_divider" style=3D"padding-bottom:30px;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"cente=
+r" border=3D"0" cellpadding=3D"5" cellspacing=3D"0" role=3D"presentation">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D=
+"center" class=3D"navigation_stack" style=3D"font-family:arial,helvetica,sa=
+ns-serif; font-size:16px; color:#4A4A4A; vertical-align:middle;"><a href=3D=
+"https://www.delta.com/us/en/need-help/overview" style=3D"text-decoration: =
+none; color:#4A4A4A;font-weight:normal;" target=3D"_blank" title=3D"">Help =
+Center</a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D=
+"center" class=3D"mobile-hidden" style=3D"font-family:arial,helvetica,sans-=
+serif; font-size:30px; color:#d8d8d8; line-height:18px; vertical-align:midd=
+le;" width=3D"50">=E2=80=A2</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D=
+"center" class=3D"navigation_stack" style=3D"font-family:arial,helvetica,sa=
+ns-serif; font-size:16px; color:#4A4A4A; vertical-align:middle;"><a href=3D=
+"https://www.delta.com/us/en/flight-deals/current-flight-deals" style=3D"te=
+xt-decoration: none; color:#4A4A4A;font-weight:normal;" target=3D"_blank" t=
+itle=3D"">Flight Deals</a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D=
+"center" class=3D"mobile-hidden" style=3D"font-family:arial,helvetica,sans-=
+serif; font-size:30px; color:#d8d8d8; line-height:18px; vertical-align:midd=
+le;" width=3D"50">=E2=80=A2</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D=
+"center" class=3D"navigation_stack" style=3D"font-family:arial,helvetica,sa=
+ns-serif; font-size:16px; color:#4A4A4A; vertical-align:middle;"><a href=3D=
+"https://www.delta.com/us/en/skymiles/program-resources/get-the-most" style=
+=3D"text-decoration: none; color:#4A4A4A;font-weight:normal;" target=3D"_bl=
+ank" title=3D"">Earn Miles</a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D=
+"center" class=3D"mobile-hidden" style=3D"font-family:arial,helvetica,sans-=
+serif; font-size:30px; color:#d8d8d8; line-height:18px; vertical-align:midd=
+le;" width=3D"50">=E2=80=A2</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D=
+"center" class=3D"navigation_stack" style=3D"font-family:arial,helvetica,sa=
+ns-serif; font-size:16px; color:#4A4A4A; vertical-align:middle;"><a href=3D=
+"https://www.delta.com/buygftxfer/displayDonateMiles.action" style=3D"text-=
+decoration: none; color:#4A4A4A; font-weight:normal;" target=3D"_blank" tit=
+le=3D"">Give Back</a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- END NAVIGATION REGION -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" width=3D"100%"><!-- BEGIN SOCIAL REG=
+ION -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpaddin=
+g=3D"10" cellspacing=3D"0" id=3D"Social" role=3D"presentation">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"social_i=
+cons" style=3D"padding-top:30px; padding-bottom:30px;" valign=3D"top"><a hr=
+ef=3D"https://www.facebook.com/delta" style=3D"text-decoration:none;" targe=
+t=3D"_blank" title=3D""><img alt=3D"Facebook" class=3D"social_icons" height=
+=3D"43" src=3D"http://image.o.delta.com/lib/fe5815707c6201787313/m/9/0650bb=
+dc-2208-4a1d-a595-b86d76783ab2.png" style=3D"border:none; display:block; he=
+ight: 43px; width:43px;" width=3D"43"></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"social_i=
+cons" style=3D"padding-top:30px; padding-bottom:30px;" valign=3D"top"><a hr=
+ef=3D"https://twitter.com/delta" style=3D"text-decoration:none;" target=3D"=
+_blank" title=3D""><img alt=3D"Twitter" class=3D"social_icons" height=3D"43=
+" src=3D"http://image.o.delta.com/lib/fe5815707c6201787313/m/9/8da7b1ad-90b=
+2-4d10-9323-9264eecf6d30.png" style=3D"border:none; display:block; height: =
+43px; width:43px;" width=3D"43"></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"social_i=
+cons" style=3D"padding-top:30px; padding-bottom:30px;" valign=3D"top"><a hr=
+ef=3D"https://instagram.com/delta" style=3D"text-decoration:none;" target=
+=3D"_blank" title=3D""><img alt=3D"Instagram" class=3D"social_icons" height=
+=3D"43" src=3D"http://image.o.delta.com/lib/fe5815707c6201787313/m/9/ade821=
+9b-eca9-442c-8301-afe4cb85261b.png" style=3D"border:none; display:block; he=
+ight: 43px; width:43px;" width=3D"43"></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- END SOCIAL REGION --><!-- BE=
+GIN EMAIL PREFERECENCES, UNSUBSCRIBE, AND PRIVACY POLICY REGION -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" cellpa=
+dding=3D"0" cellspacing=3D"0" class=3D"navigation_divider" role=3D"presenta=
+tion" style=3D"border-bottom: 1px solid #d8d8d8; padding-bottom: 30px; max-=
+width: 100%;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"navigati=
+on_divider" style=3D"font-family:arial,helvetica,sans-serif; text-align: ce=
+nter; color:#7C828A; line-height: 1.5em; padding-bottom: 30px;"><a href=3D"=
+https://www.delta.com/us/en/legal/privacy-and-security" style=3D"font-size:=
+ 14px; font-weight: normal; text-decoration: none; color:#7C828A" target=3D=
+"_blank" title=3D"">Privacy Policy</a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!-- END EMAIL PREFERECENCES, UNS=
+UBSCRIBE, AND PRIVACY POLICY REGION -->
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<!-- END NAVIGATION + SOCIAL REGION --><!-=
+- BEGIN TERMS REGION -->
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td bgcolor=3D"#F5F7FA" id=3D"Terms" st=
+yle=3D"background-color: #F5F7FA; font-family:Arial,Helvetica,sans-serif;  =
+font-size:12px; color:#7c828a; line-height:14px; padding: 30px;" valign=3D"=
+top" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"min-width: 100%;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"stylingblock-cont=
+ent-wrapper camarker-inner"><span style=3D"font-family:Arial; font-size:12p=
+x; color:#7c828a">This is a customer opinion survey designed to evaluate th=
+e quality of Delta's services and help us better serve you in the future. T=
+he results will not be used to market to you. It is not a form for submitti=
+ng questions or complaints. Delta or its affiliates will keep your personal=
+ information confidential in accordance with our <a class=3D"blueLink" href=
+=3D"https://www.delta.com/us/en/legal/privacy-and-security" style=3D"text-d=
+ecoration: underline;">Privacy Policy</a>, but may contact you regarding yo=
+ur survey responses.</span><br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<span style=3D"font-family:Ari=
+al; font-size:12px; color:#7c828a">Comments or Complaints: Any formal compl=
+aints should be directed to the Comment/Complaint section of the Help Cente=
+r on <a class=3D"blueLink" href=3D"https://www.delta.com/us/en/need-help/ov=
+erview" style=3D"text-decoration: underline; color: #4470c3;">delta.com</a>=
+. If you need help with a flight, please contact us by texting through the =
+FlyDelta App or go to the Help Center on <a class=3D"blueLink" href=3D"http=
+s://www.delta.com/us/en/need-help/overview" style=3D"text-decoration: under=
+line; color: #4470c3;">delta.com</a>. You can also call us at <span style=
+=3D"white-space: nowrap;">+1-800-221-1212.</span><br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<span style=3D"font-family:Ari=
+al; font-size:12px; color:#7c828a">For technical assistance, should you nee=
+d help accessing or completing this survey, please visit: <a class=3D"blueL=
+ink" href=3D"http://www.qualtrics.com/support/" style=3D"text-decoration: u=
+nderline; color: #4470c3;"> https://www.qualtrics.com/support/</a>. If you =
+prefer to be excluded from future surveys and survey correspondence, please=
+ </span></span><a href=3D"https://deltacx.qualtrics.com/jfe/form/SV_3UxlZGV=
+gP2pqMWW?ContactID=3DCID_6x0vXaF7y9qnd9I&amp;OptOut=3Dhttps://deltacx.qualt=
+rics.com/CP/Register.php?OptOut=3Dtrue&amp;RID=3DCTR_2txIrDFjFqm8QY5&amp;LI=
+D=3DUR_9S0UO00KZznpSMm&amp;DID=3DEMD_iEiHcssREIm9kW3&amp;CLID=3DBT_3s03mJs1=
+oCvQe34&amp;BT=3DZGVsdGFjeA&amp;_=3D1">click here</a><span style=3D"font-fa=
+mily:Arial; font-size:12px; color:#7c828a"><span style=3D"font-family:Arial=
+; font-size:12px; color:#7c828a">.</span><br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<span style=3D"font-family:Ari=
+al; font-size:12px; color:#7c828a">Your privacy is important to us, for mor=
+e information please review our <a class=3D"blueLink" href=3D"https://www.d=
+elta.com/us/en/legal/privacy-and-security" style=3D"text-decoration: underl=
+ine; color: #4470c3;">Privacy Policy</a>.<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09This email was sent to:&nbsp;<=
+/span><a href=3D"http://AUNERMONCADA@GMAIL.COM">AUNERMONCADA@GMAIL.COM</a><=
+br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<span style=3D"font-family:Ari=
+al; font-size:12px; color:#7c828a">=C2=A9 2023&nbsp;Delta Air Lines, Inc. A=
+ll rights reserved.<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09Delta Blvd. P.O. Box 20706 =E2=
+=80=A2 Atlanta, GA 30320-6001</span></span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09<!-- END CONTAINER TABLE FOR FOOTER --></td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+<img width=3D"1" height=3D"1" alt=3D"" src=3D"https://deltacx.qualtrics.com=
+/WRQualtricsContacts/Watermark.php?UID=3DUR_9S0UO00KZznpSMm&amp;EMD=3DEMD_i=
+EiHcssREIm9kW3&amp;CGC=3DCTR_2txIrDFjFqm8QY5&amp;SV=3DSV_cU3hi0QDmEXg6VM"><=
+/body></html>
+------=_Part_3416160_2134243187.1708063153313--
+
+------=_Part_3416159_632759185.1708063153313--
+
+------=_Part_3416158_69148284.1708063153313--
